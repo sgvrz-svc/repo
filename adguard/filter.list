@@ -1,6 +1,6 @@
 
 ! Title: SGVRZ Filter
-! Version: 8.0
+! Version: 9.0
 
 duckduckgo.com##[class*="minimal-homepage_tag" i]
 duckduckgo.com##[class*="minimal-homepage_belowthefold" i]
@@ -58,15 +58,16 @@ drive2.ru##.x-box-nav
 4pda.to###navstrip
 4pda.to###fo_-1
 
-avito.ru##[data-scroll-blocker]:upward(1)
-avito.ru##[data-marker="footer"]:upward(1)
-! avito.ru##[data-marker*="similar-items"]:upward(1)
-! avito.ru##[data-marker*="item-complementary"]:upward(1)
-! avito.ru##[data-marker*="search-widget"]:upward(1)
-! avito.ru##[data-marker*="ads-widget"]:upward(1)
-! avito.ru##[data-marker*="favorites-grid-recs"]
-! avito.ru##[data-marker*="apps-banner/container"]:upward(1)
-! avito.ru##[data-marker="icebreakers"]:upward(2)
+avito.ru##[data-scroll-blocker]
+avito.ru##[data-marker="footer"]
+avito.ru##[data-marker*="apps-banner/container"]
+avito.ru##[data-marker="similar-items/item-complementary"]
+avito.ru##[data-marker="seo-faq-block"]
+avito.ru##[data-marker="item-stats"]
+avito.ru##[data-marker*="search-widget"]
+avito.ru##[data-marker*="ads-widget"]
+avito.ru##[data-marker*="favorites-grid-recs"]
+avito.ru##[data-marker="icebreakers"]
 
 ! ozon.ru##[data-widget="bigPromoCounterNavbar"]:upward(1)
 ! ozon.ru##[data-widget="promoBanner"]
