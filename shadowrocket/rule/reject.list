@@ -1,0 +1,31 @@
+DOMAIN-WILDCARD,    *firebase*
+DOMAIN-WILDCARD,    *app*adjust*
+DOMAIN-WILDCARD,    *crashlytics*
+DOMAIN-WILDCARD,    *metric*yandex*
+DOMAIN-WILDCARD,    *startup*mobile*
+
+DOMAIN-WILDCARD,    *glp*2gis*
+DOMAIN-WILDCARD,    *tips*2gis*
+DOMAIN-WILDCARD,    *guide*2gis*
+DOMAIN-WILDCARD,    *relay*2gis*
+DOMAIN-WILDCARD,    *taksa*2gis*
+DOMAIN-WILDCARD,    *atlas*2gis*
+DOMAIN-WILDCARD,    *social*2gis*
+DOMAIN-WILDCARD,    *otello*2gis*
+DOMAIN-WILDCARD,    *market*2gis*
+DOMAIN-WILDCARD,    *catalog*2gis*
+DOMAIN-WILDCARD,    *stories*2gis*
+DOMAIN-WILDCARD,    *advisor*2gis*
+DOMAIN-WILDCARD,    *bonuses*2gis*
+DOMAIN-WILDCARD,    *weather*2gis*
+DOMAIN-WILDCARD,    *delivery*2gis*
+DOMAIN-WILDCARD,    *cachizer*2gis*
+DOMAIN-WILDCARD,    *favorites*2gis*
+
+DOMAIN-WILDCARD,    *home*tinkoff*
+DOMAIN-WILDCARD,    *social*t-bank-app*
+DOMAIN-WILDCARD,    *invest*t-bank-app*
+DOMAIN-WILDCARD,    *hotels*t-bank-app*
+DOMAIN-WILDCARD,    *stories*t-bank-app*
+DOMAIN-WILDCARD,    *shopping*t-bank-app*
+DOMAIN-WILDCARD,    *business*t-bank-app*

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadIdentifier</key>						<string>com.apple.ios.dns</string>
+	<key>PayloadDisplayName</key>						<string>DNS</string>
+	<key>PayloadScope</key>								<string>System</string>
+	<key>PayloadType</key>								<string>Configuration</string>
+	<key>PayloadUUID</key>								<string>AABBCCDD-0000-EEFF-0000-ABCDEF000100</string>
+	<key>PayloadVersion</key>							<integer>1</integer>
+
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDisplayName</key>				<string>KillSwitch</string>
+			<key>PayloadOrganization</key>				<string>SU</string>
+			<key>PayloadIdentifier</key>				<string>com.apple.dnsSettings.managed.AABBCCDD-0000-EEFF-0010-ABCDEF000100</string>
+			<key>PayloadType</key>						<string>com.apple.dnsSettings.managed</string>
+			<key>PayloadUUID</key>						<string>AABBCCDD-0000-EEFF-0010-ABCDEF000100</string>
+			<key>PayloadVersion</key>					<integer>1</integer>
+
+			<key>ProhibitDisablement</key>				<true/>
+
+			<key>DNSSettings</key>
+			<dict>
+				<key>DNSProtocol</key>					<string>HTTPS</string>
+				<key>ServerURL</key>					<string>https://0.0.0.0/</string>
+			</dict>
+
+			<key>OnDemandRules</key>
+			<array>
+				<dict>
+					<key>Action</key>					<string>EvaluateConnection</string>
+					<key>ActionParameters</key>
+					<array>
+						<dict>
+							<key>DomainAction</key>		<string>NeverConnect</string>
+							<key>Domains</key>
+							<array>
+								<string>*.local</string>
+								<string>*.lan</string>
+								<string>*.backloop.dev</string>
+
+								<string>starline.ru</string>
+								
+								<string>maps.yango.com</string>
+								<string>maps.yandex.net</string>
+								<string>strm.yandex.net</string>
+								<string>tanker.yandex.net</string>
+								<string>s3.yandex.net</string>
+								<string>yandex-bank.net</string>
+								<string>passport.yandex.net</string>
+								<string>prod.yandex-bank.net</string>
+								<string>mobpayment.yandex-net.ru</string>
+								<string>api.music.yandex.net</string>
+								<string>avatars.yandex.ney</string>
+								<string>avatars.mds.yandex.ney</string>
+								
+                                <string>uss.2gis.com</string>
+								<string>maps.2gis.com</string>
+								<string>jam.api.2gis.com</string>
+								<string>hybrid.api.2gis.com</string>
+								<string>transport.api.2gis.com</string>
+								<string>map-settings.api.2gis.com</string>
+							</array>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadIdentifier</key>			<string>com.apple.ios.cert</string>
+	<key>PayloadDisplayName</key>			<string>AdGuard CA</string>
+	<key>PayloadScope</key>					<string>System</string>
+	<key>PayloadType</key>					<string>Configuration</string>
+	<key>PayloadUUID</key>					<string>AABBCCDD-0000-EEFF-0000-ABCDEF000001</string>
+	<key>PayloadVersion</key>				<integer>1</integer>
+
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDisplayName</key>							<string>Certificate (Root)</string>
+
+			<key>PayloadIdentifier</key>							<string>com.apple.security.root.AABBCCDD-0000-EEFF-0010-ABCDEF000010</string>
+			<key>PayloadType</key>									<string>com.apple.security.root</string>
+			<key>PayloadUUID</key>									<string>AABBCCDD-0000-EEFF-0010-ABCDEF000010</string>
+			<key>PayloadVersion</key>								<integer>1</integer>
+
+			<key>PayloadCertificateFileName</key>					<string>AdGuard Personal CA</string>
+
+			<key>PayloadContent</key>
+			<data>
+			MIIDKDCCAhCgAwIBAgIRAIlrLenNqYZHJ7wikasrMv4wDQYJKoZI
+			hvcNAQELBQAwPTELMAkGA1UEBhMCRU4xEDAOBgNVBAoMB0FkR3Vh
+			cmQxHDAaBgNVBAMME0FkZ3VhcmQgUGVyc29uYWwgQ0EwHhcNMjYw
+			NjE3MDgwNjA0WhcNNDYwNjEyMDgwNjA0WjA9MQswCQYDVQQGEwJF
+			TjEQMA4GA1UECgwHQWRHdWFyZDEcMBoGA1UEAwwTQWRndWFyZCBQ
+			ZXJzb25hbCBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
+			ggEBAMgid1bbS/0vWJMU1WufgJQJpTJYG1Yrz1dIE9dU9y2GE7O9
+			zBOczSYbtqd6ubc4jBumina2zrafQH7e/2LLeOgNA7iAWVAN6rtn
+			3aqSsdah9jJgMrkUEcqmflOlKiNF+/bzbqRK8D/wrPuo1hF6HJ6v
+			5aKFbJwjSqKc8vjSjyFXgg6i+lhgj6xb4mS8x1AA9hTNhapIiIdH
+			9UwC/TZBEhjxNAN5Un3PsDJUCOR8qf37JtwGnKWEUUXU/oGmYjA5
+			Kvy7O5SOjrPFNhI7Mm0RbW0BhMEJ3rbOosQ2qg33KwG15eM4Y3/c
+			3+D3/sD+l6LPDqHCPeZVXuFvwx9uTFwfNUsCAwEAAaMjMCEwDwYD
+			VR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAQYwDQYJKoZIhvcN
+			AQELBQADggEBAGPTImfUQf6FAddVKkgzcqETpKxgKMtcxgMde96B
+			9swV3ryCDK/gbzeMK+4wspPqIQ8/TKDm7MixwN6myz+v+28P1U8p
+			X1QPRkpelVoLI4Z8jKpL67l1VTtbectjcs29hb5j1AtLFeXFAf37
+			24sDyZQ+lsupreszzHsR7H51tYS14V6deTXV9qxEgFP3GGCDyp+y
+			OKOdDpQ4HfRDXu6rsyI5fN6le+0ercqfbNyiRhkp23+L6XOQEkMM
+			LVcWm4OHj7w7g2zn4C0GFckt1iOf1IdeG2xnWjTmSRXZXPkuxI6w
+			Vgs1UwpaMHzb81vwWk70PDZW57p5prXSB2rS9STh39M=
+			</data>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadDisplayName</key>			<string>Disable Screenshot</string>
+
+	<key>PayloadIdentifier</key>			<string>com.apple.ios.core.screenshot</string>
+	<key>PayloadUUID</key>					<string>AABBCCDD-0020-EEFF-0000-ABCDEF000000</string>
+	<key>PayloadScope</key>					<string>System</string>
+	<key>PayloadType</key>					<string>Configuration</string>
+	<key>PayloadVersion</key>				<integer>1</integer>
+
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDisplayName</key> 							<string>Restrictions</string>
+
+			<key>PayloadIdentifier</key>							<string>com.apple.applicationaccess.AABBCCDD-0020-EEFF-0010-ABCDEF000000</string>
+			<key>PayloadType</key>									<string>com.apple.applicationaccess</string>
+			<key>PayloadUUID</key>									<string>AABBCCDD-0020-EEFF-0010-ABCDEF000000</string>
+			<key>PayloadVersion</key>								<integer>1</integer>
+
+			<key>allowScreenShot</key>								<false/>
+		</dict>
+	</array>
+</dict>
+</plist>

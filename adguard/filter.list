@@ -1,1 +1,142 @@
 
+! Title: SGVRZ Filter
+! Version: 8.0
+
+duckduckgo.com##[class*="minimal-homepage_tag" i]
+duckduckgo.com##[class*="minimal-homepage_belowthefold" i]
+duckduckgo.com##[class*="minimal-homepage_explorefeaturescroller" i]
+
+ozon.ru##div:has(+ div[data-widget="navigationSlider"])
+ozon.ru##[data-widget="navigationSlider"]
+ozon.ru##div[data-widget="navigationSlider"] + div
+ozon.ru##div[data-widget="wallpaper"]:has(span:contains(Вы смотрели))
+ozon.ru##div[data-widget="tileScroll"]:has(span:contains(Вы смотрели))
+ozon.ru##div[data-widget="paginator"]:has(span:contains(Подобрали по вашим интересам))
+ozon.ru##div[data-widget="paginator"]:has(span:contains(Подобрано для вас))
+ozon.ru##div[data-widget="paginator"]:has(span:contains(Добавьте в следующий заказ))
+ozon.ru##div[data-widget="cellList"]:has(span:contains(Распродажа))
+ozon.ru##div[data-widget="container"]:has(span:contains(Мы рекомендуем))
+ozon.ru##div[data-widget="container"]:has(span:contains(Вы смотрели))
+ozon.ru##div[data-widget="islandSeparator"]
+ozon.ru##[data-widget="footer"]
+
+##footer
+##[class*="layout-module-footer" i]
+##[class*="gdprpanel-module-root" i]
+##[class*="underthesun-module-root" i]
+##[class*="flowerpower-module-root" i]
+###globalCookieBanner
+###ageVerificationOverlay
+###age-verification-wrapper
+###age-verification-container
+
+drive2.ru##[data-role="boosts-grid"]
+drive2.ru##[data-slot="suitable-tires.list"]
+drive2.ru##[data-slot="post.parts"]
+drive2.ru##[data-slot="drom.root"]
+drive2.ru##[data-feed-item]
+drive2.ru##.l-footer
+drive2.ru##.x-box-nav
+
+! speedtest.net##.masthead
+! speedtest.net##.footer
+! speedtest.net##.lower-content-view
+! speedtest.net##.connection-mobile-scroll
+
+! # cdek.ru##[href^="market://details?id="][class="ml-auto"]:upward(1)
+! # cdek.ru##.smart-app-banner
+! cdek.ru##div:has(+ header)
+! cdek.ru##.cdek-shopping
+! cdek.ru##.footer
+! cdek.ru##[style*="mobile-stories"]:upward(1)
+! cdek.ru##[class*="slider-container"]:upward(1)
+! cdek.ru##[data-pr-tooltip*="еклама"]:upward(2)
+
+4pda.to##.menu-brands
+4pda.to##.f-frame
+4pda.to###logostrip
+4pda.to###navstrip
+4pda.to###fo_-1
+
+avito.ru##[data-scroll-blocker]:upward(1)
+avito.ru##[data-marker="footer"]:upward(1)
+! avito.ru##[data-marker*="similar-items"]:upward(1)
+! avito.ru##[data-marker*="item-complementary"]:upward(1)
+! avito.ru##[data-marker*="search-widget"]:upward(1)
+! avito.ru##[data-marker*="ads-widget"]:upward(1)
+! avito.ru##[data-marker*="favorites-grid-recs"]
+! avito.ru##[data-marker*="apps-banner/container"]:upward(1)
+! avito.ru##[data-marker="icebreakers"]:upward(2)
+
+! ozon.ru##[data-widget="bigPromoCounterNavbar"]:upward(1)
+! ozon.ru##[data-widget="promoBanner"]
+! ozon.ru##[data-widget="messengerCounter"]:upward(1)
+! ozon.ru##[data-widget="objectGrid1"]
+! 
+! yandex.com##.new-layout__speed-info
+! yandex.com##.footer
+! yandex.com##.tech-info
+! yandex.ru##.feed
+! yandex.ru###wd-_topnews-1
+! yandex.ru##.media-grid
+! yandex.ru##.root123
+! 
+! yulsun.ru##footer
+! yulsun.ru##.footer-app
+! yulsun.ru###callback__root
+! yulsun.ru###modal-window__callback
+! yulsun.ru###chat
+! yulsun.ru###chat-button
+! yulsun.ru###modal-window__chat
+! yulsun.ru##.breadcrumbs
+! yulsun.ru###reviews10last
+! yulsun.ru##.message
+! yulsun.ru##.reviews-mentioning
+! 
+! myslo.ru##.additionalcolumn
+! myslo.ru##.footer
+! myslo.ru##.myslo-banner-brend
+! myslo.ru##.content-afisha-top-5
+! myslo.ru###grf_myslo_2
+! myslo.ru##[class="lenta-blog-slider"]
+! myslo.ru##[class="list-on-bg-group"]:upward(1)
+! myslo.ru##[class*="articles-block"]
+! myslo.ru##[class="pressaBig"]
+! myslo.ru##[class^="afisha-main-menu"]
+! myslo.ru##header
+! myslo.ru##[class="preloadcommentelem"]
+! myslo.ru##[class="preloadmainpage"]
+! myslo.ru##[id="SubscribeListForm"]:upward(1)
+! myslo.ru##[class="subscription-bar"]
+! 
+! drom.ru##div[data-ftid="component_premium-carousel"]
+! drom.ru##div[data-ftid="home-auto-block"]
+! drom.ru##div[data-ftid="autostory-widget"]
+! drom.ru##div[data-ftid="index_forum-widget"]
+! drom.ru##div[data-ftid="index_blogs"]
+! drom.ru###vote
+
+auto.ru##div[data-seo="listing-teaser"]
+auto.ru##div[class*="indexheader__tabs" i]
+auto.ru##div[data-seo="mark-cross-links"]
+auto.ru##div[data-seo="tags-links"]
+auto.ru##div[class*="footer__island" i]
+auto.ru##div[class*="pageindexfab__addofferfab" i]
+auto.ru##div[data-testid="offer-float-phones"]
+auto.ru##[data-seo="card-mixed-listing"]:upward(3)
+auto.ru##[id="card-seller-info"]:upward(1)
+auto.ru##[data-testid="cardchatsuggest" i]:upward(2)
+auto.ru##[class="cardcomplectation" i]:upward(1)
+auto.ru##[data-seo="card-complectation" ]:upward(2)
+auto.ru##div[class*="GalleryItem"]:has(.VinReportLogo)
+auto.ru##div[class*="GalleryItem"]:has(.CreditProductIconsListRounded)
+auto.ru##div[class*="GalleryItem"]:has(.ListingItemGallerySeller__type)
+auto.ru##div[class*="GalleryItem"]:has(.ListingItemGalleryPhone)
+auto.ru##div[class*="GalleryItem"]:has(.ListingItemGalleryChat)
+auto.ru##div[class*="ListingAiChatBanner"]
+auto.ru##div[data-testid="ListingItemPromoGoToAppMobile"]
+auto.ru##div[class*="CreditCardRoot"]
+auto.ru##div[class*="AiChatBanner"]
+auto.ru##div[class*="MatchApplicationBanner"]
+auto.ru##section
+auto.ru##[href="#card-vin-report"]

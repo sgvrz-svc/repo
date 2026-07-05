@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadDisplayName</key>			<string>Preferences</string>
+
+	<key>PayloadIdentifier</key>			<string>com.apple.ios.core</string>
+	<key>PayloadUUID</key>					<string>AABBCCDD-0000-EEFF-0000-ABCDEF000000</string>
+	<key>PayloadScope</key>					<string>System</string>
+	<key>PayloadType</key>					<string>Configuration</string>
+	<key>PayloadVersion</key>				<integer>1</integer>
+
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDisplayName</key> 							<string>Restrictions</string>
+
+			<key>PayloadIdentifier</key>							<string>com.apple.applicationaccess.AABBCCDD-0000-EEFF-0010-ABCDEF000000</string>
+			<key>PayloadType</key>									<string>com.apple.applicationaccess</string>
+			<key>PayloadUUID</key>									<string>AABBCCDD-0000-EEFF-0010-ABCDEF000000</string>
+			<key>PayloadVersion</key>								<integer>1</integer>
+
+			<!-- ============================================================ -->
+			<!-- Приватность, диагностика и Apple Intelligence -->
+			<!-- ============================================================ -->
+			<key>allowApplePersonalizedAdvertising</key>			<false/>
+			<key>allowDiagnosticSubmission</key>					<false/>
+			<key>allowDiagnosticSubmissionModification</key>		<false/>
+			<key>allowCallRecording</key>							<false/>
+			<key>allowDefinitionLookup</key>						<false/>
+			<key>allowEraseContentAndSettings</key>					<false/>
+			<key>allowMailPrivacyProtection</key>					<false/>
+			<key>allowOpenFromManagedToUnmanaged</key>				<false/>
+			<key>allowOpenFromUnmanagedToManaged</key>				<false/>
+			<key>allowSafariPrivateBrowsing</key>					<false/>
+			<key>allowSafariHistoryClearing</key>					<false/>
+			<key>allowScreenShot</key>								<false/>
+			<key>allowVoiceDialing</key>							<false/>
+			<key>allowiPhoneWidgetsOnMac</key>						<false/>
+			<key>forceEncryptedBackup</key>							<true/>
+			<key>forceLimitAdTracking</key>							<true/>
+			<key>requireManagedPasteboard</key>						<true/>
+
+			<!-- ============================================================ -->
+			<!-- Siri -->
+			<!-- ============================================================ -->
+			<key>allowAppleIntelligenceReport</key>					<false/>
+			<key>allowAssistantUserGeneratedContent</key>			<false/>
+			<key>allowAssistantWhileLocked</key>					<false/>
+			<key>allowExternalIntelligenceIntegrations</key>		<false/>
+			<key>allowExternalIntelligenceIntegrationsSignIn</key>	<false/>
+			<key>allowGenmoji</key>									<false/>
+			<key>allowImagePlayground</key>							<false/>
+			<key>allowImageWand</key>								<false/>
+			<key>allowMailSmartReplies</key>						<false/>
+			<key>allowMailSummary</key>								<false/>
+			<key>allowNotesTranscription</key>						<false/>
+			<key>allowNotesTranscriptionSummary</key>				<false/>
+			<key>allowPersonalizedHandwritingResults</key>			<false/>
+			<key>allowSafariSummary</key>							<false/>
+			<key>allowSiriServerLogging</key>						<false/>
+			<key>allowSpotlightInternetResults</key>				<false/>
+			<key>allowVisualIntelligenceSummary</key>				<false/>
+			<key>allowWritingTools</key>							<false/>
+			<key>forceAssistantProfanityFilter</key>				<false/>
+			<key>forceOnDeviceOnlyDictation</key>					<true/>
+			<key>forceOnDeviceOnlyTranslation</key>					<true/>
+
+			<!-- ============================================================ -->
+			<!-- Apps -->
+			<!-- ============================================================ -->
+			<key>allowChat</key>									<false/>
+			<key>allowVideoConferencing</key>						<false/>
+			<key>allowGameCenter</key>								<false/>
+			<key>allowAddingGameCenterFriends</key>					<false/>
+			<key>allowMultiplayerGaming</key>						<false/>
+			<key>allowAppsToBeHidden</key>							<false/>
+			<key>allowAppsToBeLocked</key>							<false/>
+			<key>allowAutomaticAppDownloads</key>					<false/>
+			<key>allowDefaultBrowserModification</key>				<false/>
+			<key>allowDefaultCallingAppModification</key>			<false/>
+			<key>allowDefaultMessagingAppModification</key>			<false/>
+			<!-- Passbook == Wallet -->
+			<key>allowPassbookWhileLocked</key>						<false/>
+
+			<!-- ============================================================ -->
+			<!-- Keyboard -->
+			<!-- ============================================================ -->
+			<key>allowAutoCorrection</key>							<false/>
+			<key>allowContinuousPathKeyboard</key>					<false/>
+			<key>allowDictation</key>								<false/>
+			<key>allowKeyboardShortcuts</key>						<false/>
+			<key>allowPredictiveKeyboard</key>						<false/>
+			
+			<!-- ============================================================ -->
+			<!-- Connectivity -->
+			<!-- ============================================================ -->
+			<key>allowNFC</key>										<false/>
+			<key>allowAirDrop</key>									<false/>
+			<key>allowDeviceNameModification</key>					<false/>
+			<key>allowHostPairing</key>								<false/>
+			<key>allowPairedWatch</key>								<false/>
+			<key>allowProximitySetupToNewDevice</key>				<false/>
+			<key>allowSatelliteConnection</key>						<false/>
+			<key>allowUSBRestrictedMode</key>						<false/>
+			<key>allowiPhoneMirroring</key>							<false/>
+
+			<!-- ============================================================ -->
+			<!-- Printing -->
+			<!-- ============================================================ -->
+			<key>allowAirPrint</key>								<false/>
+			<key>allowAirPrintCredentialsStorage</key>				<false/>
+			<key>allowAirPrintiBeaconDiscovery</key>				<false/>
+
+			<!-- ============================================================ -->
+			<!-- iCloud -->
+			<!-- ============================================================ -->
+			<key>allowActivityContinuation</key>					<false/>
+			<key>allowCloudBackup</key>								<false/>
+			<!-- <key>allowCloudDocumentSync</key>						<false/> -->
+			<!-- <key>allowCloudKeychainSync</key>						<false/> -->
+			<key>allowCloudPrivateRelay</key>						<false/>
+			<key>allowEnterpriseBookBackup</key>					<false/>
+			<key>allowEnterpriseBookMetadataSync</key>				<false/>
+			<key>allowFindMyDevice</key>							<false/>
+			<key>allowFindMyFriends</key>							<false/>
+			<!-- <key>allowManagedAppsCloudSync</key>					<false/> -->
+			<key>allowPhotoStream</key>								<false/>
+			<key>allowSharedStream</key>							<false/>
+			<key>allowVideoConferencing</key>						<false/>
+			<key>allowVideoConferencingRemoteControl</key>			<false/>
+
+			<!-- ============================================================ -->
+			<key>allowLiveVoicemail</key>							<false/>
+			<key>allowAutoUnlock</key>								<false/>
+			<key>allowDefinitionLookup</key>						<false/>		<!-- Запретить поиск определений слов -->
+			<key>allowEnablingRestrictions</key>					<false/>
+			<key>allowPasswordProximityRequests</key>				<false/>
+			<key>allowPasswordSharing</key>							<false/>
+
+			<!-- ============================================================ -->
+			<!-- iPad -->
+			<!-- ============================================================ -->
+			<key>allowAssistant</key>								<false/>
+			<!-- <key>allowCamera</key>									<false/> -->
+			<!-- <key>allowWallpaperModification</key>					<false/> -->
+			<!-- <key>allowCloudDocumentSync</key>						<false/> -->
+			<!-- <key>allowCloudKeychainSync</key>						<false/> -->
+			<!-- <key>allowManagedAppsCloudSync</key>					<false/> -->
+		</dict>
+	</array>
+</dict>
+</plist>
