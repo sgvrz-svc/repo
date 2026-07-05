@@ -1,6 +1,6 @@
 
 ! Title: SGVRZ Filter
-! Version: 9.3
+! Version: 9.4
 
 duckduckgo.com##[class*="minimal-homepage_tag" i]
 duckduckgo.com##[class*="minimal-homepage_belowthefold" i]
@@ -38,8 +38,7 @@ drive2.ru##[data-feed-item]
 drive2.ru##.l-top
 drive2.ru##.l-footer
 drive2.ru##.x-box-nav
-drive2.ru#?#.o-f:has([data-new-adtune])
-drive2.ru#$?#div[itemtype="https://schema.org/BlogPosting"] ~ div:has(script:contains(yaContextCb)) { remove: true; }
+drive2.ru##script:contains(yaContextCb) { remove: true; }
 
 ! speedtest.net##.masthead
 ! speedtest.net##.footer
