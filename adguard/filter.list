@@ -1,6 +1,6 @@
 
 ! Title: SGVRZ Filter
-! Version: 9.6
+! Version: 9.7
 
 duckduckgo.com##[class*="minimal-homepage_tag" i]
 duckduckgo.com##[class*="minimal-homepage_belowthefold" i]
@@ -30,15 +30,16 @@ ozon.ru##[data-widget="footer"]
 ###age-verification-wrapper
 ###age-verification-container
 
-drive2.ru##[data-role="boosts-grid"]
-drive2.ru##[data-slot="suitable-tires.list"]
-drive2.ru##[data-slot="post.parts"]
-drive2.ru##[data-slot="drom.root"]
-drive2.ru##[data-feed-item]
 drive2.ru##.l-top
 drive2.ru##.l-footer
 drive2.ru##.x-box-nav
+drive2.ru##[data-role="boosts-grid"]
+drive2.ru##[data-feed-item]
+drive2.ru##[data-slot="drom.root"]
+drive2.ru##[data-slot="post.parts"]
+drive2.ru##[data-slot="suitable-tires.list"]
 drive2.ru##div[itemtype="https://schema.org/BlogPosting"] + div
+drive2.ru##.g-column-mid + div > div:not(:first-child)
 
 ! speedtest.net##.masthead
 ! speedtest.net##.footer
@@ -70,6 +71,7 @@ avito.ru##[data-marker*="search-widget"]
 avito.ru##[data-marker*="ads-widget"]
 avito.ru##[data-marker*="favorites-grid-recs"]
 avito.ru##[data-marker="icebreakers"]
+avito.ru##[role="link"]
 
 ! ozon.ru##[data-widget="bigPromoCounterNavbar"]:upward(1)
 ! ozon.ru##[data-widget="promoBanner"]
