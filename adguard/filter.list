@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 9.11
+! Version: 9.12
 
 duckduckgo.com##[class*="minimal-homepage_tag" i]
 duckduckgo.com##[class*="minimal-homepage_belowthefold" i]
@@ -18,7 +18,7 @@ ozon.ru##div[data-widget="container"]:has(span:contains(Мы рекоменду�
 ozon.ru##div[data-widget="container"]:has(span:contains(Вы смотрели))
 ozon.ru##div[data-widget="islandSeparator"]
 ozon.ru##[data-widget="footer"]
-ozon.ru##.vue-portal-target
+! ozon.ru##.vue-portal-target
 
 ##footer
 ##[class*="layout-module-footer" i]
