@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SRC_CONF="/root/outbound.conf"
+SRC_CONF="outbound.conf"
 WG_CONF="/etc/wireguard/wg0.conf"
 POSTUP_SH="/etc/wireguard/wg0-postup.sh"
 POSTDOWN_SH="/etc/wireguard/wg0-postdown.sh"
