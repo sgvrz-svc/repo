@@ -1,19 +1,3 @@
-#!/usr/bin/env bash
-#
-# setup-wireguard.sh
-#
-# Устанавливает WireGuard на Ubuntu 24.04, поднимает туннель из /root/outbound.conf
-# и заворачивает в него ВЕСЬ трафик, КРОМЕ SSH (SSH продолжает ходить через
-# обычный шлюз провайдера, чтобы вы не потеряли доступ к серверу).
-#
-# Использование:
-#   sudo bash setup-wireguard.sh [ssh_port]
-#
-# Если ssh_port не указан — скрипт попробует определить его из /etc/ssh/sshd_config,
-# по умолчанию 22.
-
-set -euo pipefail
-
 if [[ $EUID -ne 0 ]]; then
     echo "Запускайте скрипт от root (sudo bash $0)" >&2
     exit 1
