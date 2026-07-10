@@ -2,7 +2,7 @@
 set -e
 
 WG_IF="outbound"
-AMZ_IF="amnezia"
+AMZ_IF="awg0"
 TABLE="100"
 MARK="0x1"
 
