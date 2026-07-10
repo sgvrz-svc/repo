@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-WG_IF="outbound"
+WG_IF="wg0"
 AMZ_IF="awg0"
 TABLE="100"
 MARK="0x1"
@@ -11,8 +11,8 @@ EXT_IF=$(ip route show default | awk '/default/ {print $5; exit}')
 apt update
 apt install -y wireguard nftables
 
-cp ./outbound.conf /etc/wireguard/outbound.conf
-chmod 600 /etc/wireguard/outbound.conf
+cp ./outbound.conf /etc/wireguard/wg0.conf
+chmod 600 /etc/wireguard/wg0.conf
 
 sysctl -w net.ipv4.ip_forward=1
 echo "net.ipv4.ip_forward=1" > /etc/sysctl.d/99-forward.conf
@@ -37,11 +37,11 @@ table ip nat {
 }
 EOF
 
-cat > /etc/systemd/system/outbound-policy.service <<EOF
+cat > /etc/systemd/system/wg-policy.service <<EOF
 [Unit]
-After=network-online.target wg-quick@outbound.service
+After=network-online.target wg-quick@wg0.service
 Wants=network-online.target
-Requires=wg-quick@outbound.service
+Requires=wg-quick@wg0.service
 
 [Service]
 Type=oneshot
@@ -56,5 +56,5 @@ EOF
 systemctl daemon-reload
 systemctl enable nftables
 systemctl restart nftables
-systemctl enable --now wg-quick@outbound
-systemctl enable --now outbound-policy.service
+systemctl enable --now wg-quick@wg0
+systemctl enable --now wg-policy.service
