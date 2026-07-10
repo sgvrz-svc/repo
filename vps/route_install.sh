@@ -1,4 +1,18 @@
 #!/usr/bin/env bash
+#
+# setup-wireguard.sh
+#
+# Устанавливает WireGuard на Ubuntu 24.04, поднимает туннель из /root/outbound.conf
+# и заворачивает в него ВЕСЬ трафик, КРОМЕ SSH (SSH продолжает ходить через
+# обычный шлюз провайдера, чтобы вы не потеряли доступ к серверу).
+#
+# Использование:
+#   sudo bash setup-wireguard.sh [ssh_port]
+#
+# Если ssh_port не указан — скрипт попробует определить его из /etc/ssh/sshd_config,
+# по умолчанию 22.
+
+set -euo pipefail
 
 if [[ $EUID -ne 0 ]]; then
     echo "Запускайте скрипт от root (sudo bash $0)" >&2
@@ -7,6 +21,8 @@ fi
 
 SRC_CONF="outbound.conf"
 WG_CONF="/etc/wireguard/wg0.conf"
+POSTUP_SH="/etc/wireguard/wg0-postup.sh"
+POSTDOWN_SH="/etc/wireguard/wg0-postdown.sh"
 FWMARK="0x1"
 RT_TABLE_NUM="100"
 RT_TABLE_NAME="wg-ssh-bypass"
@@ -58,19 +74,34 @@ if ! grep -qE '^\s*AllowedIPs\s*=.*0\.0\.0\.0/0' "$WG_CONF"; then
     echo "Для маршрутизации всего трафика через туннель добавьте эту строку в секцию [Peer]."
 fi
 
-# --- Убираем возможные старые PostUp/PostDown/PreDown, добавленные этим скриптом ранее ---
+# --- Убираем возможные старые PostUp/PostDown строки, добавленные раньше ---
 sed -i '/# >>> ssh-bypass-managed/,/# <<< ssh-bypass-managed/d' "$WG_CONF"
+sed -i '/^PostUp\s*=/d; /^PostDown\s*=/d' "$WG_CONF"
 
-# --- Добавляем правила PostUp/PostDown в секцию [Interface] ---
+# --- Создаём отдельные хук-скрипты (так надёжнее, чем длинные строки внутри .conf) ---
+cat > "$POSTUP_SH" <<EOF
+#!/usr/bin/env bash
+set -e
+iptables -t mangle -A OUTPUT -p tcp --sport $SSH_PORT -j MARK --set-mark $FWMARK
+ip rule add fwmark $FWMARK table $RT_TABLE_NAME priority 100
+ip route replace default via $ORIG_GW dev $ORIG_IF table $RT_TABLE_NAME
+EOF
+chmod 700 "$POSTUP_SH"
+
+cat > "$POSTDOWN_SH" <<EOF
+#!/usr/bin/env bash
+iptables -t mangle -D OUTPUT -p tcp --sport $SSH_PORT -j MARK --set-mark $FWMARK || true
+ip rule del fwmark $FWMARK table $RT_TABLE_NAME priority 100 || true
+ip route flush table $RT_TABLE_NAME || true
+EOF
+chmod 700 "$POSTDOWN_SH"
+
+# --- Добавляем в конфиг только короткие ссылки на хук-скрипты ---
 cat >> "$WG_CONF" <<EOF
 
 # >>> ssh-bypass-managed
-PostUp = iptables -t mangle -A OUTPUT -p tcp --sport $SSH_PORT -j MARK --set-mark $FWMARK
-PostUp = ip rule add fwmark $FWMARK table $RT_TABLE_NAME priority 100
-PostUp = ip route replace default via $ORIG_GW dev $ORIG_IF table $RT_TABLE_NAME
-PostDown = iptables -t mangle -D OUTPUT -p tcp --sport $SSH_PORT -j MARK --set-mark $FWMARK
-PostDown = ip rule del fwmark $FWMARK table $RT_TABLE_NAME priority 100 || true
-PostDown = ip route flush table $RT_TABLE_NAME || true
+PostUp = $POSTUP_SH
+PostDown = $POSTDOWN_SH
 # <<< ssh-bypass-managed
 EOF
 
@@ -81,20 +112,32 @@ sed -i '/^net.ipv4.ip_forward/d' /etc/sysctl.conf
 echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 sysctl -p >/dev/null
 
+# --- Проверка на всякий случай: нет ли в конфиге "слипшихся" строк без пробелов ---
+if grep -qE '^\S+=\S' "$WG_CONF"; then
+    echo "ВНИМАНИЕ: в $WG_CONF обнаружены строки без пробелов вокруг '='. Проверьте файл вручную:"
+    grep -nE '^\S+=\S' "$WG_CONF" || true
+fi
+
 # --- Перезапускаем интерфейс ---
 echo "==> Поднимаем интерфейс wg0..."
 systemctl enable wg-quick@wg0
-systemctl restart wg-quick@wg0
+if ! systemctl restart wg-quick@wg0; then
+    echo "Не удалось поднять интерфейс. Подробности:"
+    wg-quick up wg0 || true
+    exit 1
+fi
 
 echo
 echo "==================================================================="
 echo "Готово."
 echo "  Интерфейс:         wg0"
 echo "  Конфиг:            $WG_CONF"
+echo "  Хук-скрипты:       $POSTUP_SH / $POSTDOWN_SH"
 echo "  SSH-порт (в обход):$SSH_PORT"
 echo "  Исходный шлюз:     $ORIG_GW через $ORIG_IF (используется только для SSH)"
 echo
 echo "Проверить статус:   wg show"
 echo "Проверить маршруты: ip route show table $RT_TABLE_NAME"
 echo "Проверить правила:  ip rule show"
+echo "Проверить выход:    curl -4 ifconfig.me"
 echo "==================================================================="
