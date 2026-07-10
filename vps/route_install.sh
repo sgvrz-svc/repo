@@ -5,7 +5,7 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-SRC_CONF="/outbound.conf"
+SRC_CONF="outbound.conf"
 WG_CONF="/etc/wireguard/wg0.conf"
 FWMARK="0x1"
 RT_TABLE_NUM="100"
