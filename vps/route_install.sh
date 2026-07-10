@@ -1,179 +1,114 @@
-#!/bin/bash
-set -euo pipefail
-
-# ---------------------------------------------------------------------------
-# 0. Проверки
-# ---------------------------------------------------------------------------
-if [[ $EUID -ne 0 ]]; then
-    echo "Запустите скрипт от root (sudo)." >&2
-    exit 1
-fi
-
-if [[ $# -lt 1 || ! -f "$1" ]]; then
-    echo "Использование: $0 /path/to/wg-client.conf" >&2
-    echo "Файл должен быть обычным wg-quick конфигом клиента (без Table=off и PostUp/PostDown — их добавит скрипт сам)." >&2
-    exit 1
-fi
-
-SRC_WG_CONF="$1"
-SSH_PORT="$(awk '/^\s*Port\s+/{print $2; found=1} END{if(!found) print 22}' /etc/ssh/sshd_config 2>/dev/null | tail -n1)"
-[[ -z "$SSH_PORT" ]] && SSH_PORT=22
-
-echo "== Обнаружен SSH порт: $SSH_PORT (проверьте, если у вас нестандартный)"
-
-# ---------------------------------------------------------------------------
-# 1. Определяем текущий (оригинальный) интерфейс и шлюз ДО любых изменений
-# ---------------------------------------------------------------------------
-read -r MAIN_IFACE MAIN_GW <<<"$(ip -4 route show default | awk '{print $5, $3}' | head -n1)"
-
-if [[ -z "${MAIN_IFACE:-}" || -z "${MAIN_GW:-}" ]]; then
-    echo "Не удалось определить основной интерфейс/шлюз. Прервано." >&2
-    exit 1
-fi
-
-echo "== Основной интерфейс: $MAIN_IFACE, шлюз: $MAIN_GW"
-
-# ---------------------------------------------------------------------------
-# 2. Пакеты
-# ---------------------------------------------------------------------------
-export DEBIAN_FRONTEND=noninteractive
-apt-get update -qq
-apt-get install -y -qq wireguard wireguard-tools iptables iproute2 >/dev/null
-
-# ---------------------------------------------------------------------------
-# 3. Регистрируем таблицы маршрутизации (идемпотентно)
-# ---------------------------------------------------------------------------
-grep -q '^100[[:space:]]\+eth0table$' /etc/iproute2/rt_tables || echo "100 eth0table" >> /etc/iproute2/rt_tables
-grep -q '^200[[:space:]]\+wg0table$'  /etc/iproute2/rt_tables || echo "200 wg0table"  >> /etc/iproute2/rt_tables
-
-# ---------------------------------------------------------------------------
-# 4. Конфиг для базового routing-скрипта, который выполняется при каждой
-#    загрузке системы (до поднятия wg0)
-# ---------------------------------------------------------------------------
-install -d -m 755 /etc/vps-split-routing
-cat > /etc/vps-split-routing/env <<EOF
-MAIN_IFACE=$MAIN_IFACE
-MAIN_GW=$MAIN_GW
-SSH_PORT=$SSH_PORT
-EOF
-
-cat > /usr/local/sbin/vps-split-routing.sh <<'EOF'
 #!/usr/bin/env bash
-# Базовая policy-routing настройка. Выполняется при старте системы,
-# ДО поднятия wg0. Идемпотентен.
+#
+# setup-wireguard.sh
+#
+# Устанавливает WireGuard на Ubuntu 24.04, поднимает туннель из /root/outbound.conf
+# и заворачивает в него ВЕСЬ трафик, КРОМЕ SSH (SSH продолжает ходить через
+# обычный шлюз провайдера, чтобы вы не потеряли доступ к серверу).
+#
+# Использование:
+#   sudo bash setup-wireguard.sh [ssh_port]
+#
+# Если ssh_port не указан — скрипт попробует определить его из /etc/ssh/sshd_config,
+# по умолчанию 22.
+
 set -euo pipefail
-source /etc/vps-split-routing/env
 
-# --- таблица 100: только для помеченного (SSH) трафика, через оригинальный шлюз
-ip route replace default via "$MAIN_GW" dev "$MAIN_IFACE" table 100
-
-# --- ip rule: сначала помеченный SSH-трафик -> table 100 (оригинальный шлюз)
-ip rule del fwmark 0x1 table 100 2>/dev/null || true
-ip rule add fwmark 0x1 table 100 priority 100
-
-# --- затем весь остальной новый трафик -> table 200 (wg0, если поднят)
-ip rule del table 200 2>/dev/null || true
-ip rule add table 200 priority 200
-
-# --- mangle: помечаем SSH-соединения (conntrack), чтобы ответы шли туда же
-iptables -t mangle -N SSHMARK 2>/dev/null || true
-iptables -t mangle -F SSHMARK
-iptables -t mangle -A SSHMARK -p tcp --dport "$SSH_PORT" -m conntrack --ctstate NEW -j CONNMARK --set-mark 0x1
-iptables -t mangle -A SSHMARK -j CONNMARK --restore-mark
-
-iptables -t mangle -C PREROUTING -j SSHMARK 2>/dev/null || iptables -t mangle -A PREROUTING -j SSHMARK
-iptables -t mangle -C OUTPUT -j CONNMARK --restore-mark 2>/dev/null || iptables -t mangle -A OUTPUT -j CONNMARK --restore-mark
-EOF
-chmod +x /usr/local/sbin/vps-split-routing.sh
-
-cat > /etc/systemd/system/vps-split-routing.service <<'EOF'
-[Unit]
-Description=Base split-routing setup (SSH via original gateway)
-After=network-online.target
-Wants=network-online.target
-Before=wg-quick@wg0.service
-
-[Service]
-Type=oneshot
-RemainAfterExit=yes
-ExecStart=/usr/local/sbin/vps-split-routing.sh
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-systemctl daemon-reload
-systemctl enable --now vps-split-routing.service
-
-# ---------------------------------------------------------------------------
-# 5. IP forwarding (нужно и сейчас для будущего AmneziaWG)
-# ---------------------------------------------------------------------------
-if ! grep -q '^net.ipv4.ip_forward=1' /etc/sysctl.conf; then
-    echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf
+if [[ $EUID -ne 0 ]]; then
+    echo "Запускайте скрипт от root (sudo bash $0)" >&2
+    exit 1
 fi
-sysctl -w net.ipv4.ip_forward=1 >/dev/null
 
-# ---------------------------------------------------------------------------
-# 6. Собираем /etc/wireguard/wg0.conf на основе присланного клиентского конфига
-# ---------------------------------------------------------------------------
-install -d -m 700 /etc/wireguard
-WG_CONF=/etc/wireguard/wg0.conf
+SRC_CONF="/root/outbound.conf"
+WG_CONF="/etc/wireguard/wg0.conf"
+FWMARK="0x1"
+RT_TABLE_NUM="100"
+RT_TABLE_NAME="wg-ssh-bypass"
 
-# Убираем возможные старые Table/PostUp/PostDown из исходника, чтобы не задвоить
-grep -Ev '^\s*(Table|PostUp|PostDown)\s*=' "$SRC_WG_CONF" > /tmp/wg0.base.conf
+if [[ ! -f "$SRC_CONF" ]]; then
+    echo "Не найден файл конфигурации: $SRC_CONF" >&2
+    exit 1
+fi
 
-awk '
-/^\[Interface\]/ {print; ininterface=1; next}
-/^\[Peer\]/ {
-    if (ininterface) {
-        print "Table = off"
-        print "PostUp = ip route replace default dev wg0 table 200"
-        print "PostUp = iptables -t nat -A POSTROUTING -o wg0 -j MASQUERADE"
-        print "PostUp = iptables -I FORWARD 1 -i wg0 -j ACCEPT"
-        print "PostUp = iptables -I FORWARD 1 -o wg0 -j ACCEPT"
-        print "PostDown = ip route del default dev wg0 table 200"
-        print "PostDown = iptables -t nat -D POSTROUTING -o wg0 -j MASQUERADE"
-        print "PostDown = iptables -D FORWARD -i wg0 -j ACCEPT"
-        print "PostDown = iptables -D FORWARD -o wg0 -j ACCEPT"
-    }
-    ininterface=0
-    print
-    next
-}
-{print}
-' /tmp/wg0.base.conf > "$WG_CONF"
+# --- Определяем порт SSH ---
+SSH_PORT="${1:-}"
+if [[ -z "$SSH_PORT" ]]; then
+    SSH_PORT="$(grep -iE '^\s*Port\s+[0-9]+' /etc/ssh/sshd_config 2>/dev/null | awk '{print $2}' | head -n1)"
+    SSH_PORT="${SSH_PORT:-22}"
+fi
+echo "==> Будет использован SSH-порт: $SSH_PORT"
+
+# --- Определяем текущий дефолтный шлюз и интерфейс (до поднятия WireGuard) ---
+DEFAULT_ROUTE="$(ip -4 route show default | head -n1)"
+if [[ -z "$DEFAULT_ROUTE" ]]; then
+    echo "Не удалось определить текущий маршрут по умолчанию." >&2
+    exit 1
+fi
+ORIG_GW="$(awk '{for(i=1;i<=NF;i++) if ($i=="via") print $(i+1)}' <<< "$DEFAULT_ROUTE")"
+ORIG_IF="$(awk '{for(i=1;i<=NF;i++) if ($i=="dev") print $(i+1)}' <<< "$DEFAULT_ROUTE")"
+
+if [[ -z "$ORIG_GW" || -z "$ORIG_IF" ]]; then
+    echo "Не удалось разобрать шлюз/интерфейс из: $DEFAULT_ROUTE" >&2
+    exit 1
+fi
+echo "==> Текущий шлюз: $ORIG_GW, интерфейс: $ORIG_IF"
+
+# --- Устанавливаем WireGuard ---
+echo "==> Устанавливаем пакеты..."
+apt-get update -y
+apt-get install -y wireguard wireguard-tools iptables iproute2
+
+# --- Добавляем таблицу маршрутизации для SSH-обхода (если ещё нет) ---
+if ! grep -qE "^[0-9]+[[:space:]]+$RT_TABLE_NAME\$" /etc/iproute2/rt_tables 2>/dev/null; then
+    echo "$RT_TABLE_NUM $RT_TABLE_NAME" >> /etc/iproute2/rt_tables
+fi
+
+# --- Копируем конфиг ---
+install -m 600 "$SRC_CONF" "$WG_CONF"
+
+# Проверим, что AllowedIPs = 0.0.0.0/0 (иначе wg-quick не создаст split-default маршруты)
+if ! grep -qE '^\s*AllowedIPs\s*=.*0\.0\.0\.0/0' "$WG_CONF"; then
+    echo "ВНИМАНИЕ: в $WG_CONF не найдено AllowedIPs = 0.0.0.0/0."
+    echo "Для маршрутизации всего трафика через туннель добавьте эту строку в секцию [Peer]."
+fi
+
+# --- Убираем возможные старые PostUp/PostDown/PreDown, добавленные этим скриптом ранее ---
+sed -i '/# >>> ssh-bypass-managed/,/# <<< ssh-bypass-managed/d' "$WG_CONF"
+
+# --- Добавляем правила PostUp/PostDown в секцию [Interface] ---
+cat >> "$WG_CONF" <<EOF
+
+# >>> ssh-bypass-managed
+PostUp = iptables -t mangle -A OUTPUT -p tcp --sport $SSH_PORT -j MARK --set-mark $FWMARK
+PostUp = ip rule add fwmark $FWMARK table $RT_TABLE_NAME priority 100
+PostUp = ip route replace default via $ORIG_GW dev $ORIG_IF table $RT_TABLE_NAME
+PostDown = iptables -t mangle -D OUTPUT -p tcp --sport $SSH_PORT -j MARK --set-mark $FWMARK
+PostDown = ip rule del fwmark $FWMARK table $RT_TABLE_NAME priority 100 || true
+PostDown = ip route flush table $RT_TABLE_NAME || true
+# <<< ssh-bypass-managed
+EOF
 
 chmod 600 "$WG_CONF"
-rm -f /tmp/wg0.base.conf
 
-# ---------------------------------------------------------------------------
-# 7. Гарантируем порядок запуска и поднимаем wg0
-# ---------------------------------------------------------------------------
-mkdir -p /etc/systemd/system/wg-quick@wg0.service.d
-cat > /etc/systemd/system/wg-quick@wg0.service.d/override.conf <<'EOF'
-[Unit]
-After=vps-split-routing.service
-Requires=vps-split-routing.service
-EOF
+# --- Включаем IP forwarding на случай, если конфиг используется и как шлюз для других хостов ---
+sed -i '/^net.ipv4.ip_forward/d' /etc/sysctl.conf
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+sysctl -p >/dev/null
 
-systemctl daemon-reload
-systemctl enable --now wg-quick@wg0
-
-# ---------------------------------------------------------------------------
-# 8. ufw (если активен) — разрешаем SSH и форвардинг
-# ---------------------------------------------------------------------------
-if command -v ufw >/dev/null && ufw status | grep -q "Status: active"; then
-    ufw allow "$SSH_PORT"/tcp || true
-    sed -i 's/^DEFAULT_FORWARD_POLICY=.*/DEFAULT_FORWARD_POLICY="ACCEPT"/' /etc/default/ufw
-    ufw reload || true
-fi
+# --- Перезапускаем интерфейс ---
+echo "==> Поднимаем интерфейс wg0..."
+systemctl enable wg-quick@wg0
+systemctl restart wg-quick@wg0
 
 echo
-echo "======================================================================"
-echo " Готово."
-echo " Проверьте В НОВОМ окне терминала:"
-echo "   ssh <user>@<этот_сервер_ip> -p $SSH_PORT      -> должно работать"
-echo "   curl ifconfig.me                              -> должен быть IP WG-сервера"
-echo "   ip rule list                                  -> должны быть правила приоритета 100 и 200"
-echo "   ip route show table 200                       -> default dev wg0"
-echo "======================================================================"
+echo "==================================================================="
+echo "Готово."
+echo "  Интерфейс:         wg0"
+echo "  Конфиг:            $WG_CONF"
+echo "  SSH-порт (в обход):$SSH_PORT"
+echo "  Исходный шлюз:     $ORIG_GW через $ORIG_IF (используется только для SSH)"
+echo
+echo "Проверить статус:   wg show"
+echo "Проверить маршруты: ip route show table $RT_TABLE_NAME"
+echo "Проверить правила:  ip rule show"
+echo "==================================================================="
