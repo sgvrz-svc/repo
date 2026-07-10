@@ -11,7 +11,7 @@ RT_TABLE_NAME="wg-ssh-bypass"
  
 SSH_PORT="${1:-}"
 if [[ -z "$SSH_PORT" ]]; then
-    SSH_PORT="$(grep -iE '^\s*Port\s+[0-9]+' /etc/ssh/sshd_config 2>/dev/null | awk '{print $2}' | head -n1)"
+    SSH_PORT="$(grep -iE '^\s*Port\s+[0-9]+' /etc/ssh/sshd_config 2>/dev/null | awk '{print $2}' | head -n1 || true)"
     SSH_PORT="${SSH_PORT:-22}"
 fi
  
