@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [[ $EUID -ne 0 ]]; then
     echo "Запускайте скрипт от root (sudo bash $0)" >&2
     exit 1
