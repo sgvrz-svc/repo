@@ -1,72 +1,48 @@
 #!/bin/bash
 set -e
 
-WG_IF="wg0"
-AMZ_IF="awg0"
-TABLE="100"
-MARK="0x1"
-EXT_IF=$(ip route show default | awk '/default/ {print $5; exit}')
+CONF_SRC="$1"
 
-apt update
-apt install -y wireguard nftables
+echo "[1/7] Определение интерфейсов и подсетей"
+EXT_IF=$(ip route show default | awk '{print $5; exit}')
+AWG_IF=$(ip -o link show type amneziawg | awk -F': ' '{print $2}' | cut -d'@' -f1 | head -n1)
+AWG_SUBNET=$(ip -o -4 route show dev "$AWG_IF" scope link | awk '{print $1; exit}')
+OUTBOUND_IF="outbound_wg"
+echo "EXT_IF=$EXT_IF AWG_IF=$AWG_IF AWG_SUBNET=$AWG_SUBNET OUTBOUND_IF=$OUTBOUND_IF"
 
-cp ./outbound.conf /etc/wireguard/wg0.conf
-chmod 600 /etc/wireguard/wg0.conf
+echo "[2/7] Установка wireguard-tools"
+apt-get update -qq
+apt-get install -y -qq wireguard-tools
 
-sysctl -w net.ipv4.ip_forward=1
-echo "net.ipv4.ip_forward=1" > /etc/sysctl.d/99-forward.conf
+echo "[3/7] Подготовка /etc/wireguard/${OUTBOUND_IF}.conf"
+cp "$CONF_SRC" /etc/wireguard/${OUTBOUND_IF}.conf
+chmod 600 /etc/wireguard/${OUTBOUND_IF}.conf
+sed -i '/^DNS/d' /etc/wireguard/${OUTBOUND_IF}.conf
 
-cat > /etc/systemd/system/wg-policy.service <<EOF
-[Unit]
-After=network-online.target wg-quick@wg0.service
-Wants=network-online.target
-Requires=wg-quick@wg0.service
+INSERT="Table = 200
+PostUp = ip rule add from $AWG_SUBNET table 200
+PostUp = iptables -t nat -A POSTROUTING -s $AWG_SUBNET -o $OUTBOUND_IF -j MASQUERADE
+PostUp = iptables -A FORWARD -i $AWG_IF -o $OUTBOUND_IF -j ACCEPT
+PostUp = iptables -A FORWARD -i $OUTBOUND_IF -o $AWG_IF -m state --state ESTABLISHED,RELATED -j ACCEPT
+PreDown = ip rule delete from $AWG_SUBNET table 200
+PreDown = iptables -t nat -D POSTROUTING -s $AWG_SUBNET -o $OUTBOUND_IF -j MASQUERADE
+PreDown = iptables -D FORWARD -i $AWG_IF -o $OUTBOUND_IF -j ACCEPT
+PreDown = iptables -D FORWARD -i $OUTBOUND_IF -o $AWG_IF -m state --state ESTABLISHED,RELATED -j ACCEPT"
 
-[Service]
-Type=oneshot
-ExecStart=/bin/sh -c 'ip route replace default dev $WG_IF table $TABLE; ip rule add fwmark $MARK table $TABLE 2>/dev/null || true'
-ExecStop=/bin/sh -c 'ip rule del fwmark $MARK table $TABLE 2>/dev/null || true; ip route del default dev $WG_IF table $TABLE 2>/dev/null || true'
-RemainAfterExit=yes
+awk -v ins="$INSERT" '/^\[Interface\]/{print; print ins; next} 1' /etc/wireguard/${OUTBOUND_IF}.conf > /etc/wireguard/${OUTBOUND_IF}.conf.new
+mv /etc/wireguard/${OUTBOUND_IF}.conf.new /etc/wireguard/${OUTBOUND_IF}.conf
 
-[Install]
-WantedBy=multi-user.target
-EOF
+echo "[4/7] Включение IP forwarding"
+sysctl -w net.ipv4.ip_forward=1 >/dev/null
+grep -q '^net.ipv4.ip_forward=1' /etc/sysctl.conf || echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf
 
-cat > /etc/systemd/system/nftables-wg.service <<EOF
-[Unit]
-After=wg-quick@wg0.service wg-policy.service
-Requires=wg-quick@wg0.service wg-policy.service
+echo "[5/7] Поднятие $OUTBOUND_IF"
+wg-quick up "$OUTBOUND_IF"
 
-[Service]
-Type=oneshot
-ExecStart=/usr/sbin/nft -f /etc/nftables.conf
-RemainAfterExit=yes
+echo "[6/7] Включение автозапуска"
+systemctl enable wg-quick@"$OUTBOUND_IF" >/dev/null
+systemctl enable awg-quick@"$AWG_IF" >/dev/null 2>&1 || true
 
-[Install]
-WantedBy=multi-user.target
-EOF
-
-cat > /etc/nftables.conf <<EOF
-flush ruleset
-
-table inet filter {
-  chain forward {
-    type filter hook forward priority 0; policy accept;
-    iifname "$AMZ_IF" oifname "$WG_IF" accept
-    iifname "$WG_IF" oifname "$AMZ_IF" ct state established,related accept
-  }
-}
-
-table ip nat {
-  chain postrouting {
-    type nat hook postrouting priority 100; policy accept;
-    oifname "$WG_IF" masquerade
-    oifname "$EXT_IF" masquerade
-  }
-}
-EOF
-
-systemctl daemon-reload
-systemctl enable --now wg-quick@wg0
-systemctl enable --now wg-policy.service
-systemctl enable --now nftables-wg.service
+echo "[7/7] Готово"
+wg show "$OUTBOUND_IF"
+ip rule show
