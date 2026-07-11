@@ -1,6 +1,7 @@
 ! Title: SGVRZ Filter
-! Version: 9.31
+! Version: 9.32
 
+duckduckgo.com##[class*="browser-promo" i]
 duckduckgo.com##[class*="minimal-homepage_tag" i]
 duckduckgo.com##[class*="minimal-homepage_belowthefold" i]
 duckduckgo.com##[class*="minimal-homepage_explorefeaturescroller" i]
