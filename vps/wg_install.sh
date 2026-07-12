@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-WG_IF="wg0"
 TABLE_ID="100"
 TABLE_NAME="wan"
 MARK="1"
@@ -13,22 +12,20 @@ fi
 
 WAN_IF=$(ip route | awk '/default via/ {print $5; exit}')
 WAN_GW=$(ip route | awk '/default via/ {print $3; exit}')
-SSH_PORT=$(ss -tnlp | awk '
-  /sshd/ {
-    for (i=1; i<=NF; i++) {
-      if ($i ~ /:[0-9]+$/) {
-        sub(/^.*:/, "", $i)
-        print $i
-        exit
-      }
-    }
-  }
-')
 
 if [[ -z "${WAN_IF:-}" || -z "${WAN_GW:-}" ]]; then
   echo "Cannot detect WAN interface or gateway"
   exit 1
 fi
+
+SSH_PORT=$(awk '
+  BEGIN { port="" }
+  /^[[:space:]]*Port[[:space:]]+/ {
+    port=$2
+    print port
+    exit
+  }
+' /etc/ssh/sshd_config)
 
 if [[ -z "${SSH_PORT:-}" ]]; then
   SSH_PORT="22"
@@ -52,4 +49,3 @@ echo "Done."
 echo "WAN interface: $WAN_IF"
 echo "WAN gateway: $WAN_GW"
 echo "SSH port: $SSH_PORT"
-echo "WG interface: $WG_IF"
