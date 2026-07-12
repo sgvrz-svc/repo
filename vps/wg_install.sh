@@ -1,45 +1,55 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+set -euo pipefail
 
-IFACE=$(ip route show default | awk '/default/ {print $5; exit}')
-GATEWAY=$(ip route show default | awk '/default/ {print $3; exit}')
-LOCAL_IP=$(ip -4 addr show "$IFACE" | grep -oP '(?<=inet )\d+(\.\d+){3}')
+WG_IF="wg0"
+TABLE_ID="100"
+TABLE_NAME="wan"
+MARK="1"
 
-echo "net.ipv4.ip_forward = 1" > /etc/sysctl.d/99-wg-forward.conf
-sysctl -p /etc/sysctl.d/99-wg-forward.conf
-
-echo "iptables-persistent iptables-persistent/autosave_v4 boolean true" | debconf-set-selections
-echo "iptables-persistent iptables-persistent/autosave_v6 boolean true" | debconf-set-selections
-apt-get update && apt-get install -y wireguard iptables-persistent
-
-if ! grep -q "200 ssh_table" /etc/iproute2/rt_tables; then
-    echo "200 ssh_table" >> /etc/iproute2/rt_tables
+if [[ $EUID -ne 0 ]]; then
+  echo "Run as root"
+  exit 1
 fi
 
-cat <<EOF > /etc/systemd/system/wg-ssh-route.service
-[Unit]
-Description=Maintain SSH routing table bypass for WireGuard
-After=network.target
-Before=wg-quick@wg0.service
+WAN_IF=$(ip route | awk '/default via/ {print $5; exit}')
+WAN_GW=$(ip route | awk '/default via/ {print $3; exit}')
+SSH_PORT=$(ss -tnlp | awk '
+  /sshd/ {
+    for (i=1; i<=NF; i++) {
+      if ($i ~ /:[0-9]+$/) {
+        sub(/^.*:/, "", $i)
+        print $i
+        exit
+      }
+    }
+  }
+')
 
-[Service]
-Type=oneshot
-ExecStart=-/sbin/ip route add default via $GATEWAY dev $IFACE table ssh_table
-ExecStart=-/sbin/ip rule add from $LOCAL_IP table ssh_table
-RemainAfterExit=yes
+if [[ -z "${WAN_IF:-}" || -z "${WAN_GW:-}" ]]; then
+  echo "Cannot detect WAN interface or gateway"
+  exit 1
+fi
 
-[Install]
-WantedBy=multi-user.target
-EOF
+if [[ -z "${SSH_PORT:-}" ]]; then
+  SSH_PORT="22"
+fi
 
-systemctl daemon-reload
-systemctl enable --now wg-ssh-route.service
+if ! grep -qE "^[[:space:]]*$TABLE_ID[[:space:]]+$TABLE_NAME$" /etc/iproute2/rt_tables; then
+  echo "$TABLE_ID $TABLE_NAME" >> /etc/iproute2/rt_tables
+fi
 
-iptables -A INPUT -p tcp --dport 22 -j ACCEPT
-iptables -t nat -A POSTROUTING -o "$IFACE" -j MASQUERADE
-iptables -A FORWARD -i wg0 -j ACCEPT
-iptables -A FORWARD -o wg0 -j ACCEPT
-iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
-iptables-save > /etc/iptables/rules.v4
+ip route replace default via "$WAN_GW" dev "$WAN_IF" table "$TABLE_NAME"
+ip rule add fwmark "$MARK" lookup "$TABLE_NAME" 2>/dev/null || true
+ip rule add pref 1000 fwmark "$MARK" lookup "$TABLE_NAME" 2>/dev/null || true
 
-systemctl enable --now wg-quick@wg0
+iptables -t mangle -C OUTPUT -p tcp --dport "$SSH_PORT" -j MARK --set-mark "$MARK" 2>/dev/null || \
+iptables -t mangle -A OUTPUT -p tcp --dport "$SSH_PORT" -j MARK --set-mark "$MARK"
+
+iptables -t mangle -C OUTPUT -p tcp --sport "$SSH_PORT" -j MARK --set-mark "$MARK" 2>/dev/null || \
+iptables -t mangle -A OUTPUT -p tcp --sport "$SSH_PORT" -j MARK --set-mark "$MARK"
+
+echo "Done."
+echo "WAN interface: $WAN_IF"
+echo "WAN gateway: $WAN_GW"
+echo "SSH port: $SSH_PORT"
+echo "WG interface: $WG_IF"
