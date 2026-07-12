@@ -16,9 +16,6 @@ if ! grep -q "200 ssh_table" /etc/iproute2/rt_tables; then
     echo "200 ssh_table" >> /etc/iproute2/rt_tables
 fi
 
-ip route add default via "$GATEWAY" dev "$IFACE" table ssh_table || true
-ip rule add from "$LOCAL_IP" table ssh_table || true
-
 cat <<EOF > /etc/systemd/system/wg-ssh-route.service
 [Unit]
 Description=Maintain SSH routing table bypass for WireGuard
@@ -27,7 +24,8 @@ Before=wg-quick@wg0.service
 
 [Service]
 Type=oneshot
-ExecStart=/sbin/ip route add default via $GATEWAY dev $IFACE table ssh_table ; /sbin/ip rule add from $LOCAL_IP table ssh_table
+ExecStart=-/sbin/ip route add default via $GATEWAY dev $IFACE table ssh_table
+ExecStart=-/sbin/ip rule add from $LOCAL_IP table ssh_table
 RemainAfterExit=yes
 
 [Install]
@@ -35,8 +33,7 @@ WantedBy=multi-user.target
 EOF
 
 systemctl daemon-reload
-systemctl enable wg-ssh-route.service
-systemctl start wg-ssh-route.service
+systemctl enable --now wg-ssh-route.service
 
 iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 iptables -t nat -A POSTROUTING -o "$IFACE" -j MASQUERADE
