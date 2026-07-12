@@ -4,9 +4,21 @@ set -euo pipefail
 TABLE_ID="100"
 TABLE_NAME="wan"
 MARK="1"
+WG_CONF="/etc/wireguard/wg0.conf"
+SSH_PORT=""
 
 if [[ $EUID -ne 0 ]]; then
   echo "Run as root"
+  exit 1
+fi
+
+if ! command -v wg-quick >/dev/null 2>&1; then
+  apt update
+  apt install -y wireguard-tools
+fi
+
+if [[ ! -f "$WG_CONF" ]]; then
+  echo "Missing $WG_CONF"
   exit 1
 fi
 
@@ -19,10 +31,8 @@ if [[ -z "${WAN_IF:-}" || -z "${WAN_GW:-}" ]]; then
 fi
 
 SSH_PORT=$(awk '
-  BEGIN { port="" }
   /^[[:space:]]*Port[[:space:]]+/ {
-    port=$2
-    print port
+    print $2
     exit
   }
 ' /etc/ssh/sshd_config)
@@ -37,7 +47,6 @@ fi
 
 ip route replace default via "$WAN_GW" dev "$WAN_IF" table "$TABLE_NAME"
 ip rule add fwmark "$MARK" lookup "$TABLE_NAME" 2>/dev/null || true
-ip rule add pref 1000 fwmark "$MARK" lookup "$TABLE_NAME" 2>/dev/null || true
 
 iptables -t mangle -C OUTPUT -p tcp --dport "$SSH_PORT" -j MARK --set-mark "$MARK" 2>/dev/null || \
 iptables -t mangle -A OUTPUT -p tcp --dport "$SSH_PORT" -j MARK --set-mark "$MARK"
@@ -45,7 +54,10 @@ iptables -t mangle -A OUTPUT -p tcp --dport "$SSH_PORT" -j MARK --set-mark "$MAR
 iptables -t mangle -C OUTPUT -p tcp --sport "$SSH_PORT" -j MARK --set-mark "$MARK" 2>/dev/null || \
 iptables -t mangle -A OUTPUT -p tcp --sport "$SSH_PORT" -j MARK --set-mark "$MARK"
 
+wg-quick up wg0
+
 echo "Done."
 echo "WAN interface: $WAN_IF"
 echo "WAN gateway: $WAN_GW"
 echo "SSH port: $SSH_PORT"
+echo "WireGuard: wg0 up"
