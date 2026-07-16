@@ -1,10 +1,10 @@
 ! Title: SGVRZ Filter
-! Version: 10.3
+! Version: 10.4
 
-duckduckgo.com##[class*="browser-promo" i]
-duckduckgo.com##[class*="minimal-homepage_tag" i]
-duckduckgo.com##[class*="minimal-homepage_belowthefold" i]
-duckduckgo.com##[class*="minimal-homepage_explorefeaturescroller" i]
+duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
+duckduckgo.com##.set-browser-promo
+duckduckgo.com##.footer
+duckduckgo.com###features
 
 ozon.ru##[data-widget="header"] > *:not(#stickyHeader)
 ozon.ru##div:has(+ div[data-widget="navigationSlider"])
