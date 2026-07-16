@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 9.32
+! Version: 10.0
 
 duckduckgo.com##[class*="browser-promo" i]
 duckduckgo.com##[class*="minimal-homepage_tag" i]
@@ -47,10 +47,9 @@ drive2.ru##[data-slot="suitable-tires.list"]:upward(1)
 ! drive2.ru##div[itemtype="https://schema.org/BlogPosting"] + div
 drive2.ru##div:has(> style)
 
-! speedtest.net##.masthead
-! speedtest.net##.footer
-! speedtest.net##.lower-content-view
-! speedtest.net##.connection-mobile-scroll
+speedtest.net##header
+speedtest.net##footer
+speedtest.net###target-section
 
 ! # cdek.ru##[href^="market://details?id="][class="ml-auto"]:upward(1)
 ! # cdek.ru##.smart-app-banner
