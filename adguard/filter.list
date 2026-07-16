@@ -6,6 +6,7 @@ duckduckgo.com##[class*="minimal-homepage_tag" i]
 duckduckgo.com##[class*="minimal-homepage_belowthefold" i]
 duckduckgo.com##[class*="minimal-homepage_explorefeaturescroller" i]
 
+ozon.ru##[data-widget="header"] > *:not(#stickyHeader)
 ozon.ru##div:has(+ div[data-widget="navigationSlider"])
 ozon.ru##[data-widget="navigationSlider"]
 ozon.ru##div[data-widget="navigationSlider"] + div
