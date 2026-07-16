@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 10.1
+! Version: 10.2
 
 duckduckgo.com##[class*="browser-promo" i]
 duckduckgo.com##[class*="minimal-homepage_tag" i]
@@ -51,6 +51,7 @@ speedtest.net##header
 speedtest.net##footer
 speedtest.net###target-section
 speedtest.net##.MuiDialog-root, .MuiModal-root
+speedtest.net##div[rel*="noopener"], [rel*="noreferrer"]
 
 ! # cdek.ru##[href^="market://details?id="][class="ml-auto"]:upward(1)
 ! # cdek.ru##.smart-app-banner
