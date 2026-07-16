@@ -24,7 +24,7 @@ ozon.ru##[data-widget="footer"]
 ozon.ru##.vue-portal-target:has(span:contains(Поблагодарите продавца))
 ozon.ru###stickyHeader ~ div
 
-! ##footer
+##footer
 ##[class*="layout-module-footer" i]
 ##[class*="gdprpanel-module-root" i]
 ##[class*="underthesun-module-root" i]
