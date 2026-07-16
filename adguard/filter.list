@@ -50,6 +50,7 @@ drive2.ru##div:has(> style)
 speedtest.net##header
 speedtest.net##footer
 speedtest.net###target-section
+speedtest.net##.MuiDialog-root, .MuiModal-root
 
 ! # cdek.ru##[href^="market://details?id="][class="ml-auto"]:upward(1)
 ! # cdek.ru##.smart-app-banner
