@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 11.7
+! Version: 12.0
 
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -39,15 +39,6 @@ speedtest.net##.MuiDialog-root, .MuiModal-root
 speedtest.net##.animate-bounce, .cursor-pointer
 speedtest.net##div[rel*="noopener"], [rel*="noreferrer"]
 
-! # cdek.ru##[href^="market://details?id="][class="ml-auto"]:upward(1)
-! # cdek.ru##.smart-app-banner
-! cdek.ru##div:has(+ header)
-! cdek.ru##.cdek-shopping
-! cdek.ru##.footer
-! cdek.ru##[style*="mobile-stories"]:upward(1)
-! cdek.ru##[class*="slider-container"]:upward(1)
-! cdek.ru##[data-pr-tooltip*="еклама"]:upward(2)
-
 4pda.to##.menu-brands
 4pda.to##.f-frame
 4pda.to###logostrip
@@ -69,51 +60,12 @@ avito.ru##[data-marker="avito-finance-widget"]
 avito.ru##[data-marker="social-accounts-card"]:upward(1)
 avito.ru##[role="link"]
 
-! ozon.ru##[data-widget="bigPromoCounterNavbar"]:upward(1)
-! ozon.ru##[data-widget="promoBanner"]
-! ozon.ru##[data-widget="messengerCounter"]:upward(1)
-! ozon.ru##[data-widget="objectGrid1"]
-! 
-! yandex.com##.new-layout__speed-info
-
-! yandex.ru###wd-_topnews-1
-! yandex.ru##.media-grid
-! yandex.ru##.root123
-! 
-! yulsun.ru##footer
-! yulsun.ru##.footer-app
-! yulsun.ru###callback__root
-! yulsun.ru###modal-window__callback
-! yulsun.ru###chat
-! yulsun.ru###chat-button
-! yulsun.ru###modal-window__chat
-! yulsun.ru##.breadcrumbs
-! yulsun.ru###reviews10last
-! yulsun.ru##.message
-! yulsun.ru##.reviews-mentioning
-! 
-! myslo.ru##.additionalcolumn
-! myslo.ru##.footer
-! myslo.ru##.myslo-banner-brend
-! myslo.ru##.content-afisha-top-5
-! myslo.ru###grf_myslo_2
-! myslo.ru##[class="lenta-blog-slider"]
-! myslo.ru##[class="list-on-bg-group"]:upward(1)
-! myslo.ru##[class*="articles-block"]
-! myslo.ru##[class="pressaBig"]
-! myslo.ru##[class^="afisha-main-menu"]
-! myslo.ru##header
-! myslo.ru##[class="preloadcommentelem"]
-! myslo.ru##[class="preloadmainpage"]
-! myslo.ru##[id="SubscribeListForm"]:upward(1)
-! myslo.ru##[class="subscription-bar"]
-! 
-! drom.ru##div[data-ftid="component_premium-carousel"]
-! drom.ru##div[data-ftid="home-auto-block"]
-! drom.ru##div[data-ftid="autostory-widget"]
-! drom.ru##div[data-ftid="index_forum-widget"]
-! drom.ru##div[data-ftid="index_blogs"]
-! drom.ru###vote
+drom.ru##div[data-ftid="component_premium-carousel"]
+drom.ru##div[data-ftid="home-auto-block"]
+drom.ru##div[data-ftid="autostory-widget"]
+drom.ru##div[data-ftid="index_forum-widget"]
+drom.ru##div[data-ftid="index_blogs"]
+drom.ru###vote
 
 auto.ru##div[data-seo="listing-teaser"]
 auto.ru##div[class*="indexheader__tabs" i]
@@ -155,3 +107,12 @@ ozon.ru##[data-widget="paginator"]:has(span:contains-case-insensitive(вы см�
 ozon.ru##[data-widget="paginator"]:has(span:contains-case-insensitive(подобра))
 ozon.ru##[data-widget="paginator"]:has(span:contains-case-insensitive(распродаж))
 ozon.ru##[data-widget="paginator"]:has(span:contains-case-insensitive(рекоменд))
+
+! # cdek.ru##[href^="market://details?id="][class="ml-auto"]:upward(1)
+! # cdek.ru##.smart-app-banner
+! cdek.ru##div:has(+ header)
+! cdek.ru##.cdek-shopping
+! cdek.ru##.footer
+! cdek.ru##[style*="mobile-stories"]:upward(1)
+! cdek.ru##[class*="slider-container"]:upward(1)
+! cdek.ru##[data-pr-tooltip*="еклама"]:upward(2)
