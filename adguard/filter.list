@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 11.2
+! Version: 11.3
 
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -7,28 +7,23 @@ duckduckgo.com##.set-browser-promo-mobile
 duckduckgo.com##.footer
 duckduckgo.com###features
 
-ozon.ru##[data-widget="header"] > *:not(#stickyHeader)
-ozon.ru##div:has(+ div[data-widget="navigationSlider"])
+ozon.ru##[data-widget="tileScroll"]
 ozon.ru##[data-widget="navigationSlider"]
-ozon.ru##div[data-widget="navigationSlider"] + div
-ozon.ru##div[data-widget="wallpaper"]:has(span:contains(Вы смотрели))
-ozon.ru##div[data-widget="tileScroll"]:has(span:contains(Вы смотрели))
-ozon.ru##div[data-widget="paginator"]:has(span:contains(Подобрали по вашим интересам))
-ozon.ru##div[data-widget="paginator"]:has(span:contains(Подобрано для вас))
-ozon.ru##div[data-widget="paginator"]:has(span:contains(Добавьте в следующий заказ))
-ozon.ru##div[data-widget="paginator"]:has(span:contains(Эти товары могут пригодиться))
-ozon.ru##div[data-widget="cellList"]:has(span:contains(Распродажа))
-ozon.ru##div[data-widget="container"]:has(span:contains(Мы рекомендуем))
-ozon.ru##div[data-widget="container"]:has(span:contains(Вы смотрели))
 ozon.ru##div[data-widget="islandSeparator"]
 ozon.ru##[data-widget="footer"]
 ozon.ru##.vue-portal-target:has(span:contains(Поблагодарите продавца))
-ozon.ru##[data-widget="header"] > *:not(#stickyheader)
 ozon.ru##[data-widget="islandSeparator"]
 ozon.ru##[data-widget="objectGrid1"]
 ozon.ru##[data-widget="bigPromoCounterNavbar"]
 ozon.ru##[data-widget="navbar"] [data-replace-layout-path]
 ozon.ru##[data-widget="financeWidget"] > div:not(:first-of-type)
+ozon.ru##div[data-widget="paginator"]:has(span:contains(Вы смотрели))
+ozon.ru##div[data-widget="paginator"]:has(span:contains(Подобрали по вашим интересам))
+ozon.ru##div[data-widget="paginator"]:has(span:contains(Подобрано для вас))
+ozon.ru##div[data-widget="paginator"]:has(span:contains(Добавьте в следующий заказ))
+ozon.ru##div[data-widget="paginator"]:has(span:contains(Эти товары могут пригодиться))
+ozon.ru##div[data-widget="paginator"]:has(span:contains(Распродажа))
+ozon.ru##div[data-widget="paginator"]:has(span:contains(Мы рекомендуем))
 
 ya.*,yandex.*##.feed
 ya.*,yandex.*##.footer
