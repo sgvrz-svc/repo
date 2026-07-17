@@ -1,27 +1,11 @@
 ! Title: SGVRZ Filter
-! Version: 11.6
+! Version: 11.7
 
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
 duckduckgo.com##.set-browser-promo-mobile
 duckduckgo.com##.footer
 duckduckgo.com###features
-
-ozon.ru##.vue-portal-target:has(span:contains(Поблагодарите продавца))
-ozon.ru##[data-widget="tileScroll"]
-ozon.ru##[data-widget="navigationSlider"]
-ozon.ru##[data-widget="islandSeparator"]
-ozon.ru##[data-widget="objectGrid1"]
-ozon.ru##[data-widget="footer"]
-ozon.ru##[data-widget="bigPromoCounterNavbar"]
-ozon.ru##[data-widget="navbar"] [data-replace-layout-path]
-ozon.ru##[data-widget="financeWidget"] > div:not(:first-of-type)
-ozon.ru##div[data-widget="paginator"]:has(span:contains-case-insensitive(добавь))
-ozon.ru##div[data-widget="paginator"]:has(span:contains-case-insensitive(эти товары))
-ozon.ru##div[data-widget="paginator"]:has(span:contains-case-insensitive(вы смотрели))
-ozon.ru##div[data-widget="paginator"]:has(span:contains-case-insensitive(подобра))
-ozon.ru##div[data-widget="paginator"]:has(span:contains-case-insensitive(распродаж))
-ozon.ru##div[data-widget="paginator"]:has(span:contains-case-insensitive(рекоменд))
 
 ya.*,yandex.*##.feed
 ya.*,yandex.*##.footer
@@ -155,3 +139,19 @@ auto.ru##div[class*="AiChatBanner"]
 auto.ru##div[class*="MatchApplicationBanner"]
 auto.ru##section
 auto.ru##[href="#card-vin-report"]
+
+ozon.ru##.vue-portal-target:has(span:contains(Поблагодарите продавца))
+ozon.ru##[data-widget="tileScroll"]
+ozon.ru##[data-widget="navigationSlider"]
+ozon.ru##[data-widget="islandSeparator"]
+ozon.ru##[data-widget="objectGrid1"]
+ozon.ru##[data-widget="footer"]
+ozon.ru##[data-widget="bigPromoCounterNavbar"]
+ozon.ru##[data-widget="navbar"] [data-replace-layout-path]
+ozon.ru##[data-widget="financeWidget"] > div:not(:first-of-type)
+ozon.ru##[data-widget="paginator"]:has(span:contains-case-insensitive(добавь))
+ozon.ru##[data-widget="paginator"]:has(span:contains-case-insensitive(эти товары))
+ozon.ru##[data-widget="paginator"]:has(span:contains-case-insensitive(вы смотрели))
+ozon.ru##[data-widget="paginator"]:has(span:contains-case-insensitive(подобра))
+ozon.ru##[data-widget="paginator"]:has(span:contains-case-insensitive(распродаж))
+ozon.ru##[data-widget="paginator"]:has(span:contains-case-insensitive(рекоменд))
