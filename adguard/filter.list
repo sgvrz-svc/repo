@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 12.0
+! Version: 11.0
 
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -101,12 +101,12 @@ ozon.ru##[data-widget="footer"]
 ozon.ru##[data-widget="bigPromoCounterNavbar"]
 ozon.ru##[data-widget="navbar"] [data-replace-layout-path]
 ozon.ru##[data-widget="financeWidget"] > div:not(:first-of-type)
-ozon.ru##[data-widget="paginator"]:has(span:contains-case-insensitive(добавь))
-ozon.ru##[data-widget="paginator"]:has(span:contains-case-insensitive(эти товары))
-ozon.ru##[data-widget="paginator"]:has(span:contains-case-insensitive(вы смотрели))
-ozon.ru##[data-widget="paginator"]:has(span:contains-case-insensitive(подобра))
-ozon.ru##[data-widget="paginator"]:has(span:contains-case-insensitive(распродаж))
-ozon.ru##[data-widget="paginator"]:has(span:contains-case-insensitive(рекоменд))
+ozon.ru##[data-widget="paginator"]:has(span:contains(/добавь/i))
+ozon.ru##[data-widget="paginator"]:has(span:contains(/эти товары/i))
+ozon.ru##[data-widget="paginator"]:has(span:contains(/вы смотрели/i))
+ozon.ru##[data-widget="paginator"]:has(span:contains(/подобра/i))
+ozon.ru##[data-widget="paginator"]:has(span:contains(/распродаж/i))
+ozon.ru##[data-widget="paginator"]:has(span:contains(/рекоменд/i))
 
 ! # cdek.ru##[href^="market://details?id="][class="ml-auto"]:upward(1)
 ! # cdek.ru##.smart-app-banner
