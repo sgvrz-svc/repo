@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 11.5
+! Version: 11.6
 
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -7,13 +7,12 @@ duckduckgo.com##.set-browser-promo-mobile
 duckduckgo.com##.footer
 duckduckgo.com###features
 
+ozon.ru##.vue-portal-target:has(span:contains(Поблагодарите продавца))
 ozon.ru##[data-widget="tileScroll"]
 ozon.ru##[data-widget="navigationSlider"]
-ozon.ru##div[data-widget="islandSeparator"]
-ozon.ru##[data-widget="footer"]
-ozon.ru##.vue-portal-target:has(span:contains(Поблагодарите продавца))
 ozon.ru##[data-widget="islandSeparator"]
 ozon.ru##[data-widget="objectGrid1"]
+ozon.ru##[data-widget="footer"]
 ozon.ru##[data-widget="bigPromoCounterNavbar"]
 ozon.ru##[data-widget="navbar"] [data-replace-layout-path]
 ozon.ru##[data-widget="financeWidget"] > div:not(:first-of-type)
