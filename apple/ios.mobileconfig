@@ -117,14 +117,11 @@
 			<!-- ============================================================ -->
 			<key>allowActivityContinuation</key>					<false/>
 			<key>allowCloudBackup</key>								<false/>
-			<!-- <key>allowCloudDocumentSync</key>						<false/> -->
-			<!-- <key>allowCloudKeychainSync</key>						<false/> -->
 			<key>allowCloudPrivateRelay</key>						<false/>
 			<key>allowEnterpriseBookBackup</key>					<false/>
 			<key>allowEnterpriseBookMetadataSync</key>				<false/>
 			<key>allowFindMyDevice</key>							<false/>
 			<key>allowFindMyFriends</key>							<false/>
-			<!-- <key>allowManagedAppsCloudSync</key>					<false/> -->
 			<key>allowPhotoStream</key>								<false/>
 			<key>allowSharedStream</key>							<false/>
 			<key>allowVideoConferencing</key>						<false/>
@@ -142,11 +139,7 @@
 			<!-- iPad -->
 			<!-- ============================================================ -->
 			<key>allowAssistant</key>								<false/>
-			<!-- <key>allowCamera</key>									<false/> -->
-			<!-- <key>allowWallpaperModification</key>					<false/> -->
-			<!-- <key>allowCloudDocumentSync</key>						<false/> -->
-			<!-- <key>allowCloudKeychainSync</key>						<false/> -->
-			<!-- <key>allowManagedAppsCloudSync</key>					<false/> -->
+
 		</dict>
 	</array>
 </dict>
