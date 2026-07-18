@@ -27,14 +27,7 @@
 			<key>allowDiagnosticSubmission</key>					<false/>
 			<key>allowDiagnosticSubmissionModification</key>		<false/>
 			<key>allowCallRecording</key>							<false/>
-			<key>allowDefinitionLookup</key>						<false/>
-			<key>allowEraseContentAndSettings</key>					<false/>
 			<key>allowMailPrivacyProtection</key>					<false/>
-			<key>allowOpenFromManagedToUnmanaged</key>				<false/>
-			<key>allowOpenFromUnmanagedToManaged</key>				<false/>
-			<key>allowSafariPrivateBrowsing</key>					<false/>
-			<key>allowSafariHistoryClearing</key>					<false/>
-			<key>allowScreenShot</key>								<false/>
 			<key>allowVoiceDialing</key>							<false/>
 			<key>allowiPhoneWidgetsOnMac</key>						<false/>
 			<key>forceEncryptedBackup</key>							<true/>
@@ -71,6 +64,7 @@
 			<!-- ============================================================ -->
 			<key>allowChat</key>									<false/>
 			<key>allowVideoConferencing</key>						<false/>
+			<key>allowVideoConferencingRemoteControl</key>			<false/>
 			<key>allowGameCenter</key>								<false/>
 			<key>allowAddingGameCenterFriends</key>					<false/>
 			<key>allowMultiplayerGaming</key>						<false/>
@@ -124,8 +118,7 @@
 			<key>allowFindMyFriends</key>							<false/>
 			<key>allowPhotoStream</key>								<false/>
 			<key>allowSharedStream</key>							<false/>
-			<key>allowVideoConferencing</key>						<false/>
-			<key>allowVideoConferencingRemoteControl</key>			<false/>
+			
 
 			<!-- ============================================================ -->
 			<key>allowLiveVoicemail</key>							<false/>
@@ -138,7 +131,13 @@
 			<!-- ============================================================ -->
 			<!-- iPad -->
 			<!-- ============================================================ -->
-			<key>allowAssistant</key>								<false/>
+
+
+            <key>blockedAppBundleIDs</key>
+            <array>
+                <string>com.apple.Health</string>
+                <string>com.apple.Fitness</string>
+            </array>
 
 		</dict>
 	</array>
