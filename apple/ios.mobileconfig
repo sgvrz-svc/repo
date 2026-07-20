@@ -20,6 +20,11 @@
 			<key>PayloadUUID</key>									<string>AABBCCDD-0000-EEFF-0010-ABCDEF000000</string>
 			<key>PayloadVersion</key>								<integer>1</integer>
 
+			<key>ratingRegion</key>									<string>us</string>
+			<key>ratingApps</key>									<integer>1000</integer>
+			<key>ratingMovies</key>									<integer>1000</integer>
+			<key>ratingTVShows</key>								<integer>1000</integer>
+
 			<!-- ============================================================ -->
 			<!-- Приватность, диагностика и Apple Intelligence -->
 			<!-- ============================================================ -->
@@ -37,6 +42,8 @@
 			<!-- ============================================================ -->
 			<!-- Siri -->
 			<!-- ============================================================ -->
+			<key>allowAssistant</key>								<false/>
+
 			<key>allowAppleIntelligenceReport</key>					<false/>
 			<key>allowAssistantUserGeneratedContent</key>			<false/>
 			<key>allowAssistantWhileLocked</key>					<false/>
@@ -65,17 +72,18 @@
 			<key>allowChat</key>									<false/>
 			<key>allowVideoConferencing</key>						<false/>
 			<key>allowVideoConferencingRemoteControl</key>			<false/>
+
 			<key>allowGameCenter</key>								<false/>
 			<key>allowAddingGameCenterFriends</key>					<false/>
 			<key>allowMultiplayerGaming</key>						<false/>
+			
 			<key>allowAppsToBeHidden</key>							<false/>
 			<key>allowAppsToBeLocked</key>							<false/>
 			<key>allowAutomaticAppDownloads</key>					<false/>
+			
 			<key>allowDefaultBrowserModification</key>				<false/>
 			<key>allowDefaultCallingAppModification</key>			<false/>
 			<key>allowDefaultMessagingAppModification</key>			<false/>
-			<!-- Passbook == Wallet -->
-			<key>allowPassbookWhileLocked</key>						<false/>
 
 			<!-- ============================================================ -->
 			<!-- Keyboard -->
@@ -114,12 +122,9 @@
 			<key>allowCloudPrivateRelay</key>						<false/>
 			<key>allowEnterpriseBookBackup</key>					<false/>
 			<key>allowEnterpriseBookMetadataSync</key>				<false/>
-			<key>allowFindMyDevice</key>							<false/>
-			<key>allowFindMyFriends</key>							<false/>
 			<key>allowPhotoStream</key>								<false/>
 			<key>allowSharedStream</key>							<false/>
 			
-
 			<!-- ============================================================ -->
 			<key>allowLiveVoicemail</key>							<false/>
 			<key>allowAutoUnlock</key>								<false/>
@@ -128,17 +133,44 @@
 			<key>allowPasswordProximityRequests</key>				<false/>
 			<key>allowPasswordSharing</key>							<false/>
 
-			<!-- ============================================================ -->
-			<!-- iPad -->
-			<!-- ============================================================ -->
-
-
-            <key>blockedAppBundleIDs</key>
-            <array>
-                <string>com.apple.Health</string>
-                <string>com.apple.Fitness</string>
-            </array>
-
+			<key>blacklistedAppBundleIDs</key>
+			<array>
+				<string>com.apple.mobilephone</string>
+				<string>com.apple.mobileslideshow</string>
+				<string>com.apple.camera</string>
+			</array>
+		</dict>
+		<dict>
+			<key>PayloadDisplayName</key>			<string>Adguard Personal CA</string>
+			<key>PayloadType</key>					<string>com.apple.security.root</string>
+			<key>PayloadUUID</key>					<string>AABBCCDD-0000-EEFF-0020-ABCDEF000000</string>
+			<key>PayloadIdentifier</key>			<string>com.apple.security.root.AABBCCDD-0000-EEFF-0020-ABCDEF000000</string>
+			<key>PayloadCertificateFileName</key>	<string>AdGuard Personal CA</string>
+			<key>PayloadVersion</key>				<integer>1</integer>
+			<key>PayloadContent</key>
+			<data>
+			MIIDKDCCAhCgAwIBAgIRAI0MO7bLaJITqkLOnS8vr38wDQYJKoZI
+			hvcNAQELBQAwPTELMAkGA1UEBhMCRU4xEDAOBgNVBAoMB0FkR3Vh
+			cmQxHDAaBgNVBAMME0FkZ3VhcmQgUGVyc29uYWwgQ0EwHhcNMjAw
+			MTAxMDAwMDAwWhcNMzkxMjI3MDAwMDAwWjA9MQswCQYDVQQGEwJF
+			TjEQMA4GA1UECgwHQWRHdWFyZDEcMBoGA1UEAwwTQWRndWFyZCBQ
+			ZXJzb25hbCBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
+			ggEBAKRGc5CqK20F7CTcS11wTwwNrxvSADNBUVKD6eFXO2pTvLtj
+			kZwHN6j2jd0pmlzrG9zF9zTTLyWXmmIKYnjbRyUoLyQzhmZqu7aj
+			Pk9sTrGIJYRAokhtqdc1pDz0GamWyQ85VyzGrDMMXlD+AqAzZ1rc
+			sPWQV97MgQ4eYUzUSAFrWZ4dDJCcY8/F5y2tYDCLZo5Slu2B77Pu
+			j1QEvoRZB/+rQ8/LmuXdYl41VK/jAwyieXG8t6nSomO74Js5hR1m
+			io5eHwLzwS2u0iVNIVtXpsvu1+a9gxmOiMyI9pm0EAGz3f7oYA6Z
+			A6vocsNQNC54PLWW0XW64jmw/DuRxrMV150CAwEAAaMjMCEwDwYD
+			VR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAQYwDQYJKoZIhvcN
+			AQELBQADggEBAI/bwon+Alo7MTYiW5ikjDHm5Prx+bAPAvdozOHF
+			iuBw4+6pPVHVUv70cwcbK9Hp0bC8KuMiTW43rBO+vB5BHGSdvw0v
+			BRehLF/780cQqxu7f53/I0p9XChxjA1bSBo57bN4i9Dlpiy/3Tzb
+			tasM6lK7sPrqq6a1Uy9e8sVL7UuUiWbKVIbrEP8OUWnD1yx2T1Qn
+			21nu/GE0uQ6r4cjFm3qVhE8v2iLCqD7+AqQUTmIq0rZluJ63OzCw
+			Ko98K+1p9sc4qGu/Sd4w944YVteGavFpXx5v6SO6uus5JvD+e+vw
+			GozLwzHlH/272SHeI2L0G+Ie2IZ78y6HrPxXdW7No1Y=
+			</data>
 		</dict>
 	</array>
 </dict>

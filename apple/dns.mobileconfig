@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>PayloadIdentifier</key>						<string>com.apple.ios.dns</string>
-	<key>PayloadDisplayName</key>						<string>DNS</string>
+	<key>PayloadDisplayName</key>						<string>DNS White List</string>
 	<key>PayloadScope</key>								<string>System</string>
 	<key>PayloadType</key>								<string>Configuration</string>
 	<key>PayloadUUID</key>								<string>AABBCCDD-0000-EEFF-0000-ABCDEF000100</string>
