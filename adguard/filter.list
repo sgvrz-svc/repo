@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 11.0
+! Version: 11.1
 
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -11,7 +11,7 @@ ya.*,yandex.*##.feed
 ya.*,yandex.*##.footer
 ya.*,yandex.*##.tech-info
 
-##footer
+! ##footer
 ##[class*="layout-module-footer" i]
 ##[class*="gdprpanel-module-root" i]
 ##[class*="underthesun-module-root" i]
