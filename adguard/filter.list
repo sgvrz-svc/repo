@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 11.3
+! Version: 11.4
 
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -60,6 +60,7 @@ avito.ru##[data-marker="icebreakers"]
 avito.ru##[data-marker="recommendation-block"]
 avito.ru##[data-marker="avito-finance-widget"]
 avito.ru##[data-marker="social-accounts-card"]:upward(1)
+avito.ru##[data-marker="portals-container"]
 avito.ru##[role="link"]
 
 drom.ru##div[data-ftid="component_premium-carousel"]
