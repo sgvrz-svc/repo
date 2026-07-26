@@ -4,7 +4,7 @@
 <dict>
 	<key>PayloadDisplayName</key>			<string>Preferences</string>
 	<key>PayloadType</key>					<string>Configuration</string>
-	<key>PayloadIdentifier</key>			<string>com.apple.macos.core</string>
+	<key>PayloadIdentifier</key>			<string>com.apple.core</string>
 	<key>PayloadUUID</key>					<string>AABBCCDD-0000-EEFF-0000-ABCDEF000000</string>
 	<key>PayloadOrganization</key>			<string>SU</string>
 	<key>PayloadScope</key>					<string>System</string>
@@ -20,6 +20,11 @@
 			<key>PayloadUUID</key>					<string>AABBCCDD-0000-EEFF-0010-ABCDEF000000</string>
 			<key>PayloadIdentifier</key>			<string>com.apple.applicationaccess.AABBCCDD-0000-EEFF-0010-ABCDEF000000</string>
 			<key>PayloadVersion</key>				<integer>1</integer>
+			
+			<key>ratingRegion</key>									<string>us</string>
+			<key>ratingApps</key>									<integer>1000</integer>
+			<key>ratingMovies</key>									<integer>1000</integer>
+			<key>ratingTVShows</key>								<integer>1000</integer>
 
 			<key>allowAssistant</key>								<false/>
 			<key>allowActivityContinuation</key>					<false/>
@@ -51,10 +56,6 @@
 			<key>allowWritingTools</key>							<false/>
 			<key>forceAssistantProfanityFilter</key>				<false/>
 			<key>forceOnDeviceOnlyDictation</key>					<true/>
-			<key>ratingApps</key>									<integer>1000</integer>
-			<key>ratingMovies</key>									<integer>1000</integer>
-			<key>ratingRegion</key>									<string>us</string>
-			<key>ratingTVShows</key>								<integer>1000</integer>
 		</dict>
 		<dict>
 			<key>PayloadCertificateFileName</key>			<string>AdGuard Personal CA</string>

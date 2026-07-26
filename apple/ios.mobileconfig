@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>PayloadDisplayName</key>			<string>Preferences</string>
-
-	<key>PayloadIdentifier</key>			<string>com.apple.ios.core</string>
-	<key>PayloadUUID</key>					<string>AABBCCDD-0000-EEFF-0000-ABCDEF000000</string>
-	<key>PayloadScope</key>					<string>System</string>
 	<key>PayloadType</key>					<string>Configuration</string>
+	<key>PayloadIdentifier</key>			<string>com.apple.core</string>
+	<key>PayloadUUID</key>					<string>AABBCCDD-0000-EEFF-0000-ABCDEF000000</string>
+	<key>PayloadOrganization</key>			<string>SU</string>
+	<key>PayloadScope</key>					<string>System</string>
 	<key>PayloadVersion</key>				<integer>1</integer>
+	<key>TargetDeviceType</key>				<integer>1</integer>
 
 	<key>PayloadContent</key>
 	<array>
 		<dict>
 			<key>PayloadDisplayName</key> 							<string>Restrictions</string>
-
-			<key>PayloadIdentifier</key>							<string>com.apple.applicationaccess.AABBCCDD-0000-EEFF-0010-ABCDEF000000</string>
 			<key>PayloadType</key>									<string>com.apple.applicationaccess</string>
 			<key>PayloadUUID</key>									<string>AABBCCDD-0000-EEFF-0010-ABCDEF000000</string>
+			<key>PayloadIdentifier</key>							<string>com.apple.applicationaccess.AABBCCDD-0000-EEFF-0010-ABCDEF000000</string>
 			<key>PayloadVersion</key>								<integer>1</integer>
 
 			<key>ratingRegion</key>									<string>us</string>
@@ -42,11 +42,8 @@
 			<!-- ============================================================ -->
 			<!-- Siri -->
 			<!-- ============================================================ -->
-			<key>allowAssistant</key>								<false/>
-
 			<key>allowAppleIntelligenceReport</key>					<false/>
 			<key>allowAssistantUserGeneratedContent</key>			<false/>
-			<key>allowAssistantWhileLocked</key>					<false/>
 			<key>allowExternalIntelligenceIntegrations</key>		<false/>
 			<key>allowExternalIntelligenceIntegrationsSignIn</key>	<false/>
 			<key>allowGenmoji</key>									<false/>
@@ -76,10 +73,9 @@
 			<key>allowGameCenter</key>								<false/>
 			<key>allowAddingGameCenterFriends</key>					<false/>
 			<key>allowMultiplayerGaming</key>						<false/>
-			
+
 			<key>allowAppsToBeHidden</key>							<false/>
 			<key>allowAppsToBeLocked</key>							<false/>
-			<key>allowAutomaticAppDownloads</key>					<false/>
 			
 			<key>allowDefaultBrowserModification</key>				<false/>
 			<key>allowDefaultCallingAppModification</key>			<false/>
@@ -98,12 +94,10 @@
 			<!-- Connectivity -->
 			<!-- ============================================================ -->
 			<key>allowNFC</key>										<false/>
-			<key>allowAirDrop</key>									<false/>
 			<key>allowDeviceNameModification</key>					<false/>
 			<key>allowHostPairing</key>								<false/>
 			<key>allowPairedWatch</key>								<false/>
 			<key>allowProximitySetupToNewDevice</key>				<false/>
-			<key>allowSatelliteConnection</key>						<false/>
 			<key>allowUSBRestrictedMode</key>						<false/>
 			<key>allowiPhoneMirroring</key>							<false/>
 
@@ -119,34 +113,24 @@
 			<!-- ============================================================ -->
 			<key>allowActivityContinuation</key>					<false/>
 			<key>allowCloudBackup</key>								<false/>
-			<key>allowCloudPrivateRelay</key>						<false/>
-			<key>allowEnterpriseBookBackup</key>					<false/>
-			<key>allowEnterpriseBookMetadataSync</key>				<false/>
 			<key>allowPhotoStream</key>								<false/>
 			<key>allowSharedStream</key>							<false/>
+			<key>allowCloudPrivateRelay</key>						<false/>
 			
 			<!-- ============================================================ -->
 			<key>allowLiveVoicemail</key>							<false/>
 			<key>allowAutoUnlock</key>								<false/>
 			<key>allowDefinitionLookup</key>						<false/>		<!-- Запретить поиск определений слов -->
 			<key>allowEnablingRestrictions</key>					<false/>
-			<key>allowPasswordProximityRequests</key>				<false/>
-			<key>allowPasswordSharing</key>							<false/>
-
-			<key>blacklistedAppBundleIDs</key>
-			<array>
-				<string>com.apple.mobilephone</string>
-				<string>com.apple.mobileslideshow</string>
-				<string>com.apple.camera</string>
-			</array>
 		</dict>
 		<dict>
-			<key>PayloadDisplayName</key>			<string>Adguard Personal CA</string>
-			<key>PayloadType</key>					<string>com.apple.security.root</string>
-			<key>PayloadUUID</key>					<string>AABBCCDD-0000-EEFF-0020-ABCDEF000000</string>
-			<key>PayloadIdentifier</key>			<string>com.apple.security.root.AABBCCDD-0000-EEFF-0020-ABCDEF000000</string>
-			<key>PayloadCertificateFileName</key>	<string>AdGuard Personal CA</string>
-			<key>PayloadVersion</key>				<integer>1</integer>
+			<key>PayloadCertificateFileName</key>			<string>AdGuard Personal CA</string>
+			<key>PayloadDisplayName</key>					<string>Adguard Personal CA</string>
+			<key>PayloadType</key>							<string>com.apple.security.root</string>
+			<key>PayloadUUID</key>							<string>AABBCCDD-0000-EEFF-0020-ABCDEF000000</string>
+			<key>PayloadIdentifier</key>					<string>com.apple.security.root.AABBCCDD-0000-EEFF-0020-ABCDEF000000</string>
+			<key>PayloadVersion</key>						<integer>1</integer>
+
 			<key>PayloadContent</key>
 			<data>
 			MIIDKDCCAhCgAwIBAgIRAI0MO7bLaJITqkLOnS8vr38wDQYJKoZI
