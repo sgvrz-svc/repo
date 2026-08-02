@@ -19,3 +19,28 @@ DOMAIN-SUFFIX       jam.api.2gis.com
 DOMAIN-SUFFIX       hybrid.api.2gis.com
 DOMAIN-SUFFIX       transport.api.2gis.com
 DOMAIN-SUFFIX       map-settings.api.2gis.com
+
+
+								<string>*.local</string>
+								<string>*.lan</string>
+								<string>*.backloop.dev</string>
+
+								<string>starline.ru</string>
+								
+								<string>maps.yango.com</string>
+								<string>maps.yandex.net</string>
+								<string>strm.yandex.net</string>
+								<string>music.yandex.net</string>
+								<string>tanker.yandex.net</string>
+								<string>tanker.s3.yandex.net</string>
+								<string>passport.yandex.net</string>
+
+								<string>jam.api.2gis.com</string>
+								<string>hybrid.api.2gis.com</string>
+								<string>transport.api.2gis.com</string>
+								<string>map-settings.api.2gis.ru</string>
+								<string>dangerous-cameras.api.2gis.com</string>
+								<string>disk.2gis.com</string>
+								<string>tugc.2gis.com</string>
+								<string>maps.2gis.com</string>
+								<string>uss.2gis.com</string>
