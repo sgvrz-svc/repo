@@ -1,46 +1,36 @@
-DOMAIN-SUFFIX       starline.ru
+DOMAIN-WILDCARD, 	*.local
+DOMAIN-WILDCARD, 	*.lan
+DOMAIN-WILDCARD, 	*.backloop.dev
 
-DOMAIN-SUFFIX       maps.yango.com
-DOMAIN-SUFFIX       maps.yandex.net
-DOMAIN-SUFFIX       strm.yandex.net
-DOMAIN-SUFFIX       tanker.yandex.net
-DOMAIN-SUFFIX       s3.yandex.net
-DOMAIN-SUFFIX       yandex-bank.net
-DOMAIN-SUFFIX       passport.yandex.net
-DOMAIN-SUFFIX       prod.yandex-bank.net
-DOMAIN-SUFFIX       mobpayment.yandex-net.ru
-DOMAIN-SUFFIX       api.music.yandex.net
-DOMAIN-SUFFIX       avatars.yandex.ney
-DOMAIN-SUFFIX       avatars.mds.yandex.ney
+DOMAIN-SUFFIX,      starline.ru
 
-DOMAIN-SUFFIX       uss.2gis.com								
-DOMAIN-SUFFIX       maps.2gis.com
-DOMAIN-SUFFIX       jam.api.2gis.com
-DOMAIN-SUFFIX       hybrid.api.2gis.com
-DOMAIN-SUFFIX       transport.api.2gis.com
-DOMAIN-SUFFIX       map-settings.api.2gis.com
+DOMAIN-SUFFIX,      yandex-bank.net
+DOMAIN-SUFFIX,      imap.yandex.com
+DOMAIN-SUFFIX,      maps.yango.com
+DOMAIN-SUFFIX,      maps.yandex.net
+DOMAIN-SUFFIX,      strm.yandex.net
+DOMAIN-SUFFIX,      music.yandex.net
+DOMAIN-SUFFIX,      tanker.yandex.net
+DOMAIN-SUFFIX,      tanker.s3.yandex.net
+DOMAIN-SUFFIX,      passport.yandex.ru
+DOMAIN-SUFFIX,      passport.yandex.net
+DOMAIN-SUFFIX,      avatars.yandex.net
+DOMAIN-SUFFIX,      avatars.mds.yandex.net
+DOMAIN-SUFFIX,      mobpayment.yandex-net.ru
+DOMAIN-SUFFIX,      enterprise.api-maps.yandex.ru
+DOMAIN-SUFFIX,      mobile-maps-sounds.s3.yandex.net
+DOMAIN-SUFFIX,      mobile-maps-cursors.s3.yandex.net
 
-
-								<string>*.local</string>
-								<string>*.lan</string>
-								<string>*.backloop.dev</string>
-
-								<string>starline.ru</string>
-								
-								<string>maps.yango.com</string>
-								<string>maps.yandex.net</string>
-								<string>strm.yandex.net</string>
-								<string>music.yandex.net</string>
-								<string>tanker.yandex.net</string>
-								<string>tanker.s3.yandex.net</string>
-								<string>passport.yandex.net</string>
-
-								<string>jam.api.2gis.com</string>
-								<string>hybrid.api.2gis.com</string>
-								<string>transport.api.2gis.com</string>
-								<string>map-settings.api.2gis.ru</string>
-								<string>dangerous-cameras.api.2gis.com</string>
-								<string>disk.2gis.com</string>
-								<string>tugc.2gis.com</string>
-								<string>maps.2gis.com</string>
-								<string>uss.2gis.com</string>
+DOMAIN-SUFFIX,      uss.2gis.com
+DOMAIN-SUFFIX,      disk.2gis.com
+DOMAIN-SUFFIX,      tugc.2gis.com
+DOMAIN-SUFFIX,      maps.2gis.com
+DOMAIN-SUFFIX,      auth.2gis.com
+DOMAIN-SUFFIX,      photo.2gis.com
+DOMAIN-SUFFIX,      reviews.2gis.com
+DOMAIN-SUFFIX,      jam.api.2gis.com
+DOMAIN-SUFFIX,      hybrid.api.2gis.com
+DOMAIN-SUFFIX,      transport.api.2gis.com
+DOMAIN-SUFFIX,      map-settings.api.2gis.ru
+DOMAIN-SUFFIX,      map-settings.api.2gis.com
+DOMAIN-SUFFIX,      dangerous-cameras.api.2gis.com
