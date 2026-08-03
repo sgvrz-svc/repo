@@ -5,7 +5,7 @@ DOMAIN-KEYWORD,     analytic
 DOMAIN-KEYWORD,     firebase
 DOMAIN-KEYWORD,     facebook
 DOMAIN-KEYWORD,     crashlytics
-DOMAIN-SUFFIX,      inapps.appsflyersdk.com
+DOMAIN-SUFFIX,      appsflyersdk
 
 DOMAIN-SUFFIX,      siri.apple.com
 
