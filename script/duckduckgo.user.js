@@ -2,14 +2,13 @@
 // @name         DuckDuckGo Cloud Save Auto Restore
 // @description  Auto-open Cloud Save restore on DuckDuckGo settings
 // @namespace    local
-// @version      1.5
+// @version      1.6
 // @match        https://duckduckgo.com/settings*
 // @grant        none
 // @downloadURL  https://raw.githibusercontent.com/sgvrz-svc/repo/main/script/duckduckgo-cloud-save-auto-restore.user.js
 // @updateURL    https://raw.githibusercontent.com/sgvrz-svc/repo/main/script/duckduckgo-cloud-save-auto-restore.user.js
 // @author       sgvrz-svc
 // ==/UserScript==
-
 (function () {
   'use strict';
 
@@ -19,75 +18,91 @@
     el.dispatchEvent(new Event(type, { bubbles: true, cancelable: true }));
   }
 
-  function clickIfExists(selector) {
-    const el = document.querySelector(selector);
-    if (el) {
-      el.click();
-      return true;
-    }
-    return false;
+  function waitFor(selector, timeoutMs = 8000) {
+    return new Promise((resolve, reject) => {
+      const el = document.querySelector(selector);
+      if (el) return resolve(el);
+
+      const obs = new MutationObserver(() => {
+        const node = document.querySelector(selector);
+        if (node) {
+          obs.disconnect();
+          resolve(node);
+        }
+      });
+
+      obs.observe(document.documentElement, { childList: true, subtree: true });
+
+      setTimeout(() => {
+        obs.disconnect();
+        reject(new Error('timeout'));
+      }, timeoutMs);
+    });
   }
 
-  function openSection() {
-    const candidates = Array.from(document.querySelectorAll('button, a, div, span'))
-      .filter(el => /cloud save|settings|restore|backup|sync/i.test(el.textContent || ''));
-
-    for (const el of candidates) {
-      el.click();
-      return true;
-    }
-    return false;
-  }
-
-  function fillAndRestore() {
-    const inputs = Array.from(document.querySelectorAll('input, textarea'));
-    const passInput = inputs.find(el =>
+  function findPasswordInput(root = document) {
+    const inputs = Array.from(root.querySelectorAll('input, textarea'));
+    return inputs.find(el =>
       /password|passphrase|phrase|code|restore/i.test(
-        `${el.name || ''} ${el.id || ''} ${el.placeholder || ''} ${el.ariaLabel || ''}`
+        `${el.name || ''} ${el.id || ''} ${el.placeholder || ''} ${el.getAttribute('aria-label') || ''}`
       )
     );
+  }
 
-    if (!passInput) return false;
+  function findRestoreButton(root = document) {
+    const btns = Array.from(root.querySelectorAll('button, input[type="submit"]'));
+    return btns.find(el => {
+      const t = (el.innerText || el.value || el.textContent || '').toString().trim();
+      return /загрузить настройки|load setting|restore|recover|load|submit|continue/i.test(t);
+    });
+  }
+
+  async function run() {
+    if (!location.pathname.startsWith('/settings')) return;
+
+    // Шаг 1: попробуем открыть раздел (только по button/a, не по div/span)
+    const openCandidates = Array.from(document.querySelectorAll('button, a'))
+      .filter(el => /cloud save|restore|backup|sync/i.test((el.textContent || '').trim()));
+
+    if (openCandidates.length) {
+      openCandidates[0].click();
+    }
+
+    // Шаг 2: ждём форму/инпут и кнопку
+    let passInput;
+    try {
+      // Ждём появления поля пароля
+      const start = Date.now();
+      while (!passInput && Date.now() - start < 8000) {
+        passInput = findPasswordInput();
+        if (!passInput) await new Promise(r => setTimeout(r, 250));
+      }
+    } catch {}
+
+    if (!passInput) return;
 
     passInput.focus();
     passInput.value = PASSPHRASE;
     fire(passInput, 'input');
     fire(passInput, 'change');
 
-    const buttons = Array.from(document.querySelectorAll('button, input[type="submit"]'));
-    const restoreBtn = buttons.find(el =>
-      /restore|recover|load|submit|continue/i.test((el.innerText || el.value || '') + ' ' + (el.name || '') + ' ' + (el.id || ''))
-    );
-
-    if (restoreBtn) {
-      restoreBtn.click();
-      return true;
-    }
-
-    const form = passInput.closest('form');
-    if (form) {
-      form.submit();
-      return true;
-    }
-
-    return false;
-  }
-
-  function run() {
-    if (!location.pathname.startsWith('/settings')) return;
-
-    openSection();
-    setTimeout(() => {
-      if (!fillAndRestore()) {
-        setTimeout(fillAndRestore, 1000);
+    // Ждём кнопку “Load Setting/Загрузить настройки”
+    const start2 = Date.now();
+    while (Date.now() - start2 < 8000) {
+      const btn = findRestoreButton();
+      if (btn && !btn.disabled) {
+        btn.click();
+        return;
       }
-    }, 1000);
+      await new Promise(r => setTimeout(r, 250));
+    }
   }
 
-  const timer = setInterval(() => {
+  // Ждём интерактивность, дальше запускаем run
+  const t = setInterval(() => {
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      clearInterval(t);
       run();
-      clearInterval(timer);
     }
-  }, 500);
+  }, 200);
 })();
