@@ -5,8 +5,8 @@
 // @version      1.6
 // @match        https://duckduckgo.com/settings*
 // @grant        none
-// @downloadURL  https://raw.githibusercontent.com/sgvrz-svc/repo/main/script/duckduckgo-cloud-save-auto-restore.user.js
-// @updateURL    https://raw.githibusercontent.com/sgvrz-svc/repo/main/script/duckduckgo-cloud-save-auto-restore.user.js
+// @downloadURL  https://raw.githibusercontent.com/sgvrz-svc/repo/main/script/duckduckgo.user.js
+// @updateURL    https://raw.githibusercontent.com/sgvrz-svc/repo/main/script/duckduckgo.user.js
 // @author       sgvrz-svc
 // ==/UserScript==
 (function () {
