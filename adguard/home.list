@@ -48,6 +48,7 @@
 ||ya.ru^$important,client='SU'
 ||yango.*^$important,client='SU'
 ||yandex.*^$important,client='SU'
+||yndx.*^$important,client='SU'
 #####
 ##### VK
 #####
