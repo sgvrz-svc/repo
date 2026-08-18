@@ -1,0 +1,61 @@
+#####
+##### Apps
+#####
+||*metric*^$important,client='SU'
+||*analytic*^$important,client='SU'
+||*firebase*^$important,client='SU'
+||*facebook*^$important,client='SU'
+||*crashlytics*^$important,client='SU'
+||*appsflyersdk*^$important,client='SU'
+||*app*adjust*^$important,client='SU'
+||*startup*mobile*^$important,client='SU'
+||*firebaseinstallations*^$important,client='SU'
+#####
+##### Apple
+#####
+||siri.apple.com^$important,client='SU'
+||experiments.apple.com^$important,client='SU'
+#####
+##### 2GIS
+#####
+@@||auth.2gis.*^$important,client='SU'
+@@||maps.2gis.*^$important,client='SU'
+@@||reviews.2gis.*^$important,client='SU'
+@@||jam.api.2gis.*^$important,client='SU'
+@@||hybrid.api.2gis.*^$important,client='SU'
+@@||options.api.2gis.*^$important,client='SU'
+@@||transport.api.2gis.*^$important,client='SU'
+||*.2gis.*^$client='SU'
+#####
+##### Yandex
+#####
+## Авторизация
+@@||passport.yandex.*^$important,client='SU'
+## Музыка
+@@||strm.yandex.*^$important,client='SU'
+@@||music.yandex.*^$important,client='SU'
+# @@||avatars.yandex.*^$important,client='SU'
+## Заправки
+@@||tanker.yandex.*^$important,client='SU'
+@@||tanker.s3.yandex.*^$important,client='SU'
+## Карты
+@@||api-maps.yandex.*^$important,client='SU'
+@@||proxy.mob.maps.yandex.*^$important,client='SU'
+@@||mobile-maps-sounds.s3.yandex.*^$important,client='SU'
+@@||mobile-maps-cursors.s3.yandex.*^$important,client='SU'
+@@||core-renderer-tiles.maps.yandex.*^$important,client='SU'
+##
+||ya.ru^$important,client='SU'
+||yango.*^$important,client='SU'
+||yandex.*^$important,client='SU'
+#####
+##### VK
+#####
+||vk.ru^$client='SU',important
+||vk.com^$client='SU',important
+||vkvideo.ru^$client='SU',important
+#####
+##### OK
+#####
+||ok.ru^$client='SU',important
+||okcdn.ru^$client='SU',important
