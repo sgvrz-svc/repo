@@ -2,107 +2,109 @@
 // @name         DuckDuckGo Cloud Save Auto Restore
 // @description  Auto-open Cloud Save restore on DuckDuckGo settings
 // @namespace    local
-// @version      1.6
+// @version      2.0
 // @match        https://duckduckgo.com/settings*
 // @grant        none
-// @downloadURL  https://raw.githibusercontent.com/sgvrz-svc/repo/main/script/duckduckgo.user.js
-// @updateURL    https://raw.githibusercontent.com/sgvrz-svc/repo/main/script/duckduckgo.user.js
+// @downloadURL  https://raw.githubusercontent.com/sgvrz-svc/repo/main/script/duckduckgo.user.js
+// @updateURL    https://raw.githubusercontent.com/sgvrz-svc/repo/main/script/duckduckgo.user.js
 // @author       sgvrz-svc
 // ==/UserScript==
+
 (function () {
   'use strict';
 
   const PASSPHRASE = '5n^3KiW$XGq&YPJX%Y@XaY#IbGBF$QusDiwdFMyhUf4DA9Tn@a!qCqItiwVNvylU#szmhPrv$FxKQA9WWu1$QWPzHvR3ss80M%gJ';
 
+  function setNativeValue(el, value) {
+    const desc = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value');
+    if (desc && desc.set) {
+      desc.set.call(el, value);
+    } else {
+      el.value = value;
+    }
+  }
+
   function fire(el, type) {
     el.dispatchEvent(new Event(type, { bubbles: true, cancelable: true }));
   }
 
-  function waitFor(selector, timeoutMs = 8000) {
-    return new Promise((resolve, reject) => {
-      const el = document.querySelector(selector);
-      if (el) return resolve(el);
-
-      const obs = new MutationObserver(() => {
-        const node = document.querySelector(selector);
-        if (node) {
-          obs.disconnect();
-          resolve(node);
-        }
-      });
-
-      obs.observe(document.documentElement, { childList: true, subtree: true });
-
-      setTimeout(() => {
-        obs.disconnect();
-        reject(new Error('timeout'));
-      }, timeoutMs);
-    });
+  function click(el) {
+    if (!el) return false;
+    el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+    el.click();
+    return true;
   }
 
-  function findPasswordInput(root = document) {
-    const inputs = Array.from(root.querySelectorAll('input, textarea'));
-    return inputs.find(el =>
-      /password|passphrase|phrase|code|restore/i.test(
+  function waitFor(selector, cb, timeout = 10000) {
+    const start = Date.now();
+    const timer = setInterval(() => {
+      const el = document.querySelector(selector);
+      if (el) {
+        clearInterval(timer);
+        cb(el);
+      } else if (Date.now() - start > timeout) {
+        clearInterval(timer);
+      }
+    }, 200);
+  }
+
+  function fillPassphrase() {
+    const input = Array.from(document.querySelectorAll('input, textarea')).find(el =>
+      /pass|phrase|code|cloud|restore|load/i.test(
         `${el.name || ''} ${el.id || ''} ${el.placeholder || ''} ${el.getAttribute('aria-label') || ''}`
       )
     );
+
+    if (!input) return false;
+
+    input.focus();
+    setNativeValue(input, PASSPHRASE);
+    fire(input, 'input');
+    fire(input, 'change');
+    fire(input, 'keyup');
+    return true;
   }
 
-  function findRestoreButton(root = document) {
-    const btns = Array.from(root.querySelectorAll('button, input[type="submit"]'));
-    return btns.find(el => {
-      const t = (el.innerText || el.value || el.textContent || '').toString().trim();
-      return /загрузить настройки|load setting|restore|recover|load|submit|continue/i.test(t);
-    });
+  function run() {
+    const loadBtn = document.querySelector('.js-cloudsave-load-btn');
+    if (loadBtn) {
+      click(loadBtn);
+    }
+
+    setTimeout(() => {
+      if (fillPassphrase()) {
+        setTimeout(() => {
+          const confirmBtn =
+            document.querySelector('.js-cloudsave-load-confirm-btn') ||
+            Array.from(document.querySelectorAll('span, button, a, input[type="button"], input[type="submit"]'))
+              .find(el => /load|restore|confirm|continue|submit/i.test((el.textContent || el.value || '').toLowerCase()));
+
+          if (confirmBtn) {
+            click(confirmBtn);
+          }
+        }, 500);
+      }
+    }, 500);
   }
 
-  async function run() {
+  function init() {
     if (!location.pathname.startsWith('/settings')) return;
+    run();
 
-    // Шаг 1: попробуем открыть раздел (только по button/a, не по div/span)
-    const openCandidates = Array.from(document.querySelectorAll('button, a'))
-      .filter(el => /cloud save|restore|backup|sync/i.test((el.textContent || '').trim()));
+    const observer = new MutationObserver(() => {
+      const inputVisible = Array.from(document.querySelectorAll('input, textarea')).some(el => {
+        const s = getComputedStyle(el);
+        return s.display !== 'none' && s.visibility !== 'hidden';
+      });
+      if (inputVisible) run();
+    });
 
-    if (openCandidates.length) {
-      openCandidates[0].click();
-    }
-
-    // Шаг 2: ждём форму/инпут и кнопку
-    let passInput;
-    try {
-      // Ждём появления поля пароля
-      const start = Date.now();
-      while (!passInput && Date.now() - start < 8000) {
-        passInput = findPasswordInput();
-        if (!passInput) await new Promise(r => setTimeout(r, 250));
-      }
-    } catch {}
-
-    if (!passInput) return;
-
-    passInput.focus();
-    passInput.value = PASSPHRASE;
-    fire(passInput, 'input');
-    fire(passInput, 'change');
-
-    // Ждём кнопку “Load Setting/Загрузить настройки”
-    const start2 = Date.now();
-    while (Date.now() - start2 < 8000) {
-      const btn = findRestoreButton();
-      if (btn && !btn.disabled) {
-        btn.click();
-        return;
-      }
-      await new Promise(r => setTimeout(r, 250));
-    }
+    observer.observe(document.body, { childList: true, subtree: true });
   }
 
-  // Ждём интерактивность, дальше запускаем run
-  const t = setInterval(() => {
-    if (document.readyState === 'complete' || document.readyState === 'interactive') {
-      clearInterval(t);
-      run();
-    }
-  }, 200);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
