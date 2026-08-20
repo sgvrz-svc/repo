@@ -21,7 +21,7 @@
 @@||auth.2gis.*^$important,client='SU'
 @@||maps.2gis.*^$important,client='SU'
 @@||reviews.2gis.*^$important,client='SU'
-@@||*jam*.2gis.*^$important,client='SU'
+@@||jam.api.2gis.*^$important,client='SU'
 @@||hybrid.api.2gis.*^$important,client='SU'
 @@||options.api.2gis.*^$important,client='SU'
 @@||transport.api.2gis.*^$important,client='SU'
