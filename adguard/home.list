@@ -45,8 +45,8 @@
 @@||mobile-maps-cursors.s3.yandex.*^$important,client='SU'
 @@||core-renderer-tiles.maps.yandex.*^$important,client='SU'
 ## Кинопоиск (оплата для BGR 18A-53)
-||plus.kinopoisk.*^$important,client='BGR 18A-53'
-||plus.yandex.*^$important,client='BGR 18A-53'
+||*plus.kinopoisk.*^$important,client='bgr-18a-53'
+||*plus.yandex.*^$important,client='bgr-18a-53'
 ##
 ||ya.*^$important,client='SU'
 ||yndx.*^$important,client='SU'
