@@ -45,10 +45,10 @@
 @@||mobile-maps-cursors.s3.yandex.*^$important,client='SU'
 @@||core-renderer-tiles.maps.yandex.*^$important,client='SU'
 ## Кинопоиск (оплата для BGR 18A-53)
-||*plus.kinopoisk.ru^$important,client='BGR-ZMR'
-||*plus.yandex.ru^$important,client='BGR-ZMR'
-||*api.ott.kinopoisk.ru^$important,client='BGR-ZMR'
-||*api.ott.yandex.ru^$important,client='BGR-ZMR'
+||plus.kinopoisk.ru^$important,client='BGR-ZMR'
+||plus.yandex.net^$important,client='BGR-ZMR'
+||ott.kinopoisk.ru^$important,client='BGR-ZMR'
+||ott.yandex.net^$important,client='BGR-ZMR'
 ##
 ||ya.*^$important,client='SU'
 ||yndx.*^$important,client='SU'
