@@ -47,7 +47,6 @@
 ## Кинопоиск (оплата для BGR 18A-53)
 ||plus.kinopoisk.ru^$important,client='BGR-ZMR'
 ||plus.yandex.net^$important,client='BGR-ZMR'
-||ott.kinopoisk.ru^$important,client='BGR-ZMR'
 ||ott.yandex.net^$important,client='BGR-ZMR'
 ##
 ||ya.*^$important,client='SU'
