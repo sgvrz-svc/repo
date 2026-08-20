@@ -47,6 +47,8 @@
 ## Кинопоиск (оплата для BGR 18A-53)
 ||*plus.kinopoisk.*^$important,client='bgr-18a-53'
 ||*plus.yandex.*^$important,client='bgr-18a-53'
+||*api.ott.kinopoisk.*^$important,client='bgr-18a-53'
+||*api.ott.yandex.*^$important,client='bgr-18a-53'
 ##
 ||ya.*^$important,client='SU'
 ||yndx.*^$important,client='SU'
