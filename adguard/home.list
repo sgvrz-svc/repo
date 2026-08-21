@@ -1,3 +1,4 @@
+@@||imap.*^$important,client='SU'
 #####
 ##### Apps
 #####
@@ -57,11 +58,22 @@
 #####
 ##### VK
 #####
-||vk.ru^$client='SU',important
-||vk.com^$client='SU',important
-||vkvideo.ru^$client='SU',important
+||vk.ru^$important,client='SU'
+||vk.com^$important,client='SU'
+||vkvideo.ru^$important,client='SU'
 #####
 ##### OK
 #####
-||ok.ru^$client='SU',important
-||okcdn.ru^$client='SU',important
+||ok.ru^$important,client='SU'
+||okcdn.ru^$important,client='SU'
+#####
+##### T-Bank
+#####
+||maps.starline.ru^$important,client='SU'
+||*features*.t-bank-app.ru^$important,client='SU'
+||*stories*.t-bank-app.ru^$important,client='SU'
+||*invest*.t-bank-app.ru^$important,client='SU'
+||*social*.t-bank-app.ru^$important,client='SU'
+||*business*.t-bank-app.ru^$important,client='SU'
+||*hotels*.t-bank-app.ru^$important,client='SU'
+||*shopping*t*bank-app.ru^$important,client='SU'
