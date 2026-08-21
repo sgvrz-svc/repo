@@ -53,6 +53,7 @@
 ||yndx.*^$important,client='SU'
 ||yandex.*^$important,client='SU'
 ||yango.*^$important,client='SU'
+||dzen.*^$important,client='SU'
 #####
 ##### VK
 #####
