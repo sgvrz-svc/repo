@@ -69,7 +69,6 @@
 #####
 ##### T-Bank
 #####
-||maps.starline.ru^$important,client='SU'
 ||*features*.t-bank-app.ru^$important,client='SU'
 ||*stories*.t-bank-app.ru^$important,client='SU'
 ||*invest*.t-bank-app.ru^$important,client='SU'
@@ -77,3 +76,7 @@
 ||*business*.t-bank-app.ru^$important,client='SU'
 ||*hotels*.t-bank-app.ru^$important,client='SU'
 ||*shopping*t*bank-app.ru^$important,client='SU'
+#####
+##### StarLine
+#####
+||maps.starline.ru^$important,client='SU'
