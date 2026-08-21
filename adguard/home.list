@@ -49,6 +49,8 @@
 ||plus.kinopoisk.ru^$important,client='BGR-ZMR'
 ||plus.yandex.net^$important,client='BGR-ZMR'
 ||ott.yandex.net^$important,client='BGR-ZMR'
+## Диск
+@@||disk.yandex.*^$important,client='SU'
 ##
 ||ya.*^$important,client='SU'
 ||yndx.*^$important,client='SU'
