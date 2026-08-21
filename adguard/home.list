@@ -69,13 +69,13 @@
 #####
 ##### T-Bank
 #####
-||*features*.t-bank-app.ru^$important,client='SU'
-||*stories*.t-bank-app.ru^$important,client='SU'
-||*invest*.t-bank-app.ru^$important,client='SU'
-||*social*.t-bank-app.ru^$important,client='SU'
-||*business*.t-bank-app.ru^$important,client='SU'
-||*hotels*.t-bank-app.ru^$important,client='SU'
-||*shopping*t*bank-app.ru^$important,client='SU'
+||*social*t*bank*^$important,client='SU'
+||*hotels*t*bank*^$important,client='SU'
+||*invest*t*bank*^$important,client='SU'
+||*stories*t*bank*^$important,client='SU'
+||*features*t*bank*^$important,client='SU'
+||*business*t*bank*^$important,client='SU'
+||*shopping*t*bank*^$important,client='SU'
 #####
 ##### StarLine
 #####
