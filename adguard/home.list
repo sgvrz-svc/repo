@@ -52,7 +52,10 @@
 ## Диск
 @@||disk.yandex.*^$important,client='SU'
 ## Переводчик
+@@||speller.yandex.*^$important,client='SU'
+@@||predictor.yandex.*^$important,client='SU'
 @@||translate.yandex.*^$important,client='SU'
+@@||dictionary.yandex.*^$important,client='SU'
 ##
 ||ya.*^$important,client='SU'
 ||yndx.*^$important,client='SU'
