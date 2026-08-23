@@ -57,22 +57,22 @@
 @@||translate.yandex.*^$important,client='SU'
 @@||dictionary.yandex.*^$important,client='SU'
 ##
-||ya.*^$important,client='SU'
-||yndx.*^$important,client='SU'
-||yandex.*^$important,client='SU'
-||yango.*^$important,client='SU'
-||dzen.*^$important,client='SU'
+# ||ya.*^$important,client='SU'
+# ||yndx.*^$important,client='SU'
+# ||yandex.*^$important,client='SU'
+# ||yango.*^$important,client='SU'
+# ||dzen.*^$important,client='SU'
 #####
 ##### VK
 #####
-||vk.ru^$important,client='SU'
-||vk.com^$important,client='SU'
-||vkvideo.ru^$important,client='SU'
+# ||vk.ru^$important,client='SU'
+# ||vk.com^$important,client='SU'
+# ||vkvideo.ru^$important,client='SU'
 #####
 ##### OK
 #####
-||ok.ru^$important,client='SU'
-||okcdn.ru^$important,client='SU'
+# ||ok.ru^$important,client='SU'
+# ||okcdn.ru^$important,client='SU'
 #####
 ##### T-Bank
 #####
