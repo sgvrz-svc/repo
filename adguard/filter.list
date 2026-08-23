@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 12.0
+! Version: 13.0
 
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
