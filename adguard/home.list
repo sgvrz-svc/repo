@@ -1,89 +1,89 @@
-@@||imap.*^$important,client='SU'
+@@||imap.*^$client='sgu'
 #####
 ##### Apps
 #####
-||*metric*^$important,client='SU'
-||*analytic*^$important,client='SU'
-||*firebase*^$important,client='SU'
-||*facebook*^$important,client='SU'
-||*crashlytics*^$important,client='SU'
-||*appsflyersdk*^$important,client='SU'
-||*app*adjust*^$important,client='SU'
-||*startup*mobile*^$important,client='SU'
-||*firebaseinstallations*^$important,client='SU'
+||*metric*^$client='sgu'
+||*analytic*^$client='sgu'
+||*firebase*^$client='sgu'
+||*facebook*^$client='sgu'
+||*crashlytics*^$client='sgu'
+||*appsflyersdk*^$client='sgu'
+||*app*adjust*^$client='sgu'
+||*startup*mobile*^$client='sgu'
+||*firebaseinstallations*^$client='sgu'
 #####
 ##### Apple
 #####
-||siri.apple.com^$important,client='SU'
-||experiments.apple.com^$important,client='SU'
+||siri.apple.com^$client='sgu'
+||experiments.apple.com^$client='sgu'
 #####
 ##### 2GIS
 #####
-@@||auth.2gis.*^$important,client='SU'
-@@||maps.2gis.*^$important,client='SU'
-@@||reviews.2gis.*^$important,client='SU'
-@@||jam.api.2gis.*^$important,client='SU'
-@@||hybrid.api.2gis.*^$important,client='SU'
-@@||options.api.2gis.*^$important,client='SU'
-@@||transport.api.2gis.*^$important,client='SU'
-||*.2gis.*^$client='SU'
+@@||auth.2gis.*^$client='sgu'
+@@||maps.2gis.*^$client='sgu'
+@@||reviews.2gis.*^$client='sgu'
+@@||jam.api.2gis.*^$client='sgu'
+@@||hybrid.api.2gis.*^$client='sgu'
+@@||options.api.2gis.*^$client='sgu'
+@@||transport.api.2gis.*^$client='sgu'
+||*.2gis.*^$client='sgu'
 #####
 ##### Yandex
 #####
 ## Авторизация
-@@||passport.yandex.*^$important,client='SU'
+@@||passport.yandex.*^$client='sgu'
 ## Музыка
-@@||strm.yandex.*^$important,client='SU'
-@@||music.yandex.*^$important,client='SU'
-# @@||avatars.yandex.*^$important,client='SU'
+@@||strm.yandex.*^$client='sgu'
+@@||music.yandex.*^$client='sgu'
+# @@||avatars.yandex.*^$client='sgu'
 ## Заправки
-@@||tanker.yandex.*^$important,client='SU'
-@@||tanker.s3.yandex.*^$important,client='SU'
+@@||tanker.yandex.*^$client='sgu'
+@@||tanker.s3.yandex.*^$client='sgu'
 ## Карты
-@@||api-maps.yandex.*^$important,client='SU'
-@@||proxy.mob.maps.yandex.*^$important,client='SU'
-@@||mobile-maps-sounds.s3.yandex.*^$important,client='SU'
-@@||mobile-maps-cursors.s3.yandex.*^$important,client='SU'
-@@||core-renderer-tiles.maps.yandex.*^$important,client='SU'
+@@||api-maps.yandex.*^$client='sgu'
+@@||proxy.mob.maps.yandex.*^$client='sgu'
+@@||mobile-maps-sounds.s3.yandex.*^$client='sgu'
+@@||mobile-maps-cursors.s3.yandex.*^$client='sgu'
+@@||core-renderer-tiles.maps.yandex.*^$client='sgu'
 ## Кинопоиск (оплата для BGR 18A-53)
-||plus.kinopoisk.ru^$important,client='BGR-ZMR'
-||plus.yandex.net^$important,client='BGR-ZMR'
-||ott.yandex.net^$important,client='BGR-ZMR'
+||plus.kinopoisk.ru^$client='BGR-ZMR'
+||plus.yandex.net^$client='BGR-ZMR'
+||ott.yandex.net^$client='BGR-ZMR'
 ## Диск
-@@||disk.yandex.*^$important,client='SU'
+@@||disk.yandex.*^$client='sgu'
 ## Переводчик
-@@||speller.yandex.*^$important,client='SU'
-@@||predictor.yandex.*^$important,client='SU'
-@@||translate.yandex.*^$important,client='SU'
-@@||dictionary.yandex.*^$important,client='SU'
+@@||speller.yandex.*^$client='sgu'
+@@||predictor.yandex.*^$client='sgu'
+@@||translate.yandex.*^$client='sgu'
+@@||dictionary.yandex.*^$client='sgu'
 ##
-# ||ya.*^$important,client='SU'
-# ||yndx.*^$important,client='SU'
-# ||yandex.*^$important,client='SU'
-# ||yango.*^$important,client='SU'
-# ||dzen.*^$important,client='SU'
+# ||ya.*^$client='sgu'
+# ||yndx.*^$client='sgu'
+# ||yandex.*^$client='sgu'
+# ||yango.*^$client='sgu'
+# ||dzen.*^$client='sgu'
 #####
 ##### VK
 #####
-# ||vk.ru^$important,client='SU'
-# ||vk.com^$important,client='SU'
-# ||vkvideo.ru^$important,client='SU'
+# ||vk.ru^$client='sgu'
+# ||vk.com^$client='sgu'
+# ||vkvideo.ru^$client='sgu'
 #####
 ##### OK
 #####
-# ||ok.ru^$important,client='SU'
-# ||okcdn.ru^$important,client='SU'
+# ||ok.ru^$client='sgu'
+# ||okcdn.ru^$client='sgu'
 #####
 ##### T-Bank
 #####
-||*social*t*bank*^$important,client='SU'
-||*hotels*t*bank*^$important,client='SU'
-||*invest*t*bank*^$important,client='SU'
-||*stories*t*bank*^$important,client='SU'
-||*features*t*bank*^$important,client='SU'
-||*business*t*bank*^$important,client='SU'
-||*shopping*t*bank*^$important,client='SU'
+||*social*t*bank*^$client='sgu'
+||*hotels*t*bank*^$client='sgu'
+||*invest*t*bank*^$client='sgu'
+||*stories*t*bank*^$client='sgu'
+||*features*t*bank*^$client='sgu'
+||*business*t*bank*^$client='sgu'
+||*shopping*t*bank*^$client='sgu'
 #####
 ##### StarLine
 #####
-||maps.starline.ru^$important,client='SU'
+||maps.starline.ru^$client='sgu'
