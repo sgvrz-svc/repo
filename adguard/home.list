@@ -11,11 +11,12 @@
 ||*app*adjust*^$client='SGU'
 ||*startup*mobile*^$client='SGU'
 ||*firebaseinstallations*^$client='SGU'
+||logly.*^$client='SGU'
 #####
 ##### Apple
 #####
-||siri.apple.com^$client='SGU'
-||experiments.apple.com^$client='SGU'
+||siri.apple.*^$client='SGU'
+||experiments.apple.*^$client='SGU'
 #####
 ##### 2GIS
 #####
