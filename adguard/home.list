@@ -50,6 +50,9 @@
 ||plus.kinopoisk.ru^$client='BGR-ZMR'
 ||plus.yandex.net^$client='BGR-ZMR'
 ||ott.yandex.net^$client='BGR-ZMR'
+## Браузер
+||uid.yandex.*^$client='SGU'
+||sec.api.browser.yandex.*^$client='SGU'
 ## Диск
 @@||disk.yandex.*^$client='SGU'
 ## Переводчик
@@ -58,22 +61,22 @@
 @@||translate.yandex.*^$client='SGU'
 @@||dictionary.yandex.*^$client='SGU'
 ##
-# ||ya.*^$client='SGU'
-# ||yndx.*^$client='SGU'
-# ||yandex.*^$client='SGU'
-# ||yango.*^$client='SGU'
-# ||dzen.*^$client='SGU'
+||ya.*^$client='SGU'
+||yndx.*^$client='SGU'
+||yandex.*^$client='SGU'
+||yango.*^$client='SGU'
+||dzen.*^$client='SGU'
 #####
 ##### VK
 #####
-# ||vk.ru^$client='SGU'
-# ||vk.com^$client='SGU'
-# ||vkvideo.ru^$client='SGU'
+||vk.ru^$client='SGU'
+||vk.com^$client='SGU'
+||vkvideo.ru^$client='SGU'
 #####
 ##### OK
 #####
-# ||ok.ru^$client='SGU'
-# ||okcdn.ru^$client='SGU'
+||ok.ru^$client='SGU'
+||okcdn.ru^$client='SGU'
 #####
 ##### T-Bank
 #####
@@ -88,3 +91,8 @@
 ##### StarLine
 #####
 ||maps.starline.ru^$client='SGU'
+#####
+##### MTS
+#####
+||goodok.mts.*^$client='SGU'
+||mtsopros.mts.*^$client='SGU'
