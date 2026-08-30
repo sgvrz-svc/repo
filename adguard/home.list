@@ -83,10 +83,7 @@
 #####
 ||*social*t*bank*^$client='SGU'
 ||*hotels*t*bank*^$client='SGU'
-||*invest*t*bank*^$client='SGU'
 ||*stories*t*bank*^$client='SGU'
-||*features*t*bank*^$client='SGU'
-||*business*t*bank*^$client='SGU'
 ||*shopping*t*bank*^$client='SGU'
 #####
 ##### StarLine
