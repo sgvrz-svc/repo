@@ -43,6 +43,7 @@
 ## Карты
 @@||api-maps.yandex.*^$client='SGU'
 @@||proxy.mob.maps.yandex.*^$client='SGU'
+@@||proxy.mob.maps.yango.*^$client='SGU'
 @@||mobile-maps-sounds.s3.yandex.*^$client='SGU'
 @@||mobile-maps-cursors.s3.yandex.*^$client='SGU'
 @@||core-renderer-tiles.maps.yandex.*^$client='SGU'
