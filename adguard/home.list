@@ -94,3 +94,4 @@
 #####
 ||goodok.mts.*^$client='SGU'
 ||mtsopros.mts.*^$client='SGU'
+||shop.mts.*^$client='SGU'
