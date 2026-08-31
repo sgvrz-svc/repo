@@ -29,56 +29,6 @@
 @@||transport.api.2gis.*^$client='SGU'
 ||*.2gis.*^$client='SGU'
 #####
-##### Yandex
-#####
-## Авторизация
-@@||passport.yandex.*^$client='SGU'
-## Музыка
-@@||strm.yandex.*^$client='SGU'
-@@||music.yandex.*^$client='SGU'
-# @@||avatars.yandex.*^$client='SGU'
-## Заправки
-@@||tanker.yandex.*^$client='SGU'
-@@||tanker.s3.yandex.*^$client='SGU'
-## Карты
-@@||api-maps.yandex.*^$client='SGU'
-@@||proxy.mob.maps.yandex.*^$client='SGU'
-@@||proxy.mob.maps.yango.*^$client='SGU'
-@@||mobile-maps-sounds.s3.yandex.*^$client='SGU'
-@@||mobile-maps-cursors.s3.yandex.*^$client='SGU'
-@@||core-renderer-tiles.maps.yandex.*^$client='SGU'
-## Кинопоиск (оплата для BGR 18A-53)
-||plus.kinopoisk.ru^$client='BGR-ZMR'
-||plus.yandex.net^$client='BGR-ZMR'
-||ott.yandex.net^$client='BGR-ZMR'
-## Браузер
-||uid.yandex.*^$client='SGU'
-||sec.api.browser.yandex.*^$client='SGU'
-## Диск
-@@||disk.yandex.*^$client='SGU'
-## Переводчик
-@@||speller.yandex.*^$client='SGU'
-@@||predictor.yandex.*^$client='SGU'
-@@||translate.yandex.*^$client='SGU'
-@@||dictionary.yandex.*^$client='SGU'
-##
-||ya.*^$client='SGU'
-||yndx.*^$client='SGU'
-||yandex.*^$client='SGU'
-||yango.*^$client='SGU'
-||dzen.*^$client='SGU'
-#####
-##### VK
-#####
-||vk.ru^$client='SGU'
-||vk.com^$client='SGU'
-||vkvideo.ru^$client='SGU'
-#####
-##### OK
-#####
-||ok.ru^$client='SGU'
-||okcdn.ru^$client='SGU'
-#####
 ##### T-Bank
 #####
 ||*social*t*bank*^$client='SGU'
@@ -89,9 +39,3 @@
 ##### StarLine
 #####
 ||maps.starline.ru^$client='SGU'
-#####
-##### MTS
-#####
-||goodok.mts.*^$client='SGU'
-||mtsopros.mts.*^$client='SGU'
-||shop.mts.*^$client='SGU'
