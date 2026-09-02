@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 13.0
+! Version: 15.0
 
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -41,6 +41,8 @@ speedtest.net###target-section
 speedtest.net##.MuiDialog-root, .MuiModal-root
 speedtest.net##.animate-bounce, .cursor-pointer
 speedtest.net##div[rel*="noopener"], [rel*="noreferrer"]
+speedtest.net##.eot-box-wrapper
+speedtest.net##.pure-u-custom-ad-skyscraper
 
 4pda.to##.menu-brands
 4pda.to##.f-frame
@@ -186,3 +188,16 @@ sign.ipasign.cc##.alert-info
 ##[id*="app-download" i]
 ##[id*="app_download" i]
 ##[id*="appdownload" i]
+
+2ip.*##.header
+2ip.*##.telegram-float-banner
+2ip.*##.footer
+2ip.*##.last-article
+2ip.*##.comments
+2ip.io##.main_faq
+
+gosuslugi.ru##.animation-canvas
+gosuslugi.ru##.links
+gosuslugi.ru##.footer-wrapper
+gosuslugi.ru##.useful-services
+gosuslugi.ru##.new-on-portal-container
