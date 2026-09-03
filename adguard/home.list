@@ -29,6 +29,7 @@
 # @@||transport.api.2gis.*^$client='SGU'
 # ||*.2gis.*^$client='SGU'
 ||*tips*2gis*^
+||*atlas*2gis*^
 ||*assets*2gis*^
 ||*market*2gis*^
 ||*stories*2gis*^
