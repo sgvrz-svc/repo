@@ -20,26 +20,26 @@
 #####
 ##### 2GIS
 #####
-# @@||auth.2gis.*^$client='SGU'
-# @@||maps.2gis.*^$client='SGU'
-# @@||reviews.2gis.*^$client='SGU'
-# @@||jam.api.2gis.*^$client='SGU'
-# @@||hybrid.api.2gis.*^$client='SGU'
-# @@||options.api.2gis.*^$client='SGU'
-# @@||transport.api.2gis.*^$client='SGU'
-# ||*.2gis.*^$client='SGU'
-||*tips*2gis*^
-||*keys*2gis*^
-||*atlas*2gis*^
-||*goods*2gis*^
-||*assets*2gis*^
-||*market*2gis*^
-||*weather*2gis*^
-||*stories*2gis*^
-||*suggest*2gis*^
-||*advisor*2gis*^
-||*delivery*2gis*^
-||*filekeeper*2gis*^
+@@||auth.2gis.*^$client='SGU'
+@@||maps.2gis.*^$client='SGU'
+@@||reviews.2gis.*^$client='SGU'
+@@||jam.api.2gis.*^$client='SGU'
+@@||hybrid.api.2gis.*^$client='SGU'
+@@||options.api.2gis.*^$client='SGU'
+@@||transport.api.2gis.*^$client='SGU'
+||*.2gis.*^$client='SGU'
+#  ||*tips*2gis*^
+#  ||*keys*2gis*^
+#  ||*atlas*2gis*^
+#  ||*goods*2gis*^
+#  ||*assets*2gis*^
+#  ||*market*2gis*^
+#  ||*weather*2gis*^
+#  ||*stories*2gis*^
+#  ||*suggest*2gis*^
+#  ||*advisor*2gis*^
+#  ||*delivery*2gis*^
+#  ||*filekeeper*2gis*^
 #####
 ##### T-Bank
 #####
