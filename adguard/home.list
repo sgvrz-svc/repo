@@ -1,17 +1,17 @@
-@@||imap.*^$client='SGU'
+@@||imap.*^
 #####
 ##### Apps
 #####
-||*metric*^$client='SGU'
-||*analytic*^$client='SGU'
-||*firebase*^$client='SGU'
-||*facebook*^$client='SGU'
-||*crashlytics*^$client='SGU'
-||*appsflyersdk*^$client='SGU'
-||*app*adjust*^$client='SGU'
-||*startup*mobile*^$client='SGU'
-||*firebaseinstallations*^$client='SGU'
-||logly.*^$client='SGU'
+||*metric*^
+||*analytic*^
+||*firebase*^
+||*facebook*^
+||*crashlytics*^
+||*appsflyersdk*^
+||*app*adjust*^
+||*startup*mobile*^
+||*firebaseinstallations*^
+||logly.*^
 #####
 ##### Apple
 #####
@@ -31,10 +31,10 @@
 #####
 ##### T-Bank
 #####
-||*social*t*bank*^$client='SGU'
-||*hotels*t*bank*^$client='SGU'
-||*stories*t*bank*^$client='SGU'
-||*shopping*t*bank*^$client='SGU'
+||*social*t*bank*^
+||*hotels*t*bank*^
+||*stories*t*bank*^
+||*shopping*t*bank*^
 #####
 ##### StarLine
 #####
