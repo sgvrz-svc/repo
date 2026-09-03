@@ -28,6 +28,9 @@
 @@||options.api.2gis.*^$client='SGU'
 @@||transport.api.2gis.*^$client='SGU'
 ||*.2gis.*^$client='SGU'
+||*suggest.api.2gis.*^
+||*market-backend.api.2gis.*^
+||*assets*2gis.*^
 #####
 ##### T-Bank
 #####
