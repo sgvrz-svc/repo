@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 15.6
+! Version: 15.7
  
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -127,74 +127,12 @@ sign.ipasign.cc##.modern-navbar
 sign.ipasign.cc##.modern-footer
 sign.ipasign.cc##.alert-info
 
-! Apple Smart App Banner
-##meta[name="apple-itunes-app"]
-
-! Варианты app-banner
-##[class*="app-banner" i]
-##[class*="app_banner" i]
-##[class*="appbanner" i]
-##[id*="app-banner" i]
-##[id*="app_banner" i]
-##[id*="appbanner" i]
-
-! Варианты smart-banner
-##[class*="smart-banner" i]
-##[class*="smart_banner" i]
-##[class*="smartbanner" i]
-##[id*="smart-banner" i]
-##[id*="smart_banner" i]
-##[id*="smartbanner" i]
-
-! Остальные типы баннеров
-##[class*="install-app" i]
-##[class*="install_app" i]
-##[class*="installapp" i]
-##[id*="install-app" i]
-##[id*="install_app" i]
-##[id*="installapp" i]
-
-##[class*="download-app" i]
-##[class*="download_app" i]
-##[class*="downloadapp" i]
-##[id*="download-app" i]
-##[id*="download_app" i]
-##[id*="downloadapp" i]
-
-##[class*="open-app" i]
-##[class*="open_app" i]
-##[class*="openapp" i]
-##[id*="open-app" i]
-##[id*="open_app" i]
-##[id*="openapp" i]
-
-##[class*="app-promo" i]
-##[class*="app_promo" i]
-##[class*="apppromo" i]
-##[id*="app-promo" i]
-##[id*="app_promo" i]
-##[id*="apppromo" i]
-
-##[class*="mobile-app" i]
-##[class*="mobile_app" i]
-##[class*="mobileapp" i]
-##[id*="mobile-app" i]
-##[id*="mobile_app" i]
-##[id*="mobileapp" i]
-
-##[class*="app-download" i]
-##[class*="app_download" i]
-##[class*="appdownload" i]
-##[id*="app-download" i]
-##[id*="app_download" i]
-##[id*="appdownload" i]
-
 2ip.*##.header
 2ip.*##.telegram-float-banner
 2ip.*##.footer
 2ip.*##.last-article
 2ip.*##.comments
-2ip.io##.main_faq
+2ip.*##.main_faq
 
 gosuslugi.ru##.preset
 gosuslugi.ru##.digest
