@@ -11,9 +11,10 @@
 ||*firebaseinstallations*^
 ||*logly.*^
 
-||siri.apple.*^$client='SGU'
-||experiments.apple.*^
-||app-site-association.cdn-apple.*^
+||*siri*apple*^$client='SGU'
+||*amp-api*apple*^
+||*experiments*apple*^
+||*app-site-association*apple*^
 
 ||*tips*2gis*^
 ||*atlas*2gis*^
