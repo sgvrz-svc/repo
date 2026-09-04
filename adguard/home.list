@@ -11,10 +11,8 @@
 ||*firebaseinstallations*^
 ||*logly.*^
 
-||*siri*apple*^$client='SGU'
-||*amp-api*apple*^
+||*siri*apple*^
 ||*experiments*apple*^
-||*app-site-association*apple*^
 
 ||*tips*2gis*^
 ||*atlas*2gis*^
@@ -35,4 +33,4 @@
 ||*prod*tinkoff*^
 ||*home*tinkoff*^
 
-||maps.starline.ru^$client='SGU'
+||maps.starline.ru^
