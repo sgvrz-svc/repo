@@ -1,7 +1,5 @@
 @@||imap.*^
-#####
-##### Apps
-#####
+
 ||*metric*^
 ||*analytic*^
 ||*firebase*^
@@ -11,38 +9,23 @@
 ||*app*adjust*^
 ||*startup*mobile*^
 ||*firebaseinstallations*^
-||logly.*^
-#####
-##### Apple
-#####
+||*logly.*^
+
 ||siri.apple.*^$client='SGU'
-||experiments.apple.*^$client='SGU'
-#####
-##### 2GIS
-#####
-@@||auth.2gis.*^$client='SGU'
-@@||maps.2gis.*^$client='SGU'
-@@||reviews.2gis.*^$client='SGU'
-@@||jam.api.2gis.*^$client='SGU'
-@@||hybrid.api.2gis.*^$client='SGU'
-@@||options.api.2gis.*^$client='SGU'
-@@||transport.api.2gis.*^$client='SGU'
-||*.2gis.*^$client='SGU'
-#  ||*tips*2gis*^
-#  ||*keys*2gis*^
-#  ||*atlas*2gis*^
-#  ||*goods*2gis*^
-#  ||*assets*2gis*^
-#  ||*market*2gis*^
-#  ||*weather*2gis*^
-#  ||*stories*2gis*^
-#  ||*suggest*2gis*^
-#  ||*advisor*2gis*^
-#  ||*delivery*2gis*^
-#  ||*filekeeper*2gis*^
-#####
-##### T-Bank
-#####
+||experiments.apple.*^
+||app-site-association.cdn-apple.*^
+
+||*tips*2gis*^
+||*atlas*2gis*^
+||*goods*2gis*^
+||*otello*2gis*^
+||*catalog*2gis*^
+||*weather*2gis*^
+||*stories*2gis*^
+||*advisor*2gis*^
+||*delivery*2gis*^
+||*favorites*2gis*^
+
 ||*auto*t*bank*^
 ||*social*t*bank*^
 ||*hotels*t*bank*^
@@ -50,7 +33,5 @@
 ||*shopping*t*bank*^
 ||*prod*tinkoff*^
 ||*home*tinkoff*^
-#####
-##### StarLine
-#####
+
 ||maps.starline.ru^$client='SGU'
