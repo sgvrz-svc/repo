@@ -23,4 +23,6 @@ DOMAIN-WILDCARD,*tugc*2gis*
 DOMAIN-WILDCARD,*photo*2gis*
 DOMAIN-WILDCARD,*review*2gis*
 DOMAIN-WILDCARD,*hybrid*2gis*
+DOMAIN-WILDCARD,*camera*2gis*
+DOMAIN-WILDCARD,*settings*2gis*
 DOMAIN-WILDCARD,*transport*2gis*
