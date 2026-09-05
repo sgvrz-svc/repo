@@ -33,6 +33,4 @@ DOMAIN-WILDCARD,*shopping*t*bank*
 DOMAIN-WILDCARD,*prod*tinkoff*
 DOMAIN-WILDCARD,*home*tinkoff*
 
-DOMAIN-WILDCARD,*geointernal*yandex*
-
 DOMAIN-WILDCARD,maps.starline.ru
