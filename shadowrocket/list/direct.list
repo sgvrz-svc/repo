@@ -1,23 +1,21 @@
-DOMAIN-WILDCARD,apple.com,DIRECT
-DOMAIN-WILDCARD,icloud.com,DIRECT
-DOMAIN-WILDCARD,mzstatic.com,DIRECT
+DOMAIN-WILDCARD,*.local
+DOMAIN-WILDCARD,*.lan
+DOMAIN-WILDCARD,*.backloop.dev
 
-DOMAIN-WILDCARD,starline.ru,DIRECT
+DOMAIN-WILDCARD,apple.com
+DOMAIN-WILDCARD,icloud.com
+DOMAIN-WILDCARD,mzstatic.com
+
+DOMAIN-WILDCARD,starline.ru
 								
-DOMAIN-WILDCARD,maps.yango.*,DIRECT
-DOMAIN-WILDCARD,maps.yandex.*,DIRECT
-DOMAIN-WILDCARD,strm.yandex.*,DIRECT
-DOMAIN-WILDCARD,music.yandex.*,DIRECT
-DOMAIN-WILDCARD,tanker.yandex.*,DIRECT
-DOMAIN-WILDCARD,tanker.s3.yandex.*,DIRECT
-DOMAIN-WILDCARD,passport.yandex.*,DIRECT
+DOMAIN-WILDCARD,*maps.yango*
+DOMAIN-WILDCARD,*maps.yandex*
+DOMAIN-WILDCARD,*strm.yandex*
+DOMAIN-WILDCARD,*music.yandex*
+DOMAIN-WILDCARD,*tanker.yandex*
+DOMAIN-WILDCARD,*tanker.s3.yandex*
+DOMAIN-WILDCARD,*passport.yandex*
 
-DOMAIN-WILDCARD,jam.api.2gis.*,DIRECT
-DOMAIN-WILDCARD,hybrid.api.2gis.*,DIRECT
-DOMAIN-WILDCARD,transport.api.2gis.*,DIRECT
-DOMAIN-WILDCARD,map-settings.api.2gis.*,DIRECT
-DOMAIN-WILDCARD,dangerous-cameras.api.2gis.*,DIRECT
-DOMAIN-WILDCARD,disk.2gis.*,DIRECT
-DOMAIN-WILDCARD,tugc.2gis.*,DIRECT
-DOMAIN-WILDCARD,maps.2gis.*,DIRECT
-DOMAIN-WILDCARD,uss.2gis.*,DIRECT
+DOMAIN-WILDCARD,*maps*2gis*
+DOMAIN-WILDCARD,*hybrid*2gis*
+DOMAIN-WILDCARD,*transport*2gis*
