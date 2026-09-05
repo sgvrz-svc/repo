@@ -18,5 +18,6 @@ DOMAIN-WILDCARD,*passport.yandex*
 
 DOMAIN-WILDCARD,*jam*2gis*
 DOMAIN-WILDCARD,*maps*2gis*
+DOMAIN-WILDCARD,*disk*2gis*
 DOMAIN-WILDCARD,*hybrid*2gis*
 DOMAIN-WILDCARD,*transport*2gis*
