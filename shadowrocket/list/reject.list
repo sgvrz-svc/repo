@@ -15,6 +15,7 @@ DOMAIN-WILDCARD,*experiments*apple*
 DOMAIN-WILDCARD,*tips*2gis*
 DOMAIN-WILDCARD,*atlas*2gis*
 DOMAIN-WILDCARD,*goods*2gis*
+DOMAIN-WILDCARD,*taksa*2gis*
 DOMAIN-WILDCARD,*otello*2gis*
 DOMAIN-WILDCARD,*social*2gis*
 DOMAIN-WILDCARD,*assets*2gis*
