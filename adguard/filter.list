@@ -98,21 +98,21 @@ auto.ru##div[class*="MatchApplicationBanner"]
 auto.ru##section
 auto.ru##[href="#card-vin-report"]
 
-ozon.ru##.vue-portal-target:has(span:contains(Поблагодарите продавца))
-ozon.ru##[data-widget="tileScroll"]
-ozon.ru##[data-widget="navigationSlider"]
-ozon.ru##[data-widget="islandSeparator"]
-ozon.ru##[data-widget="objectGrid1"]
-ozon.ru##[data-widget="footer"]
-ozon.ru##[data-widget="bigPromoCounterNavbar"]
-ozon.ru##[data-widget="navbar"] [data-replace-layout-path]
-ozon.ru##[data-widget="financeWidget"] > div:not(:first-of-type)
-ozon.ru##[data-widget="paginator"]:has(span:contains(/добавь/i))
-ozon.ru##[data-widget="paginator"]:has(span:contains(/эти товары/i))
-ozon.ru##[data-widget="paginator"]:has(span:contains(/вы смотрели/i))
-ozon.ru##[data-widget="paginator"]:has(span:contains(/подобра/i))
-ozon.ru##[data-widget="paginator"]:has(span:contains(/распродаж/i))
-ozon.ru##[data-widget="paginator"]:has(span:contains(/рекоменд/i))
+! ozon.ru##.vue-portal-target:has(span:contains(Поблагодарите продавца))
+! ozon.ru##[data-widget="tileScroll"]
+! ozon.ru##[data-widget="navigationSlider"]
+! ozon.ru##[data-widget="islandSeparator"]
+! ozon.ru##[data-widget="objectGrid1"]
+! ozon.ru##[data-widget="footer"]
+! ozon.ru##[data-widget="bigPromoCounterNavbar"]
+! ozon.ru##[data-widget="navbar"] [data-replace-layout-path]
+! ozon.ru##[data-widget="financeWidget"] > div:not(:first-of-type)
+! ozon.ru##[data-widget="paginator"]:has(span:contains(/добавь/i))
+! ozon.ru##[data-widget="paginator"]:has(span:contains(/эти товары/i))
+! ozon.ru##[data-widget="paginator"]:has(span:contains(/вы смотрели/i))
+! ozon.ru##[data-widget="paginator"]:has(span:contains(/подобра/i))
+! ozon.ru##[data-widget="paginator"]:has(span:contains(/распродаж/i))
+! ozon.ru##[data-widget="paginator"]:has(span:contains(/рекоменд/i))
 
 ! # cdek.ru##[href^="market://details?id="][class="ml-auto"]:upward(1)
 ! # cdek.ru##.smart-app-banner
