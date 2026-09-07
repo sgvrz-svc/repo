@@ -8,6 +8,7 @@ DOMAIN-WILDCARD,*app*adjust*
 DOMAIN-WILDCARD,*startup*mobile*
 DOMAIN-WILDCARD,*firebaseinstallations*
 DOMAIN-WILDCARD,*logly.*
+DOMAIN-WILDCARD,*app-ads-services*
 
 DOMAIN-WILDCARD,*siri*apple*
 DOMAIN-WILDCARD,*experiments*apple*
@@ -25,6 +26,24 @@ DOMAIN-WILDCARD,*stories*2gis*
 DOMAIN-WILDCARD,*advisor*2gis*
 DOMAIN-WILDCARD,*delivery*2gis*
 DOMAIN-WILDCARD,*favorites*2gis*
+DOMAIN-WILDCARD,*crrpay*
+DOMAIN-WILDCARD,*bss.2gis*
+DOMAIN-WILDCARD,*glp*2gis*
+DOMAIN-WILDCARD,*zond*2gis*
+DOMAIN-WILDCARD,*guide*2gis*
+DOMAIN-WILDCARD,*relay*2gis*
+DOMAIN-WILDCARD,*reward*2gis*
+DOMAIN-WILDCARD,*pusher*2gis*
+DOMAIN-WILDCARD,*profile*2gis*
+DOMAIN-WILDCARD,*suggest*2gis*
+DOMAIN-WILDCARD,*outsource*2gis*
+DOMAIN-WILDCARD,*clickstream*2gis*
+DOMAIN-WILDCARD,*passepartout*2gis*
+DOMAIN-WILDCARD,*market-backend*2gis*
+DOMAIN-WILDCARD,*filekeeper-vod.2gis*
+DOMAIN-WILDCARD,*user-action-insight*2gis*
+DOMAIN-WILDCARD,*2gis*simble*
+DOMAIN-WILDCARD,*flexy-drive*
 
 DOMAIN-WILDCARD,*auto*t*bank*
 DOMAIN-WILDCARD,*social*t*bank*
