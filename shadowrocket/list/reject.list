@@ -19,7 +19,6 @@ DOMAIN-WILDCARD,*goods*2gis*
 DOMAIN-WILDCARD,*taksa*2gis*
 DOMAIN-WILDCARD,*otello*2gis*
 DOMAIN-WILDCARD,*social*2gis*
-DOMAIN-WILDCARD,*assets*2gis*
 DOMAIN-WILDCARD,*catalog*2gis*
 DOMAIN-WILDCARD,*weather*2gis*
 DOMAIN-WILDCARD,*stories*2gis*
@@ -52,5 +51,7 @@ DOMAIN-WILDCARD,*stories*t*bank*
 DOMAIN-WILDCARD,*shopping*t*bank*
 DOMAIN-WILDCARD,*prod*tinkoff*
 DOMAIN-WILDCARD,*home*tinkoff*
+
+DOMAIN-WILDCARD,*kaspersky*
 
 DOMAIN-WILDCARD,maps.starline.ru

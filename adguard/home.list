@@ -1,13 +1,14 @@
-||*metric*^
-||*analytic*^
-||*firebase*^
-||*facebook*^
-||*crashlytics*^
-||*appsflyersdk*^
-||*app*adjust*^
-||*startup*mobile*^
-||*firebaseinstallations*^
-||*logly.*^
+||*metric*^$important
+||*analytic*^$important
+||*firebase*^$important
+||*facebook*^$important
+||*crashlytics*^$important
+||*appsflyersdk*^$important
+||*adjust.*^$important
+||*startup*mobile*^$important
+||*firebaseinstallations*^$important
+||*logly.*^$important
+||*app-ads-services*^$important
 
 ||*siri*apple*^
 ||*experiments*apple*^
@@ -18,7 +19,6 @@
 ||*taksa*2gis*^
 ||*otello*2gis*^
 ||*social*2gis*^
-||*assets*2gis*^
 ||*catalog*2gis*^
 ||*weather*2gis*^
 ||*stories*2gis*^
@@ -51,5 +51,7 @@
 ||*shopping*t*bank*^
 ||*prod*tinkoff*^
 ||*home*tinkoff*^
+
+||*kaspersky*^
 
 ||maps.starline.ru^
