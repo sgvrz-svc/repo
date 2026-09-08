@@ -1,7 +1,3 @@
-DOMAIN-WILDCARD,*.local
-DOMAIN-WILDCARD,*.lan
-DOMAIN-WILDCARD,*.backloop.dev
-
 DOMAIN-WILDCARD,apple.com
 DOMAIN-WILDCARD,icloud.com
 DOMAIN-WILDCARD,mzstatic.com
