@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 15.8
+! Version: 16.0
  
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -142,3 +142,10 @@ gosuslugi.ru##.footer-wrapper
 gosuslugi.ru##.useful-services
 gosuslugi.ru##.animation-canvas
 gosuslugi.ru##.new-on-portal-container
+
+myslo.ru##footer
+myslo.ru##[id*="preloadcomment"]
+myslo.ru##.content-afisha-top-5
+myslo.ru###news_upload_content
+myslo.ru##.pressaBig
+myslo.ru##.lenta-blog-slider
