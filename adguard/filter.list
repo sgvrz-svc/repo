@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 16.1
+! Version: 16.2
  
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -156,3 +156,5 @@ myslo.ru##.main-scroll-to-top
 myslo.ru##.preloadmainpage
 myslo.ru##.additionalcolumn
 myslo.ru##.list-on-main
+myslo.ru##.main-post, .main-post-right
+myslo.ru##.MainMenuRazdel
