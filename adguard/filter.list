@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 16.2
+! Version: 16.3
  
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -14,7 +14,9 @@ ya.*,yandex.*##.RelatedBottom
 ya.*,yandex.*###gptTutorEntry
 ya.*,yandex.*##div[style*="z-index: 9999999"]
 
-! ##footer
+##footer
+##.footer
+###footer
 ##[class*="layout-module-footer" i]
 ##[class*="gdprpanel-module-root" i]
 ##[class*="underthesun-module-root" i]
@@ -23,6 +25,8 @@ ya.*,yandex.*##div[style*="z-index: 9999999"]
 ###ageVerificationOverlay
 ###age-verification-wrapper
 ###age-verification-container
+##meta[name="apple-itunes-app"]
+##meta[property="apple-itunes-app"]
 
 drive2.ru##.l-top
 drive2.ru##.l-footer
