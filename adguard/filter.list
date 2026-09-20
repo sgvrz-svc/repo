@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 18.0
+! Version: 18.1
  
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -17,18 +17,18 @@ ya.*,yandex.*##div[style*="z-index: 9999999"]
 ##footer
 ##.footer
 ###footer
-@@||sgvrz.net#?#footer
-@@||sgvrz.net#?#.footer
-@@||sgvrz.net#?#\#footer
-@@||it-garage.pro#?#footer
-@@||it-garage.pro#?#.footer
-@@||it-garage.pro#?#\#footer
-@@||cloudrix.ru#?#footer
-@@||cloudrix.ru#?#.footer
-@@||cloudrix.ru#?#\#footer
-@@||datacheap.ru#?#footer
-@@||datacheap.ru#?#.footer
-@@||datacheap.ru#?#\#footer
+sgvrz.net#@#footer
+sgvrz.net#@#.footer
+sgvrz.net#@#\#footer
+it-garage.pro#@#footer
+it-garage.pro#@#.footer
+it-garage.pro#@#\#footer
+cloudrix.ru#@#footer
+cloudrix.ru#@#.footer
+cloudrix.ru#@#\#footer
+datacheap.ru#@#footer
+datacheap.ru#@#.footer
+datacheap.ru#@#\#footer
 
 ##[class*="layout-module-footer" i]
 ##[class*="gdprpanel-module-root" i]
