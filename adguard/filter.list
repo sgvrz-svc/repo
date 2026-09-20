@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 20.0
+! Version: 20.1
 
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -20,8 +20,16 @@ it-garage.pro#@#footer,.footer,#footer
 cloudrix.ru#@#footer,.footer,#footer
 datacheap.ru#@#footer,.footer,#footer
 
-##[name="apple-itunes-app"]
-##[property="apple-itunes-app"]
+##.smartbanner
+##.smart-banner
+##.smart-app-banner
+##.app-banner
+##.appbanner
+##.native-app-banner
+##[data-testid="app-banner" i]
+##[class*="appbanner" i]
+##[name="apple-itunes-app" i]
+##[property="apple-itunes-app" i]
 ##[class*="layout-module-footer" i]
 ##[class*="gdprpanel-module-root" i]
 ##[class*="underthesun-module-root" i]
