@@ -1,15 +1,17 @@
 ! Title: SGVRZ Filter
-! Version: 20.0
+! Version: 20.1
  
 *##+js(remove-element, meta[name="apple-itunes-app"])
 *##+js(remove-element, meta[name="apple-itunes-app-anywrapper"])
 *##+js(remove-element, link[rel="app-argument"])
-##[class*="smartbanner" i]
-##[id*="smartbanner" i]
-##[class*="app-banner" i]
-##[class*="open-in-app" i]
-##[class*="app-prompt" i]
-##div[class*="Banner"][class*="app" i]
+*##+js(abort-on-property-read, SmartBanner)
+*##+js(abort-on-property-read, AppBanner)
+##[class*="smartbanner" i] { display: none !important; visibility: hidden !important; height: 0 !important; }
+##[id*="smartbanner" i] { display: none !important; visibility: hidden !important; height: 0 !important; }
+##[class*="app-banner" i] { display: none !important; visibility: hidden !important; height: 0 !important; }
+##[class*="open-in-app" i] { display: none !important; visibility: hidden !important; height: 0 !important; }
+##[class*="app-prompt" i] { display: none !important; visibility: hidden !important; height: 0 !important; }
+##div[class*="Banner" i][class*="app" i] { display: none !important; visibility: hidden !important; height: 0 !important; }
 
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
