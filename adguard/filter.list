@@ -1,19 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 21.2
-
-||://cdn-apple.com^
-||://apple.com^
-||app-measurement.com^
-
-! === ТОТАЛЬНОЕ ВЫЖИГАНИЕ БАННЕРОВ НА ВСЕХ САЙТАХ ===
-##[class*="smartbanner" i], #[id*="smartbanner" i], [class*="app-banner" i], [class*="open-in-app" i], [class*="app-prompt" i], [class*="banner-app" i], [id*="banner-app" i], [class*="upsell" i], [class*="modal-app" i], div[class*="Banner" i][class*="app" i], amp-app-banner, x-smartbanner, .amp-app-banner, .AppSelector, .get-app-ui, .m-app-banner, .mobile-app-prompt, .js-shared-mobile-app-banner { display: none !important; height: 0 !important; max-height: 0 !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; position: absolute !important; top: -9999px !important; }
-
-! === СБРОС СДВИГА СТРАНИЦЫ ИЗ-ЗА ВСПЛЫВАЮЩИХ ОВЕРЛЕЕВ ===
-html, body { margin-top: 0 !important; padding-top: 0 !important; top: 0 !important; position: static !important; }
-
-##[class*="smartbanner" i], #[id*="smartbanner" i], [class*="app-banner" i], [class*="open-in-app" i], [class*="app-prompt" i], [class*="banner-app" i], [id*="banner-app" i] { display: none !important; height: 0 !important; visibility: hidden !important; }
-##amp-app-banner, x-smartbanner, .amp-app-banner, .AppSelector, .get-app-ui, .m-app-banner, .mobile-app-prompt { display: none !important; }
-##div[class*="Banner" i][class*="app" i] { display: none !important; }
+! Version: 20.0
 
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -34,6 +20,8 @@ it-garage.pro#@#footer,.footer,#footer
 cloudrix.ru#@#footer,.footer,#footer
 datacheap.ru#@#footer,.footer,#footer
 
+##[name="apple-itunes-app"]
+##[property="apple-itunes-app"]
 ##[class*="layout-module-footer" i]
 ##[class*="gdprpanel-module-root" i]
 ##[class*="underthesun-module-root" i]
@@ -42,8 +30,6 @@ datacheap.ru#@#footer,.footer,#footer
 ###ageVerificationOverlay
 ###age-verification-wrapper
 ###age-verification-container
-##meta[name="apple-itunes-app"]
-##meta[property="apple-itunes-app"]
 
 drive2.ru##.l-top
 drive2.ru##.l-footer
