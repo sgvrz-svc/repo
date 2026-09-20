@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 20.3
+! Version: 20.4
 
 duckduckgo.com##.set-browser-promo
 duckduckgo.com##.set-browser-promo-mobile
@@ -183,6 +183,7 @@ myslo.ru##.list-on-main
 myslo.ru##.main-post, .main-post-right
 myslo.ru##.MainMenuRazdel
 myslo.ru##.banner285x200
+myslo.ru##.fon-last-news
 
 datacheap.ru##.main_slider
 datacheap.ru###fancybox-container-1
