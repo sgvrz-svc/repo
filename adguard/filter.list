@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 18.2
+! Version: 18.5
  
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -14,21 +14,11 @@ ya.*,yandex.*##.RelatedBottom
 ya.*,yandex.*###gptTutorEntry
 ya.*,yandex.*##div[style*="z-index: 9999999"]
 
-##footer
-##.footer
-###footer
-sgvrz.net#@#footer
-sgvrz.net#@#.footer
-sgvrz.net#@##footer
-it-garage.pro#@#footer
-it-garage.pro#@#.footer
-it-garage.pro#@##footer
-cloudrix.ru#@#footer
-cloudrix.ru#@#.footer
-cloudrix.ru#@##footer
-datacheap.ru#@#footer
-datacheap.ru#@#.footer
-datacheap.ru#@##footer
+##footer,.footer,#footer
+sgvrz.net#@#footer,.footer,#footer
+it-garage.pro#@#footer,.footer,#footer
+cloudrix.ru#@#footer,.footer,#footer
+datacheap.ru#@#footer,.footer,#footer
 
 ##[class*="layout-module-footer" i]
 ##[class*="gdprpanel-module-root" i]
@@ -66,6 +56,8 @@ speedtest.net##.pure-u-custom-ad-skyscraper
 4pda.to###logostrip
 4pda.to###navstrip
 4pda.to###fo_-1
+4pda.to##.social-icons
+4pda.to##.copyright
 
 avito.ru##[data-scroll-blocker]
 avito.ru##[data-marker="footer"]
