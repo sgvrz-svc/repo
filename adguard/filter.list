@@ -1,17 +1,16 @@
 ! Title: SGVRZ Filter
-! Version: 20.1
+! Version: 21.0
  
 *##+js(remove-element, meta[name="apple-itunes-app"])
 *##+js(remove-element, meta[name="apple-itunes-app-anywrapper"])
 *##+js(remove-element, link[rel="app-argument"])
 *##+js(abort-on-property-read, SmartBanner)
 *##+js(abort-on-property-read, AppBanner)
-##[class*="smartbanner" i] { display: none !important; visibility: hidden !important; height: 0 !important; }
-##[id*="smartbanner" i] { display: none !important; visibility: hidden !important; height: 0 !important; }
-##[class*="app-banner" i] { display: none !important; visibility: hidden !important; height: 0 !important; }
-##[class*="open-in-app" i] { display: none !important; visibility: hidden !important; height: 0 !important; }
-##[class*="app-prompt" i] { display: none !important; visibility: hidden !important; height: 0 !important; }
-##div[class*="Banner" i][class*="app" i] { display: none !important; visibility: hidden !important; height: 0 !important; }
+*##+js(set, IsMobileApp, false)
+*##+js(create-element-filter, div[class*="smartbanner"])
+*##+js(create-element-filter, div[class*="app-banner"])
+##[class*="smartbanner" i], #[id*="smartbanner" i], [class*="app-banner" i], [class*="open-in-app" i], [class*="app-prompt" i], [class*="banner-app" i], [id*="banner-app" i], [class*="upsell" i], [class*="modal-app" i], div[class*="Banner" i][class*="app" i], amp-app-banner, x-smartbanner, .amp-app-banner, .AppSelector, .get-app-ui, .m-app-banner, .mobile-app-prompt { display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; height: 0 !important; max-height: 0 !important; margin: 0 !important; padding: 0 !important; transform: scale(0) !important; position: absolute !important; top: -9999px !important; }
+html, body { margin-top: 0 !important; padding-top: 0 !important; top: 0 !important; position: static !important; overflow: auto !important; }
 
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
