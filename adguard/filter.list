@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 18.5
+! Version: 19.0
  
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -12,7 +12,7 @@ ya.*,yandex.*##.footer
 ya.*,yandex.*##.tech-info
 ya.*,yandex.*##.RelatedBottom
 ya.*,yandex.*###gptTutorEntry
-ya.*,yandex.*##div[style*="z-index: 9999999"]
+ya.*,yandex.*##[style*="z-index: 9999999"]
 
 ##footer,.footer,#footer
 sgvrz.net#@#footer,.footer,#footer
@@ -41,6 +41,7 @@ drive2.ru##[data-slot="drom.root"]
 drive2.ru##[data-slot="post.parts"]
 drive2.ru##[data-slot="suitable-tires.list"]:upward(1)
 drive2.ru##div:has(> style)
+drive2.ru##.rossko-teaser
 
 speedtest.net##header
 speedtest.net##footer
@@ -75,12 +76,14 @@ avito.ru##[data-marker="social-accounts-card"]:upward(1)
 ! avito.ru##[data-marker="portals-container"]
 avito.ru##[role="link"]
 
-drom.ru##div[data-ftid="component_premium-carousel"]
-drom.ru##div[data-ftid="home-auto-block"]
-drom.ru##div[data-ftid="autostory-widget"]
-drom.ru##div[data-ftid="index_forum-widget"]
-drom.ru##div[data-ftid="index_blogs"]
+drom.ru##[data-ftid="component_premium-carousel"]
+drom.ru##[data-ftid="home-auto-block"]
+drom.ru##[data-ftid="autostory-widget"]
+drom.ru##[data-ftid="index_forum-widget"]
+drom.ru##[data-ftid="index_blogs"]
+drom.ru##[data-footer]
 drom.ru###vote
+
 
 auto.ru##div[data-seo="listing-teaser"]
 auto.ru##div[class*="indexheader__tabs" i]
