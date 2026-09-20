@@ -1,6 +1,16 @@
 ! Title: SGVRZ Filter
-! Version: 21.1
- 
+! Version: 21.2
+
+||://cdn-apple.com^
+||://apple.com^
+||app-measurement.com^
+
+! === ТОТАЛЬНОЕ ВЫЖИГАНИЕ БАННЕРОВ НА ВСЕХ САЙТАХ ===
+##[class*="smartbanner" i], #[id*="smartbanner" i], [class*="app-banner" i], [class*="open-in-app" i], [class*="app-prompt" i], [class*="banner-app" i], [id*="banner-app" i], [class*="upsell" i], [class*="modal-app" i], div[class*="Banner" i][class*="app" i], amp-app-banner, x-smartbanner, .amp-app-banner, .AppSelector, .get-app-ui, .m-app-banner, .mobile-app-prompt, .js-shared-mobile-app-banner { display: none !important; height: 0 !important; max-height: 0 !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; position: absolute !important; top: -9999px !important; }
+
+! === СБРОС СДВИГА СТРАНИЦЫ ИЗ-ЗА ВСПЛЫВАЮЩИХ ОВЕРЛЕЕВ ===
+html, body { margin-top: 0 !important; padding-top: 0 !important; top: 0 !important; position: static !important; }
+
 ##[class*="smartbanner" i], #[id*="smartbanner" i], [class*="app-banner" i], [class*="open-in-app" i], [class*="app-prompt" i], [class*="banner-app" i], [id*="banner-app" i] { display: none !important; height: 0 !important; visibility: hidden !important; }
 ##amp-app-banner, x-smartbanner, .amp-app-banner, .AppSelector, .get-app-ui, .m-app-banner, .mobile-app-prompt { display: none !important; }
 ##div[class*="Banner" i][class*="app" i] { display: none !important; }
