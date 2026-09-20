@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 17.0
+! Version: 18.0
  
 duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
@@ -17,6 +17,19 @@ ya.*,yandex.*##div[style*="z-index: 9999999"]
 ##footer
 ##.footer
 ###footer
+@@||sgvrz.net#?#footer
+@@||sgvrz.net#?#.footer
+@@||sgvrz.net#?#\#footer
+@@||it-garage.pro#?#footer
+@@||it-garage.pro#?#.footer
+@@||it-garage.pro#?#\#footer
+@@||cloudrix.ru#?#footer
+@@||cloudrix.ru#?#.footer
+@@||cloudrix.ru#?#\#footer
+@@||datacheap.ru#?#footer
+@@||datacheap.ru#?#.footer
+@@||datacheap.ru#?#\#footer
+
 ##[class*="layout-module-footer" i]
 ##[class*="gdprpanel-module-root" i]
 ##[class*="underthesun-module-root" i]
@@ -165,3 +178,4 @@ myslo.ru##.MainMenuRazdel
 myslo.ru##.banner285x200
 
 datacheap.ru##.main_slider
+datacheap.ru###fancybox-container-1
