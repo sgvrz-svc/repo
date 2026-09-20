@@ -1,11 +1,16 @@
 ! Title: SGVRZ Filter
-! Version: 20.1
+! Version: 20.2
 
-duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
 duckduckgo.com##.set-browser-promo
 duckduckgo.com##.set-browser-promo-mobile
 duckduckgo.com##.footer
 duckduckgo.com###features
+duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
+duckduckgo.com##div[class*="minimal-hero-module"]
+duckduckgo.com##div[class*="home-customizer-module"]
+duckduckgo.com##div[class*="pull-tab-scroll-button-module"]
+duckduckgo.com###home-below-the-fold
+
  
 ya.*,yandex.*##.feed
 ya.*,yandex.*##.footer
