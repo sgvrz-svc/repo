@@ -1,6 +1,5 @@
 DOMAIN-SUFFIX,starline.ru
 
-DOMAIN-WILDCARD,*maps.yango*
 DOMAIN-WILDCARD,*maps.yandex*
 DOMAIN-WILDCARD,*strm.yandex*
 DOMAIN-WILDCARD,*music.yandex*
