@@ -1,10 +1,12 @@
+
 DOMAIN-WILDCARD,*metric*
+DOMAIN-WILDCARD,*statist*
 DOMAIN-WILDCARD,*analytic*
 DOMAIN-WILDCARD,*firebase*
 DOMAIN-WILDCARD,*facebook*
 DOMAIN-WILDCARD,*crashlytics*
 DOMAIN-WILDCARD,*appsflyersdk*
-DOMAIN-WILDCARD,*app*adjust*
+DOMAIN-WILDCARD,*adjust*
 DOMAIN-WILDCARD,*startup*mobile*
 DOMAIN-WILDCARD,*firebaseinstallations*
 DOMAIN-WILDCARD,*logly.*
