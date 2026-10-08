@@ -6,13 +6,15 @@
 ||*facebook*^$important
 ||*crashlytics*^$important
 ||*appsflyersdk*^$important
-||*adjust.*^$important
+||*adjust*^$important
 ||*startup*mobile*^$important
 ||*firebaseinstallations*^$important
-||*logly.*^$important
+||*logly*^$important
 ||*app-ads-services*^$important
 ||*bugsnag*^$important
 ||*uxfeedback*^$important
+||*ads*^$important
+||*metrika*^$important
 
 ||*siri*apple*^
 ||*experiments*apple*^

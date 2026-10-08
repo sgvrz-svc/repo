@@ -9,10 +9,12 @@ DOMAIN-WILDCARD,*appsflyersdk*
 DOMAIN-WILDCARD,*adjust*
 DOMAIN-WILDCARD,*startup*mobile*
 DOMAIN-WILDCARD,*firebaseinstallations*
-DOMAIN-WILDCARD,*logly.*
+DOMAIN-WILDCARD,*logly*
 DOMAIN-WILDCARD,*app-ads-services*
 DOMAIN-WILDCARD,*bugsnag*
 DOMAIN-WILDCARD,*uxfeedback*
+DOMAIN-WILDCARD,*ads*
+DOMAIN-WILDCARD,*metrika*
 
 DOMAIN-WILDCARD,*siri*apple*
 DOMAIN-WILDCARD,*experiments*apple*
