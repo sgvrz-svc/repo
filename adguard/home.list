@@ -11,6 +11,8 @@
 ||*firebaseinstallations*^$important
 ||*logly.*^$important
 ||*app-ads-services*^$important
+||*bugsnag*^$important
+||*uxfeedback*^$important
 
 ||*siri*apple*^
 ||*experiments*apple*^
