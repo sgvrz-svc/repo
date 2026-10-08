@@ -15,6 +15,10 @@ DOMAIN-WILDCARD,*bugsnag*
 DOMAIN-WILDCARD,*uxfeedback*
 DOMAIN-WILDCARD,*ads*
 DOMAIN-WILDCARD,*metrika*
+DOMAIN-WILDCARD,*events*yandex*
+DOMAIN-WILDCARD,*iot.yandex*
+DOMAIN-WILDCARD,*app-measurement*
+DOMAIN-WILDCARD,*appsflyer*
 
 DOMAIN-WILDCARD,*siri*apple*
 DOMAIN-WILDCARD,*experiments*apple*
