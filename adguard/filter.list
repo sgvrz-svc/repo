@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 20.6
+! Version: 20.7
 
 duckduckgo.com##.set-browser-promo
 duckduckgo.com##.set-browser-promo-mobile
@@ -96,6 +96,8 @@ drom.ru##[data-ftid="index_blogs"]
 drom.ru##[data-ftid="index_farpost-block_disk"]
 drom.ru##[data-ftid="index_farpost-block_tire"]
 drom.ru##[data-ftid="index_farpost-block_board"]
+drom.ru##[data-ftid="index-autosport"]
+drom.ru##[data-ftid="index_travels"]
 drom.ru##[data-footer]
 drom.ru###vote
 
