@@ -19,6 +19,7 @@ DOMAIN-WILDCARD,*events*yandex*
 DOMAIN-WILDCARD,*iot.yandex*
 DOMAIN-WILDCARD,*app-measurement*
 DOMAIN-WILDCARD,*appsflyer*
+DOMAIN-WILDCARD,*log*yandex*
 
 DOMAIN-WILDCARD,*siri*apple*
 DOMAIN-WILDCARD,*experiments*apple*
