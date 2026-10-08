@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 20.7
+! Version: 20.8
 
 duckduckgo.com##.set-browser-promo
 duckduckgo.com##.set-browser-promo-mobile
@@ -88,6 +88,7 @@ avito.ru##[data-marker="social-accounts-card"]:upward(1)
 ! avito.ru##[data-marker="portals-container"]
 avito.ru##[role="link"]
 
+drom.ru##[id*="center_main_before_reviews"]
 drom.ru##[data-ftid="component_premium-carousel"]
 drom.ru##[data-ftid="home-auto-block"]
 drom.ru##[data-ftid="autostory-widget"]
