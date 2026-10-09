@@ -22,7 +22,10 @@ DOMAIN-WILDCARD,*appsflyer*
 DOMAIN-WILDCARD,*log*yandex*
 DOMAIN-WILDCARD,*naydex.*
 DOMAIN-WILDCARD,*csp.yandex.*
-DOMAIN-WILDCARD,*icmp0.ru
+DOMAIN-WILDCARD,*icmp0*
+DOMAIN-WILDCARD,*yb.yandex.*
+DOMAIN-WILDCARD,*plet.yandex.*
+DOMAIN-WILDCARD,*yabs.yandex.*
 
 DOMAIN-WILDCARD,*siri*apple*
 DOMAIN-WILDCARD,*experiments*apple*
