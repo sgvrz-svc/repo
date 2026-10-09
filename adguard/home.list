@@ -20,6 +20,9 @@
 ||*app-measurement*^$important
 ||*appsflyer*^$important
 ||*log*yandex*^$important
+||*naydex.*^$important
+||*csp.yandex.*^$important
+||*icmp0.ru^$important
 
 ||*siri*apple*^
 ||*experiments*apple*^
