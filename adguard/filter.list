@@ -17,6 +17,26 @@ ya.*,yandex.*##.tech-info
 ya.*,yandex.*##.RelatedBottom
 ya.*,yandex.*###gptTutorEntry
 ya.*,yandex.*##[style*="z-index: 9999999"]
+ya.*,yandex.*##.serp-adv
+ya.*,yandex.*##.serp-adv__item
+ya.*,yandex.*##.serp-item_card_ads
+ya.*,yandex.*##.SerpAdv
+ya.*,yandex.*##.AdvCard
+ya.*,yandex.*##div[data-fast-name="adv"]
+ya.*,yandex.*##div[data-fast-name="adv_block"]
+ya.*,yandex.*##.serp-adv
+ya.*,yandex.*##.serp-adv__item
+mail.yandex.*##.mail-Promo
+mail.yandex.*##.mail-Ad
+mail.yandex.*##[class*="ns-view-promo"]
+zen.yandex.*##.feed__ads
+zen.yandex.*##.card-image-ad
+dzen.ru##.feed__ads
+dzen.ru##[class*="advert"]
+music.yandex.ru##.ads-block
+music.yandex.ru##.advert
+kinopoisk.ru##.advert
+kinopoisk.ru##[class*="-advert"]
 
 ##footer,.footer,#footer
 sgvrz.net#@#footer,.footer,#footer
