@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 21.1
+! Version: 21.2
 
 duckduckgo.com##.set-browser-promo
 duckduckgo.com##.set-browser-promo-mobile
@@ -66,7 +66,7 @@ drive2.ru##[data-slot="drom.root"]
 drive2.ru##[data-slot="post.parts"]
 drive2.ru##[data-slot="suitable-tires.list"]:upward(1)
 drive2.ru##div:has(> style)
-drive2.ru##.rossko-teaser
+drive2.ru##[class*="rossko"]
 
 speedtest.net##header
 speedtest.net##footer
