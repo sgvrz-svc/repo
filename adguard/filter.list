@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 21.2
+! Version: 22.0
 
 duckduckgo.com##.set-browser-promo
 duckduckgo.com##.set-browser-promo-mobile
@@ -31,7 +31,6 @@ ya.*,yandex.*###gptTutorEntry
 ##[class*="ns-view-promo"]
 ##[data-fast-name*="adv"]
 ##[data-fast-name*="adv_block"]
-
 
 ##footer,#footer,.footer
 sgvrz.net#@##footer,#footer,.footer
@@ -115,7 +114,6 @@ drom.ru##[data-ftid="index_travels"]
 drom.ru##[data-footer]
 drom.ru###vote
 
-
 auto.ru##div[data-seo="listing-teaser"]
 auto.ru##div[class*="indexheader__tabs" i]
 auto.ru##div[data-seo="mark-cross-links"]
@@ -141,15 +139,15 @@ auto.ru##div[class*="MatchApplicationBanner"]
 auto.ru##section
 auto.ru##[href="#card-vin-report"]
 
+ozon.ru##[data-widget="tileScroll"]
+ozon.ru##[data-widget="navigationSlider"]
+ozon.ru##[data-widget="islandSeparator"]
+ozon.ru##[data-widget="objectGrid1"]
+ozon.ru##[data-widget="footer"]
+ozon.ru##[data-widget="bigPromoCounterNavbar"]
+ozon.ru##[data-widget="navbar"] [data-replace-layout-path]
+ozon.ru##[data-widget="financeWidget"] > div:not(:first-of-type)
 ! ozon.ru##.vue-portal-target:has(span:contains(Поблагодарите продавца))
-! ozon.ru##[data-widget="tileScroll"]
-! ozon.ru##[data-widget="navigationSlider"]
-! ozon.ru##[data-widget="islandSeparator"]
-! ozon.ru##[data-widget="objectGrid1"]
-! ozon.ru##[data-widget="footer"]
-! ozon.ru##[data-widget="bigPromoCounterNavbar"]
-! ozon.ru##[data-widget="navbar"] [data-replace-layout-path]
-! ozon.ru##[data-widget="financeWidget"] > div:not(:first-of-type)
 ! ozon.ru##[data-widget="paginator"]:has(span:contains(/добавь/i))
 ! ozon.ru##[data-widget="paginator"]:has(span:contains(/эти товары/i))
 ! ozon.ru##[data-widget="paginator"]:has(span:contains(/вы смотрели/i))
