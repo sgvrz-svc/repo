@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 22.0
+! Version: 23.0
 
 duckduckgo.com##.set-browser-promo
 duckduckgo.com##.set-browser-promo-mobile
@@ -32,9 +32,7 @@ ya.*,yandex.*###gptTutorEntry
 ##[data-fast-name*="adv"]
 ##[data-fast-name*="adv_block"]
 
-##footer,#footer,.footer
-sgvrz.net#@##footer,#footer,.footer
-cloudrix.ru#@##footer,#footer,.footer
+! ##footer,#footer,.footer
 
 ##.smartbanner
 ##.smart-banner
