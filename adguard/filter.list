@@ -1,14 +1,7 @@
 ! Title: SGVRZ Filter
-! Version: 23.0
+! Version: 24.0
 
-duckduckgo.com##.set-browser-promo
-duckduckgo.com##.set-browser-promo-mobile
-duckduckgo.com##.footer
-duckduckgo.com###features
-duckduckgo.com##div[class^="minimal-homepage_minimalContent"] ~ *
-duckduckgo.com##div[class*="minimal-hero-module"]
-duckduckgo.com##div[class*="pull-tab-scroll-button-module"]
-duckduckgo.com###home-below-the-fold
+! ##footer,#footer,.footer
 
 ya.*,yandex.*##.feed
 ya.*,yandex.*##.footer
@@ -32,8 +25,6 @@ ya.*,yandex.*###gptTutorEntry
 ##[data-fast-name*="adv"]
 ##[data-fast-name*="adv_block"]
 
-! ##footer,#footer,.footer
-
 ##.smartbanner
 ##.smart-banner
 ##.smart-app-banner
@@ -52,6 +43,16 @@ ya.*,yandex.*###gptTutorEntry
 ###ageVerificationOverlay
 ###age-verification-wrapper
 ###age-verification-container
+
+duckduckgo.com##.set-browser-promo
+duckduckgo.com##.set-browser-promo-mobile
+duckduckgo.com##.footer
+duckduckgo.com###features
+duckduckgo.com###home-below-the-fold
+duckduckgo.com##[class*="home-callouts-module"]
+duckduckgo.com##[class^="minimal-homepage_minimalContent"] ~ *
+duckduckgo.com##[class*="minimal-hero-module"]
+duckduckgo.com##[class*="pull-tab-scroll-button-module"]
 
 drive2.ru##.l-top
 drive2.ru##.l-footer
@@ -110,6 +111,7 @@ drom.ru##[data-ftid="index_farpost-block_board"]
 drom.ru##[data-ftid="index-autosport"]
 drom.ru##[data-ftid="index_travels"]
 drom.ru##[data-footer]
+drom.ru###candy_topline
 drom.ru###vote
 
 auto.ru##div[data-seo="listing-teaser"]
@@ -200,3 +202,9 @@ myslo.ru##.MainMenuRazdel
 myslo.ru##.banner285x200
 myslo.ru##.fon-last-news
 myslo.ru##.afisha-main-menu
+
+megafon.ru##.footer
+megafon.ru##.stories-list
+megafon.ru##.ym-chat-button
+
+sberazs.ru##.gift-offer
