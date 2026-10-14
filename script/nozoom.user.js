@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Disable Page Zoom in Safari iOS
 // @namespace    local
-// @version      1.0
+// @version      1.1
 // @author       SGVRZ
 // @updateURL    https://raw.githubusercontent.com/sgvrz-svc/repo/main/script/nozoom.user.js
 // @match        *://*/*
@@ -12,34 +12,33 @@
 (function () {
   'use strict';
 
-  function disableZoom() {
-    let viewport = document.querySelector('meta[name="viewport"]');
+  const content =
+    'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no';
+
+  function enforceViewport() {
+    if (!document.head) return;
+
+    let viewport = document.head.querySelector('meta[name="viewport"]');
 
     if (!viewport) {
       viewport = document.createElement('meta');
       viewport.name = 'viewport';
-      (document.head || document.documentElement).appendChild(viewport);
+      document.head.appendChild(viewport);
     }
 
-    viewport.setAttribute(
-      'content',
-      'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
-    );
+    if (viewport.getAttribute('content') !== content) {
+      viewport.setAttribute('content', content);
+    }
   }
 
-  if (document.head) {
-    disableZoom();
-  } else {
-    const observer = new MutationObserver((_, observer) => {
-      if (document.head) {
-        observer.disconnect();
-        disableZoom();
-      }
-    });
+  const observer = new MutationObserver(enforceViewport);
 
-    observer.observe(document.documentElement, {
-      childList: true,
-      subtree: true
-    });
-  }
+  observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['content', 'name']
+  });
+
+  enforceViewport();
 })();
