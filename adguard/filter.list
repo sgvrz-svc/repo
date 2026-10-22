@@ -139,6 +139,8 @@ auto.ru##div[class*="MatchApplicationBanner"]
 auto.ru##section
 auto.ru##[href="#card-vin-report"]
 
+ozon.ru##[class*="search_i"]
+ozon.ru##[data-widget="bubbleRateBoughtItem"]
 ozon.ru##[data-widget="tileScrollDesktop"]
 ozon.ru##[data-widget="rateBoughtItems"]
 ozon.ru##[data-widget="horizontalMenu"]
