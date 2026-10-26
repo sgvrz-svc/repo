@@ -1,4 +1,9 @@
 
+
+DOMAIN-WILDCARD,*.ua
+DOMAIN-WILDCARD,*.ir
+
+
 DOMAIN-WILDCARD,*ads*
 DOMAIN-WILDCARD,*adfox*
 DOMAIN-WILDCARD,*analyti*
@@ -18,6 +23,10 @@ DOMAIN-WILDCARD,*bugsnag*
 DOMAIN-WILDCARD,*uxfeedback*
 DOMAIN-WILDCARD,*measurement*
 DOMAIN-WILDCARD,*appsflyer*
+DOMAIN-WILDCARD,*crypto*
+DOMAIN-WILDCARD,*experiment*
+DOMAIN-WILDCARD,*telemetry*
+DOMAIN-WILDCARD,*swiftgram*
 
 DOMAIN-WILDCARD,*icmp0*
 DOMAIN-WILDCARD,*naydex*
@@ -66,6 +75,7 @@ DOMAIN-WILDCARD,*reward*2gis*
 DOMAIN-WILDCARD,*pusher*2gis*
 DOMAIN-WILDCARD,*profile*2gis*
 DOMAIN-WILDCARD,*suggest*2gis*
+DOMAIN-WILDCARD,*timesync*2gis*
 DOMAIN-WILDCARD,*outsource*2gis*
 DOMAIN-WILDCARD,*clickstream*2gis*
 DOMAIN-WILDCARD,*passepartout*2gis*
