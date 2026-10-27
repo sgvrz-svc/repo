@@ -23,6 +23,7 @@ DOMAIN-WILDCARD,*bugsnag*
 DOMAIN-WILDCARD,*uxfeedback*
 DOMAIN-WILDCARD,*measurement*
 DOMAIN-WILDCARD,*appsflyer*
+
 DOMAIN-WILDCARD,*crypto*
 DOMAIN-WILDCARD,*experiment*
 DOMAIN-WILDCARD,*telemetry*
