@@ -28,6 +28,7 @@ DOMAIN-WILDCARD,*crypto*
 DOMAIN-WILDCARD,*experiment*
 DOMAIN-WILDCARD,*telemetry*
 DOMAIN-WILDCARD,*swiftgram*
+DOMAIN-WILDCARD,*payment*kinopoisk*
 
 DOMAIN-WILDCARD,*icmp0*
 DOMAIN-WILDCARD,*naydex*
