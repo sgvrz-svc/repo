@@ -1,9 +1,8 @@
 ! Title: SGVRZ Filter
-! Version: 26.0
-
-! ##footer,#footer,.footer
+! Version: 26.1
 
 #footer
+.copyright
 
 ya.*,yandex.*##.feed
 ya.*,yandex.*##.footer
