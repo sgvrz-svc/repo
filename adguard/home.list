@@ -1,9 +1,12 @@
-@@||*^$client='TorrServer'
-
 ||*.ua^$important
 ||*.ir^$important
 
-@@||*dnsotls*metric.gstatic.com^$important
+@@||*^$client='TorrServer'
+
+@@||*cryptopro*^$important
+@@||*statist*wildberries*^$important'
+@@||*dnsotls*gstatic*^$important
+
 ||*ads*^$important
 ||*adfox*^$important
 ||*analyti*^$important
@@ -23,34 +26,11 @@
 ||*uxfeedback*^$important
 ||*measurement*^$important
 ||*appsflyer*^$important
-@@||*cryptopro*^$important
 ||*crypto*^$important
 ||*experiment*^$important
 ||*telemetry*^$important
 ||*swiftgram*^$important
 ||*payment*kinopoisk*^$important
-
-||*icmp0*^
-||*naydex*^
-||*adv*ya*^
-||*iot*ya*^
-||*log*ya*^
-||*csp*ya*^
-||*awaps*ya*^
-||*pixel*ya*^
-||*direct*ya*^
-||*events*ya*^
-||*adfstat*ya*^
-||*ya*adexchange*^
-
-||*yb.ya*^
-||*an.ya*^
-||*mc.ya*^
-||*bs.ya*^
-||*amc.ya*^
-||*plet.ya*^
-||*yabs.ya*^
-||*yads.tech*^
 
 ||*siri*apple*^
 ||*experiments*apple*^
@@ -94,7 +74,5 @@
 ||*shopping*t*bank*^
 ||*prod*tinkoff*^
 ||*home*tinkoff*^
-
-||*kaspersky*^
 
 ||maps.starline.ru^
