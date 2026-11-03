@@ -4,32 +4,32 @@
 @@||*^$client='TorrServer'
 
 @@||*cryptopro*^$important
-@@||*statist*wildberries*^$important'
 @@||*dnsotls*gstatic*^$important
+@@||*statist*wildberries*^$important'
 
 ||*ads*^$important
+||*logly*^$important
 ||*adfox*^$important
-||*analyti*^$important
-||*webvisor*^$important
-||*report*^$important
 ||*metri*^$important
+||*adjust*^$important
+||*report*^$important
+||*crypto*^$important
 ||*counter*^$important
-||*informer*^$important
+||*analyti*^$important
 ||*statist*^$important
+||*bugsnag*^$important
+||*webvisor*^$important
+||*informer*^$important
 ||*firebase*^$important
 ||*facebook*^$important
-||*crashlytics*^$important
-||*adjust*^$important
-||*startup*mobile*^$important
-||*logly*^$important
-||*bugsnag*^$important
-||*uxfeedback*^$important
-||*measurement*^$important
 ||*appsflyer*^$important
-||*crypto*^$important
-||*experiment*^$important
 ||*telemetry*^$important
 ||*swiftgram*^$important
+||*uxfeedback*^$important
+||*experiment*^$important
+||*crashlytics*^$important
+||*measurement*^$important
+||*startup*mobile*^$important
 ||*payment*kinopoisk*^$important
 
 ||*siri*apple*^
@@ -67,11 +67,11 @@
 ||*2gis*simble*^
 ||*flexy-drive*^
 
-||*auto*t*bank*^
-||*social*t*bank*^
-||*hotels*t*bank*^
-||*stories*t*bank*^
-||*shopping*t*bank*^
+||*auto*bank*^
+||*social*bank*^
+||*hotels*bank*^
+||*stories*bank*^
+||*shopping*bank*^
 ||*prod*tinkoff*^
 ||*home*tinkoff*^
 
