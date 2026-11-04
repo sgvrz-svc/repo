@@ -3,19 +3,19 @@
 
 @@||*^$client='TorrServer'
 
-@@||*statist*wildberries*^$important'
+@@||*statistic*wildberries*^$important'
 
 ||*ads*^$important
 ||*logly*^$important
+||*crash*^$important
 ||*adfox*^$important
-||*metri*^$important
+||*metric*^$important
 ||*adjust*^$important
 ||*report*^$important
 ||*crypto*^$important
 ||*counter*^$important
-||*analyti*^$important
-||*statist*^$important
 ||*bugsnag*^$important
+||*analytic*^$important
 ||*webvisor*^$important
 ||*informer*^$important
 ||*firebase*^$important
@@ -23,9 +23,9 @@
 ||*appsflyer*^$important
 ||*telemetry*^$important
 ||*swiftgram*^$important
+||*statistic*^$important
 ||*uxfeedback*^$important
 ||*experiment*^$important
-||*crashlytics*^$important
 ||*measurement*^$important
 ||*startup*mobile*^$important
 ||*payment*kinopoisk*^$important
