@@ -1,8 +1,6 @@
 ||*.ua^$important
 ||*.ir^$important
 
-@@||*^$client='TorrServer'
-
 @@||*statistic*wildberries*^$important'
 
 ||*ads*^$important
