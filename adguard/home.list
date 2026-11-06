@@ -15,9 +15,6 @@
 ||*analytic*^$important
 ||*webvisor*^$important
 ||*informer*^$important
-||*crashlytics*^$important
-||*firebaselogging*^$important
-||*firebaseinstallations*^$important
 ||*facebook*^$important
 ||*appsflyer*^$important
 ||*telemetry*^$important
