@@ -5,7 +5,6 @@
 
 ||*ads*^$important
 ||*logly*^$important
-||*crash*^$important
 ||*adfox*^$important
 ||*metric*^$important
 ||*adjust*^$important
@@ -16,7 +15,9 @@
 ||*analytic*^$important
 ||*webvisor*^$important
 ||*informer*^$important
-||*firebase*^$important
+||*crashlytics*^$important
+||*firebaselogging*^$important
+||*firebaseinstallations*^$important
 ||*facebook*^$important
 ||*appsflyer*^$important
 ||*telemetry*^$important
