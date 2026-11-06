@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name         Disable Page Zoom in Safari iOS
 // @namespace    local
-// @version      1.1
+// @version      1.2
 // @author       SGVRZ
 // @updateURL    https://raw.githubusercontent.com/sgvrz-svc/repo/main/script/nozoom.user.js
 // @match        *://*/*
 // @run-at       document-start
 // @grant        none
-// ==/UserScript==
+
+// ==UserScript==
 
 (function () {
   'use strict';
@@ -31,6 +32,7 @@
     }
   }
 
+  // Контроль viewport
   const observer = new MutationObserver(enforceViewport);
 
   observer.observe(document.documentElement, {
@@ -41,4 +43,18 @@
   });
 
   enforceViewport();
+
+  // Блокировка двойного тапа для Safari iOS
+  let lastTouchEnd = 0;
+
+  document.addEventListener('touchend', function (event) {
+    const now = Date.now();
+
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+
+    lastTouchEnd = now;
+  }, { passive: false });
+
 })();
