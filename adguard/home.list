@@ -9,13 +9,16 @@
 ||*report*^$important
 ||*bugsnag*^$important
 ||*analytic*^$important
+||*feedback*^$important
 ||*telemetry*^$important
 ||*swiftgram*^$important
 ||*statistic*^$important
-||*feedback*^$important
 ||*experiment*^$important
+||*crashlytic*^$important
 ||*measurement*^$important
 ||*startup*mobile*^$important
+||*firebaselogging*^$important
+||*firebaseremoteconfig*^$important
 
 ||*siri*apple*^
 ||*experiments*apple*^
