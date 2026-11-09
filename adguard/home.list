@@ -1,6 +1,10 @@
 ||*.ua^$important
 ||*.ir^$important
 
+@@||router.silotis.us^$client=''176.123.166.88'''
+
+@@||services.vnc.com^$important'
+@@||obfusgated.com^$important'
 @@||*statistic*wildberries*^$important'
 
 ||*logly*^$important
