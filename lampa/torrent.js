@@ -9,6 +9,34 @@
     };
     Lampa.Manifest.plugins = manifest;
 
+    // STYLES
+    const style = document.createElement('style');
+    style.textContent = `
+    .full-start-new__title-original { font-size: 1.6em; margin-bottom: 0em; }
+    .full-start-new__buttons .full-start__button:not(.focus) span { display: unset; }
+    .source--name { display: none; }
+
+    .time-line > div { background-color: #3498DB; }
+    .torrent-serial .time-line { width: stretch; top: unset; bottom: 0; left: unset; }
+
+    .torrent-item__ffprobe > .m-general + div,
+    .torrent-item__ffprobe > div:not(.m-channels):not(.m-audio) + .m-channels,
+    .torrent-item__ffprobe > div:not(.m-channels):not(.m-audio) + .m-audio,
+    .torrent-item__ffprobe > div:not(.m-subtitle) + .m-subtitle { clear: both; }
+
+    @media screen and (min-width: 768px) {
+      .torrent-item__details { flex-wrap: wrap; }
+      .torrent-item__tracker { order: 1; }
+      .torrent-item__seeds { order: 2; }
+      .torrent-item__grabs { order: 3; margin-right: 0; }
+      .torrent-item__details::after { content: ''; order: 4; flex-basis: 100%; margin-top: 0.4em; }
+      .torrent-item__date { order: 5; margin-right: auto; }
+      .torrent-item__bitrate { order: 6; margin-right: 0; }
+      .torrent-item__size { order: 7; margin-left: 1em; }
+    }
+  `;
+    document.head.appendChild(style);
+
     var PLUGIN_ID = "torrent_styles_mod";
     var PLUGIN_NAME = "Torrent Styles MOD";
 
