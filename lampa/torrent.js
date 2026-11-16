@@ -9,44 +9,41 @@
         }
     ];
 
-    function removeMatches(root, rule) {
-        if (!root || root.nodeType !== 1) return;
+    function processContainer(container, rule) {
+        rule.elements.forEach(function (className) {
+            const elements = container.querySelectorAll('.' + CSS.escape(className));
 
-        const containers = [];
+            elements.forEach(function (element) {
+                let target = element;
+                let steps = Math.abs(rule.level);
 
-        if (root.classList.contains(rule.container)) {
-            containers.push(root);
-        }
-
-        containers.push(...root.querySelectorAll('.' + CSS.escape(rule.container)));
-
-        containers.forEach(function (container) {
-            rule.elements.forEach(function (className) {
-                const matches = [];
-
-                if (container.classList.contains(className)) {
-                    matches.push(container);
-                }
-
-                matches.push(...container.querySelectorAll('.' + CSS.escape(className)));
-
-                matches.forEach(function (element) {
-                    let target = element;
-
-                    for (let i = 0; i < Math.abs(rule.level); i++) {
-                        if (!target.parentElement) return;
-                        target = target.parentElement;
+                while (steps > 0) {
+                    if (!target.parentElement || target.parentElement === container) {
+                        return;
                     }
 
+                    target = target.parentElement;
+                    steps--;
+                }
+
+                if (target !== container && container.contains(target)) {
                     target.remove();
-                });
+                }
             });
         });
     }
 
     function process(root) {
+        if (!root || root.nodeType !== 1) return;
+
         rules.forEach(function (rule) {
-            removeMatches(root, rule);
+            if (root.matches('.' + CSS.escape(rule.container))) {
+                processContainer(root, rule);
+            }
+
+            root.querySelectorAll('.' + CSS.escape(rule.container)).forEach(function (container) {
+                processContainer(container, rule);
+            });
         });
     }
 
