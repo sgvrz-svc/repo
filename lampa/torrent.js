@@ -9,12 +9,35 @@
         }
     ];
 
+    function focusFirstAvailable(container) {
+        const elements = container.querySelectorAll('.selector');
+
+        for (const element of elements) {
+            if (
+                element.disabled ||
+                element.getAttribute('aria-disabled') === 'true' ||
+                element.getClientRects().length === 0
+            ) {
+                continue;
+            }
+
+            if (!element.hasAttribute('tabindex')) {
+                element.setAttribute('tabindex', '-1');
+            }
+
+            element.focus({ preventScroll: true });
+            return;
+        }
+    }
+
     function processContainer(container, rule) {
         const selector = rule.elements
             .map(function (className) {
                 return '.' + CSS.escape(className);
             })
             .join('');
+
+        let removed = false;
 
         container.querySelectorAll(selector).forEach(function (element) {
             let target = element;
@@ -29,8 +52,15 @@
 
             if (target !== container && container.contains(target)) {
                 target.remove();
+                removed = true;
             }
         });
+
+        if (removed) {
+            requestAnimationFrame(function () {
+                focusFirstAvailable(container);
+            });
+        }
     }
 
     function process(root) {
