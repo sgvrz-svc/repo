@@ -66,6 +66,21 @@
             container: 'explorer__files',
             elements: ['explorer__files-head'],
             level: 0
+        },
+        {
+            container: 'torrent-item__details',
+            elements: ['torrent-item__grabs'],
+            level: 0
+        },
+        {
+            container: 'torrent-item__details',
+            elements: ['torrent-item__date'],
+            level: 0
+        },
+        {
+            container: 'torrent-item__details',
+            elements: ['torrent-item__tracker'],
+            level: 0
         }
     ];
 
