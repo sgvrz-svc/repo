@@ -10,24 +10,20 @@
     ];
 
     function focusFirstAvailable(container) {
-        const elements = container.querySelectorAll('.selector');
+        const first = Array.from(container.querySelectorAll('.selector')).find(function (element) {
+            return (
+                element.getClientRects().length > 0 &&
+                element.getAttribute('aria-disabled') !== 'true' &&
+                !element.disabled
+            );
+        });
 
-        for (const element of elements) {
-            if (
-                element.disabled ||
-                element.getAttribute('aria-disabled') === 'true' ||
-                element.getClientRects().length === 0
-            ) {
-                continue;
-            }
+        if (!first || !window.Lampa || !Lampa.Controller) return;
 
-            if (!element.hasAttribute('tabindex')) {
-                element.setAttribute('tabindex', '-1');
-            }
+        const collection = window.$ ? $(container) : container;
 
-            element.focus({ preventScroll: true });
-            return;
-        }
+        Lampa.Controller.collectionSet(collection);
+        Lampa.Controller.collectionFocus(first, collection);
     }
 
     function processContainer(container, rule) {
