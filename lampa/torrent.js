@@ -6,6 +6,61 @@
             container: 'torrent-list',
             elements: ['watched-history', 'selector'],
             level: 0
+        },
+        {
+            container: 'head__body',
+            elements: ['head__backward'],
+            level: 0
+        },
+        {
+            container: 'head__body',
+            elements: ['head__logo-icon'],
+            level: 0
+        },
+        {
+            container: 'head__body',
+            elements: ['head__menu-icon'],
+            level: 0
+        },
+        {
+            container: 'head__body',
+            elements: ['head__title'],
+            level: 0
+        },
+        {
+            container: 'head__body',
+            elements: ['head__markers'],
+            level: 0
+        },
+        {
+            container: 'head__body',
+            elements: ['head__time'],
+            level: 0
+        },
+        {
+            container: 'head__actions',
+            elements: ['head__action', 'selector', 'open--broadcast'],
+            level: 0
+        },
+        {
+            container: 'head__actions',
+            elements: ['head__action', 'selector', 'notice--icon'],
+            level: 0
+        },
+        {
+            container: 'head__actions',
+            elements: ['head__action', 'selector', 'open--friends'],
+            level: 0
+        },
+        {
+            container: 'head__actions',
+            elements: ['head__action', 'selector', 'open--profile'],
+            level: 0
+        },
+        {
+            container: 'head__actions',
+            elements: ['head__action', 'selector', 'open--screen'],
+            level: 0
         }
     ];
 
