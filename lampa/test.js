@@ -6,7 +6,7 @@
     Lampa.Activity.push = function () {
         var item = arguments[0] || {};
 
-        if (item.component === 'torrents') {
+        if (item.component === 'full') {
             var result = {};
 
             Object.keys(item).forEach(function (key) {
@@ -28,7 +28,7 @@
                 }
             });
 
-            prompt('Скопируйте данные перехода к торрентам:', JSON.stringify(result, null, 2));
+            prompt('Данные карточки фильма:', JSON.stringify(result, null, 2));
         }
 
         return originalPush.apply(this, arguments);
