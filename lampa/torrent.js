@@ -88,7 +88,7 @@
             })
             .join('');
 
-        let removed = false;
+        let changed = false;
 
         container.querySelectorAll(selector).forEach(function (element) {
             let target = element;
@@ -102,12 +102,14 @@
             }
 
             if (target !== container && container.contains(target)) {
-                target.remove();
-                removed = true;
+                if (!target.classList.contains(rule.addClass)) {
+                    target.classList.add(rule.addClass);
+                    changed = true;
+                }
             }
         });
 
-        if (removed) {
+        if (changed) {
             requestAnimationFrame(function () {
                 focusFirstAvailable(container);
             });
@@ -155,3 +157,5 @@
         document.addEventListener('DOMContentLoaded', start, { once: true });
     }
 })();
+
+
