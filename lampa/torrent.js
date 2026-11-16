@@ -1,32 +1,71 @@
 (function () {
     'use strict';
 
-    var selector = 'div.watched-history.selector';
+    function hideBlock() {
+        var args = Array.prototype.slice.call(arguments);
+        var level = 0;
 
-    function removeWatchedHistory() {
-        document.querySelectorAll(selector).forEach(function (element) {
-            element.remove();
+        if (typeof args[args.length - 1] === 'number') {
+            level = args.pop();
+        }
+
+        var classes = [];
+
+        args.forEach(function (arg) {
+            if (Array.isArray(arg)) {
+                arg.forEach(function (className) {
+                    if (typeof className === 'string' && className.trim()) {
+                        classes.push(className.trim());
+                    }
+                });
+            } else if (typeof arg === 'string' && arg.trim()) {
+                classes.push(arg.trim());
+            }
+        });
+
+        if (classes.length === 0) return;
+
+        document.querySelectorAll('div').forEach(function (element) {
+            var matches = classes.every(function (className) {
+                return element.classList.contains(className);
+            });
+
+            if (!matches) return;
+
+            var target = element;
+            var parentLevels = Math.abs(Math.min(level, 0));
+
+            for (var i = 0; i < parentLevels; i++) {
+                if (!target.parentElement) break;
+                target = target.parentElement;
+            }
+
+            target.style.display = 'none';
         });
     }
 
-    // Удалить элемент, если он уже есть, и следить за его повторным появлением.
-    removeWatchedHistory();
 
-    var observer = new MutationObserver(removeWatchedHistory);
+    hideBlock('watched-history', 'selector');
 
-    function startObserver() {
-        if (document.body) {
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true
-            });
-            removeWatchedHistory();
-        } else {
-            document.addEventListener('DOMContentLoaded', startObserver, {
+    function observePage() {
+        if (!document.body) {
+            document.addEventListener('DOMContentLoaded', observePage, {
                 once: true
             });
+            return;
         }
+
+        var observer = new MutationObserver(function () {
+            hideBlock('watched-history', 'selector');
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+
+        hideBlock('watched-history', 'selector');
     }
 
-    startObserver();
+    observePage();
 })();
