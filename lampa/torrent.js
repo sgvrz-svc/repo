@@ -61,6 +61,11 @@
             container: 'head__actions',
             elements: ['head__action', 'selector', 'open--screen'],
             level: 0
+        },
+        {
+            container: 'explorer__files',
+            elements: ['explorer__files-head'],
+            level: 0
         }
     ];
 
