@@ -1,40 +1,36 @@
 (function () {
     if (!window.Lampa || !Lampa.Activity) return;
 
-    var box = document.createElement('pre');
-    box.style.cssText = 'position:fixed;z-index:999999;left:5px;right:5px;bottom:5px;max-height:60vh;overflow:auto;background:#000;color:#0f0;padding:10px;font:12px monospace;white-space:pre-wrap';
-    box.textContent = 'Параметры переходов\n';
-    document.body.appendChild(box);
-
     var originalPush = Lampa.Activity.push;
-    var fields = ['component', 'title', 'url', 'search', 'query', 'id', 'movie', 'data', 'source', 'object'];
 
     Lampa.Activity.push = function () {
         var item = arguments[0] || {};
-        var info = {};
 
-        fields.forEach(function (key) {
-            var value = item[key];
+        if (item.component === 'torrents') {
+            var result = {};
 
-            if (value !== undefined) {
-                if (value && typeof value === 'object') {
-                    info[key] = {
-                        keys: Object.keys(value),
-                        values: Object.keys(value).reduce(function (result, name) {
-                            var entry = value[name];
-                            if (entry === null || ['string', 'number', 'boolean'].includes(typeof entry)) {
-                                result[name] = entry;
-                            }
-                            return result;
-                        }, {})
-                    };
-                } else {
-                    info[key] = value;
+            Object.keys(item).forEach(function (key) {
+                var value = item[key];
+
+                if (value === null || ['string', 'number', 'boolean'].includes(typeof value)) {
+                    result[key] = value;
+                } else if (value && typeof value === 'object') {
+                    result[key] = {};
+                    Object.keys(value).forEach(function (name) {
+                        var entry = value[name];
+
+                        if (entry === null || ['string', 'number', 'boolean'].includes(typeof entry)) {
+                            result[key][name] = entry;
+                        } else if (entry && typeof entry === 'object') {
+                            result[key][name] = '[object: ' + Object.keys(entry).join(', ') + ']';
+                        }
+                    });
                 }
-            }
-        });
+            });
 
-        box.textContent += '\n' + JSON.stringify(info);
+            prompt('Скопируйте данные перехода к торрентам:', JSON.stringify(result, null, 2));
+        }
+
         return originalPush.apply(this, arguments);
     };
 })();
