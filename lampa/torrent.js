@@ -10,26 +10,26 @@
     ];
 
     function processContainer(container, rule) {
-        rule.elements.forEach(function (className) {
-            const elements = container.querySelectorAll('.' + CSS.escape(className));
+        const selector = rule.elements
+            .map(function (className) {
+                return '.' + CSS.escape(className);
+            })
+            .join('');
 
-            elements.forEach(function (element) {
-                let target = element;
-                let steps = Math.abs(rule.level);
+        container.querySelectorAll(selector).forEach(function (element) {
+            let target = element;
 
-                while (steps > 0) {
-                    if (!target.parentElement || target.parentElement === container) {
-                        return;
-                    }
-
-                    target = target.parentElement;
-                    steps--;
+            for (let i = 0; i < Math.abs(rule.level); i++) {
+                if (!target.parentElement || target.parentElement === container) {
+                    return;
                 }
 
-                if (target !== container && container.contains(target)) {
-                    target.remove();
-                }
-            });
+                target = target.parentElement;
+            }
+
+            if (target !== container && container.contains(target)) {
+                target.remove();
+            }
         });
     }
 
@@ -37,11 +37,13 @@
         if (!root || root.nodeType !== 1) return;
 
         rules.forEach(function (rule) {
-            if (root.matches('.' + CSS.escape(rule.container))) {
+            const containerSelector = '.' + CSS.escape(rule.container);
+
+            if (root.matches(containerSelector)) {
                 processContainer(root, rule);
             }
 
-            root.querySelectorAll('.' + CSS.escape(rule.container)).forEach(function (container) {
+            root.querySelectorAll(containerSelector).forEach(function (container) {
                 processContainer(container, rule);
             });
         });
