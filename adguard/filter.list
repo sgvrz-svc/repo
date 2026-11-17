@@ -1,5 +1,5 @@
 ! Title: SGVRZ Filter
-! Version: 26.1
+! Version: 26.2
 
 #footer
 .copyright
@@ -9,6 +9,7 @@ ya.*,yandex.*##.footer
 ya.*,yandex.*##.tech-info
 ya.*,yandex.*##.RelatedBottom
 ya.*,yandex.*###gptTutorEntry
+##[class*="passp-bg"]
 ##[style*="z-index: 9999999"]
 ##.serp-adv
 ##.serp-adv__item
