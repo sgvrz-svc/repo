@@ -8,58 +8,8 @@
             level: 0
         },
         {
-            container: 'head__body',
-            elements: ['head__backward'],
-            level: 0
-        },
-        {
-            container: 'head__body',
-            elements: ['head__logo-icon'],
-            level: 0
-        },
-        {
-            container: 'head__body',
-            elements: ['head__menu-icon'],
-            level: 0
-        },
-        {
-            container: 'head__body',
-            elements: ['head__title'],
-            level: 0
-        },
-        {
-            container: 'head__body',
-            elements: ['head__markers'],
-            level: 0
-        },
-        {
-            container: 'head__body',
-            elements: ['head__time'],
-            level: 0
-        },
-        // {
-        //     container: 'head__body',
-        //     elements: ['head__actions'],
-        //     level: 0
-        // },
-        {
-            container: 'explorer__files',
-            elements: ['explorer__files-head'],
-            level: 0
-        },
-        {
-            container: 'torrent-item__details',
-            elements: ['torrent-item__grabs'],
-            level: 0
-        },
-        {
-            container: 'torrent-item__details',
-            elements: ['torrent-item__date'],
-            level: 0
-        },
-        {
-            container: 'torrent-item__details',
-            elements: ['torrent-item__tracker'],
+            container: 'app',
+            elements: ['head'],
             level: 0
         }
     ];
