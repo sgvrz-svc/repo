@@ -26,6 +26,11 @@
             container: 'torrent-list',
             elements: ['watched-history', 'selector'],
             level: 0
+        },
+        {
+            container: 'explorer__files-body',
+            elements: ['empty', 'layer--wheight', 'empty--width-large-history'],
+            level: 0
         }
     ];
 
