@@ -8,6 +8,16 @@
             level: -1
         },
         {
+            container: 'menu',
+            elements: ['menu__split'],
+            level: 0
+        },
+        {
+            container: 'menu',
+            elements: ['menu__case nosort'],
+            level: 0
+        },
+        {
             container: 'torrent-list',
             elements: ['watched-history', 'selector'],
             level: 0
