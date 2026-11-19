@@ -44,15 +44,12 @@
             '.torrent-item__title, .torrent-item__name'
         );
 
-        // Если отдельного элемента названия нет, проверяем текст карточки.
         var title = titleElement
-            ? titleElement.textContent
-            : node.textContent;
-
-        title = (title || '').toLowerCase();
+            ? titleElement.textContent || ''
+            : node.textContent || '';
 
         return BLOCKED_TITLE_WORDS.some(function (word) {
-            return title.indexOf(word.toLowerCase()) !== -1;
+            return title.indexOf(word) !== -1;
         });
     }
 
