@@ -34,9 +34,28 @@
         }
     ];
 
-    function focusFirstAvailable(container) {
-        const first = Array.from(container.querySelectorAll('.selector')).find(function (element) {
+    function isHidden(element) {
+        let current = element;
+
+        while (current && current !== document.documentElement) {
+            if (
+                current.classList &&
+                (current.classList.contains('hide') ||
+                    current.getAttribute('aria-hidden') === 'true')
+            ) {
+                return true;
+            }
+
+            current = current.parentElement;
+        }
+
+        return false;
+    }
+
+    function focusFirstAvailable() {
+        const first = Array.from(document.querySelectorAll('.selector')).find(function (element) {
             return (
+                !isHidden(element) &&
                 element.getClientRects().length > 0 &&
                 element.getAttribute('aria-disabled') !== 'true' &&
                 !element.disabled
@@ -45,42 +64,40 @@
 
         if (!first || !window.Lampa || !Lampa.Controller) return;
 
-        const collection = window.$ ? $(container) : container;
+        const collection = window.$ ? $(document.body) : document.body;
 
         Lampa.Controller.collectionSet(collection);
         Lampa.Controller.collectionFocus(first, collection);
     }
 
     function processContainer(container, rule) {
-        const selector = rule.elements
+        const elementSelector = rule.elements
             .map(function (className) {
                 return '.' + CSS.escape(className);
             })
             .join('');
 
-        let removed = false;
+        let changed = false;
 
-        container.querySelectorAll(selector).forEach(function (element) {
+        container.querySelectorAll(elementSelector).forEach(function (element) {
             let target = element;
 
             for (let i = 0; i < Math.abs(rule.level); i++) {
-                if (!target.parentElement || target.parentElement === container) {
-                    return;
-                }
-
+                if (!target.parentElement) return;
                 target = target.parentElement;
             }
 
-            if (target !== container && container.contains(target)) {
-                target.remove();
-                removed = true;
+            if (
+                target !== document.documentElement &&
+                !target.classList.contains(rule.addClass)
+            ) {
+                target.classList.add(rule.addClass);
+                changed = true;
             }
         });
 
-        if (removed) {
-            requestAnimationFrame(function () {
-                focusFirstAvailable(container);
-            });
+        if (changed) {
+            requestAnimationFrame(focusFirstAvailable);
         }
     }
 
