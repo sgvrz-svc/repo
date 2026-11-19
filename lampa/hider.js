@@ -34,28 +34,9 @@
         }
     ];
 
-    function isHidden(element) {
-        let current = element;
-
-        while (current && current !== document.documentElement) {
-            if (
-                current.classList &&
-                (current.classList.contains('hide') ||
-                    current.getAttribute('aria-hidden') === 'true')
-            ) {
-                return true;
-            }
-
-            current = current.parentElement;
-        }
-
-        return false;
-    }
-
     function focusFirstAvailable() {
         const first = Array.from(document.querySelectorAll('.selector')).find(function (element) {
             return (
-                !isHidden(element) &&
                 element.getClientRects().length > 0 &&
                 element.getAttribute('aria-disabled') !== 'true' &&
                 !element.disabled
@@ -71,15 +52,23 @@
     }
 
     function processContainer(container, rule) {
-        const elementSelector = rule.elements
+        const selector = rule.elements
             .map(function (className) {
                 return '.' + CSS.escape(className);
             })
             .join('');
 
-        let changed = false;
+        const elements = [];
 
-        container.querySelectorAll(elementSelector).forEach(function (element) {
+        if (container.matches(selector)) {
+            elements.push(container);
+        }
+
+        elements.push(...container.querySelectorAll(selector));
+
+        let removed = false;
+
+        elements.forEach(function (element) {
             let target = element;
 
             for (let i = 0; i < Math.abs(rule.level); i++) {
@@ -87,16 +76,13 @@
                 target = target.parentElement;
             }
 
-            if (
-                target !== document.documentElement &&
-                !target.classList.contains(rule.addClass)
-            ) {
-                target.classList.add(rule.addClass);
-                changed = true;
+            if (target !== document.body && target !== document.documentElement) {
+                target.remove();
+                removed = true;
             }
         });
 
-        if (changed) {
+        if (removed) {
             requestAnimationFrame(focusFirstAvailable);
         }
     }
