@@ -61,6 +61,11 @@
             container: 'torrent-item__details',
             elements: ['torrent-item__tracker'],
             level: 0
+        },
+                {
+            container: 'menu',
+            elements: ['menu__case', -5],
+            level: 0
         }
     ];
 
