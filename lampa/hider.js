@@ -5,7 +5,7 @@
         {
             container: 'head',
             elements: ['head__body'],
-            level: -1
+            level: 0
         },
         {
             container: 'menu',
@@ -14,7 +14,7 @@
         },
         {
             container: 'menu',
-            elements: ['menu__case nosort'],
+            elements: ['menu__case', 'nosort'],
             level: 0
         },
         {
