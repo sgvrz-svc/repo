@@ -34,8 +34,10 @@
         }
     ];
 
-    function focusFirstAvailable() {
-        const first = Array.from(document.querySelectorAll('.selector')).find(function (element) {
+    function focusFirstAvailable(root) {
+        const scope = root && root.isConnected ? root : document.body;
+
+        const first = Array.from(scope.querySelectorAll('.selector')).find(function (element) {
             return (
                 element.getClientRects().length > 0 &&
                 element.getAttribute('aria-disabled') !== 'true' &&
@@ -45,7 +47,7 @@
 
         if (!first || !window.Lampa || !Lampa.Controller) return;
 
-        const collection = window.$ ? $(document.body) : document.body;
+        const collection = window.$ ? $(scope) : scope;
 
         Lampa.Controller.collectionSet(collection);
         Lampa.Controller.collectionFocus(first, collection);
@@ -66,6 +68,7 @@
 
         elements.push(...container.querySelectorAll(selector));
 
+        let focusRoot = null;
         let removed = false;
 
         elements.forEach(function (element) {
@@ -76,14 +79,23 @@
                 target = target.parentElement;
             }
 
-            if (target !== document.body && target !== document.documentElement) {
-                target.remove();
-                removed = true;
+            if (
+                target === document.body ||
+                target === document.documentElement ||
+                !target.isConnected
+            ) {
+                return;
             }
+
+            focusRoot = target.parentElement;
+            target.remove();
+            removed = true;
         });
 
         if (removed) {
-            requestAnimationFrame(focusFirstAvailable);
+            requestAnimationFrame(function () {
+                focusFirstAvailable(focusRoot);
+            });
         }
     }
 
