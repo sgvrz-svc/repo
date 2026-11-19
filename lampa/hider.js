@@ -29,7 +29,7 @@
         },
         {
             container: 'explorer__files-body',
-            elements: ['empty', 'empty--width-large-history'],
+            elements: ['empty'],
             level: 0
         }
     ];
