@@ -92,12 +92,20 @@
 
         rules.forEach(function (rule) {
             const containerSelector = '.' + CSS.escape(rule.container);
+            const containers = new Set();
+
+            const ancestor = root.closest(containerSelector);
+            if (ancestor) containers.add(ancestor);
 
             if (root.matches(containerSelector)) {
-                processContainer(root, rule);
+                containers.add(root);
             }
 
             root.querySelectorAll(containerSelector).forEach(function (container) {
+                containers.add(container);
+            });
+
+            containers.forEach(function (container) {
                 processContainer(container, rule);
             });
         });
