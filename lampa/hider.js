@@ -25,7 +25,7 @@
         {
             container: 'explorer__files-body',
             elements: ['empty'],
-            level: 0
+            level: 1
         },
         {
             container: 'torrent-list',
