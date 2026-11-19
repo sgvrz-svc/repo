@@ -1,9 +1,19 @@
 (function () {
     'use strict';
 
-    var PLUGIN_ID = 'hide_torrents_below_5_seeds';
+    var PLUGIN_ID = 'hide_filtered_torrents';
+    var HIDDEN_CLASS = 'hide-filtered-torrents';
+
     var MIN_SEEDS = 5;
-    var HIDDEN_CLASS = 'hide-torrents-below-5-seeds';
+
+    // Словарь запрещённых фрагментов в названии.
+    // Сравнение выполняется без учёта регистра.
+    var BLOCKED_TITLE_WORDS = [
+        'TSRip',
+        'CAMRip',
+        'TS-Rip',
+        'CAM-Rip'
+    ];
 
     function addStyle() {
         if (document.getElementById(PLUGIN_ID + '-style')) return;
@@ -20,6 +30,7 @@
         if (!item) return null;
         if (item.nodeType === 1) return item;
         if (item[0] && item[0].nodeType === 1) return item[0];
+
         if (typeof item.get === 'function') {
             var node = item.get(0);
             if (node && node.nodeType === 1) return node;
@@ -28,28 +39,47 @@
         return null;
     }
 
-    function updateItem(node) {
-        if (!node || !node.classList || !node.classList.contains('torrent-item')) return;
+    function hasBlockedTitleWord(node) {
+        var titleElement = node.querySelector(
+            '.torrent-item__title, .torrent-item__name'
+        );
 
+        // Если отдельного элемента названия нет, проверяем текст карточки.
+        var title = titleElement
+            ? titleElement.textContent
+            : node.textContent;
+
+        title = (title || '').toLowerCase();
+
+        return BLOCKED_TITLE_WORDS.some(function (word) {
+            return title.indexOf(word.toLowerCase()) !== -1;
+        });
+    }
+
+    function hasTooFewSeeds(node) {
         var seedsElement = node.querySelector('.torrent-item__seeds');
-        if (!seedsElement) return;
+        if (!seedsElement) return false;
 
         var match = (seedsElement.textContent || '').match(/\d+/);
+        if (!match) return false;
 
-        // Если число сидов ещё не появилось, оставляем карточку как есть.
-        if (!match) return;
+        return parseInt(match[0], 10) < MIN_SEEDS;
+    }
 
-        var seeds = parseInt(match[0], 10);
+    function updateItem(node) {
+        if (!node || !node.classList ||
+            !node.classList.contains('torrent-item')) return;
 
-        if (seeds < MIN_SEEDS) {
-            node.classList.add(HIDDEN_CLASS);
-        } else {
-            node.classList.remove(HIDDEN_CLASS);
-        }
+        var shouldHide =
+            hasTooFewSeeds(node) ||
+            hasBlockedTitleWord(node);
+
+        node.classList.toggle(HIDDEN_CLASS, shouldHide);
     }
 
     function updateExistingItems() {
         var items = document.querySelectorAll('.torrent-list .torrent-item');
+
         for (var i = 0; i < items.length; i++) {
             updateItem(items[i]);
         }
@@ -69,9 +99,9 @@
     Lampa.Manifest.plugins = Lampa.Manifest.plugins || {};
     Lampa.Manifest.plugins[PLUGIN_ID] = {
         type: 'other',
-        name: 'Hide torrents with fewer than 5 seeds',
-        version: '1.0.0',
-        description: 'Скрывает торренты, у которых меньше 5 раздающих'
+        name: 'Torrent filters',
+        version: '1.1.0',
+        description: 'Скрывает торренты по числу сидов и словам в названии'
     };
 
     if (window.appready) {
