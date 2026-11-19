@@ -38,28 +38,8 @@
             level: 0
         },
         {
-            container: 'head__actions',
-            elements: ['head__action', 'selector', 'open--broadcast'],
-            level: 0
-        },
-        {
-            container: 'head__actions',
-            elements: ['head__action', 'selector', 'notice--icon'],
-            level: 0
-        },
-        {
-            container: 'head__actions',
-            elements: ['head__action', 'selector', 'open--friends'],
-            level: 0
-        },
-        {
-            container: 'head__actions',
-            elements: ['head__action', 'selector', 'open--profile'],
-            level: 0
-        },
-        {
-            container: 'head__actions',
-            elements: ['head__action', 'selector', 'open--screen'],
+            container: 'head__body',
+            elements: ['head__actions'],
             level: 0
         },
         {
