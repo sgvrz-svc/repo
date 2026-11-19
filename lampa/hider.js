@@ -3,13 +3,13 @@
 
     const rules = [
         {
-            container: 'torrent-list',
-            elements: ['watched-history', 'selector'],
-            level: 0
+            container: 'head',
+            elements: ['head__body'],
+            level: -1
         },
         {
-            container: 'app',
-            elements: ['head'],
+            container: 'torrent-list',
+            elements: ['watched-history', 'selector'],
             level: 0
         }
     ];
