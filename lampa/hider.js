@@ -18,6 +18,11 @@
             level: 0
         },
         {
+            container: 'explorer__files',
+            elements: ['explorer__files-head'],
+            level: 0
+        },
+        {
             container: 'torrent-list',
             elements: ['watched-history', 'selector'],
             level: 0
