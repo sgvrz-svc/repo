@@ -3,71 +3,86 @@
 
     var manifest = {
         type: 'other',
-        version: '1.0.1',
+        version: '1.0.2',
         name: 'Torrent File Diagnostic',
         description: 'Показывает и копирует данные списка файлов',
         component: 'torrent-file-diagnostic'
     };
 
-    var dialog;
-    var output;
-    var status;
+    var dialog, output, status, pageInfo;
     var eventCount = 0;
+    var fullText = '';
+    var page = 0;
+    var pageSize = 1500;
 
     function createDialog() {
         if (dialog) return;
 
         dialog = document.createElement('dialog');
         dialog.style.cssText =
-            'width:85%;max-width:900px;max-height:80vh;padding:16px;' +
-            'border:1px solid #666;border-radius:8px;background:#181818;color:#fff;';
+            'width:85%;max-width:900px;height:80vh;padding:14px;' +
+            'box-sizing:border-box;border:1px solid #666;border-radius:8px;' +
+            'background:#181818;color:#fff;';
 
         dialog.innerHTML =
-            '<div style="display:flex;gap:10px;align-items:center;margin-bottom:10px">' +
+            '<div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">' +
                 '<strong style="flex:1">Диагностика torrent_file</strong>' +
-                '<button type="button" id="tfd-copy">Копировать</button>' +
-                '<button type="button" id="tfd-close">Закрыть</button>' +
+                '<button id="tfd-copy">Копировать всё</button>' +
+                '<button id="tfd-close">Закрыть</button>' +
             '</div>' +
             '<textarea id="tfd-output" readonly ' +
-                'style="box-sizing:border-box;width:100%;height:55vh;background:#101010;color:#fff;' +
-                'font:14px monospace;padding:10px;white-space:pre;overflow:auto"></textarea>' +
+                'style="display:block;width:100%;height:65%;box-sizing:border-box;' +
+                'background:#101010;color:#fff;font:12px monospace;padding:8px;resize:none"></textarea>' +
+            '<div style="display:flex;gap:8px;align-items:center;margin-top:8px">' +
+                '<button id="tfd-prev">Назад</button>' +
+                '<button id="tfd-next">Далее</button>' +
+                '<span id="tfd-page"></span>' +
+            '</div>' +
             '<div id="tfd-status" style="margin-top:8px"></div>';
 
         document.body.appendChild(dialog);
 
         output = dialog.querySelector('#tfd-output');
         status = dialog.querySelector('#tfd-status');
+        pageInfo = dialog.querySelector('#tfd-page');
 
         dialog.querySelector('#tfd-close').onclick = function () {
             dialog.close();
         };
 
-        dialog.querySelector('#tfd-copy').onclick = copyText;
+        dialog.querySelector('#tfd-prev').onclick = function () {
+            if (page > 0) {
+                page--;
+                renderPage();
+            }
+        };
+
+        dialog.querySelector('#tfd-next').onclick = function () {
+            if ((page + 1) * pageSize < fullText.length) {
+                page++;
+                renderPage();
+            }
+        };
+
+        dialog.querySelector('#tfd-copy').onclick = copyAll;
     }
 
-    function copyText() {
-        output.focus();
-        output.select();
-        output.setSelectionRange(0, output.value.length);
+    function renderPage() {
+        var pages = Math.max(1, Math.ceil(fullText.length / pageSize));
+        output.value = fullText.slice(page * pageSize, (page + 1) * pageSize);
+        pageInfo.textContent = 'Страница ' + (page + 1) + ' из ' + pages;
+        status.textContent = '';
+    }
 
+    function copyAll() {
         if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(output.value).then(function () {
-                status.textContent = 'Скопировано.';
-            }).catch(fallbackCopy);
+            navigator.clipboard.writeText(fullText).then(function () {
+                status.textContent = 'Всё событие скопировано.';
+            }).catch(function () {
+                status.textContent = 'Не удалось скопировать. Просматривай текст кнопками.';
+            });
         } else {
-            fallbackCopy();
-        }
-    }
-
-    function fallbackCopy() {
-        try {
-            var copied = document.execCommand('copy');
-            status.textContent = copied
-                ? 'Скопировано.'
-                : 'Текст выделен. Скопируй его штатной командой устройства.';
-        } catch (error) {
-            status.textContent =
-                'Текст выделен. Скопируй его штатной командой устройства.';
+            status.textContent = 'Копирование недоступно. Просматривай текст кнопками.';
         }
     }
 
@@ -76,21 +91,22 @@
         eventCount++;
 
         try {
-            output.value = 'Событие #' + eventCount + '\n\n' +
-                JSON.stringify(event, function (key, value) {
-                    return value instanceof ArrayBuffer ? '[ArrayBuffer]' : value;
-                }, 2);
+            fullText = 'Событие #' + eventCount + '\n\n' +
+                JSON.stringify(event, null, 2);
         } catch (error) {
-            output.value = 'Не удалось преобразовать событие в текст: ' + error;
+            fullText = 'Ошибка преобразования события: ' + error;
         }
 
-        status.textContent = '';
+        page = 0;
+        renderPage();
+
         if (!dialog.open) dialog.showModal();
     }
 
     function init() {
         createDialog();
-        output.value = 'Диагностика включена. Открой список файлов торрента.';
+        fullText = 'Диагностика включена. Открой список файлов торрента.';
+        renderPage();
         dialog.showModal();
 
         Lampa.Listener.follow('torrent_file', showEvent);
