@@ -37,11 +37,11 @@
             elements: ['head__time'],
             level: 0
         },
-        {
-            container: 'head__body',
-            elements: ['head__actions'],
-            level: 0
-        },
+        // {
+        //     container: 'head__body',
+        //     elements: ['head__actions'],
+        //     level: 0
+        // },
         {
             container: 'explorer__files',
             elements: ['explorer__files-head'],
