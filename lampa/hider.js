@@ -23,13 +23,13 @@
             level: 0
         },
         {
-            container: 'torrent-list',
-            elements: ['watched-history', 'selector'],
+            container: 'explorer__files-body',
+            elements: ['empty'],
             level: 0
         },
         {
-            container: 'explorer__files-body',
-            elements: ['empty'],
+            container: 'torrent-list',
+            elements: ['watched-history', 'selector'],
             level: 0
         }
     ];
