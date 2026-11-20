@@ -20,22 +20,9 @@
     };
 
     var STYLES = {
-        '.torrent-item__seeds span.high-seeds': {
-            color: '#00b300',
-            'font-weight': 'bold'
-        },
-        '.torrent-item__bitrate span.high-bitrate': {
-            color: '#b30000',
-            'font-weight': 'bold'
-        },
-        '.selector.focus': {
-            'box-shadow': '0 0 0 0.25em #1aff00'
-        },
-        '.torrent-item.focus::after': {
-            border: 'none'
-        },
-        '.scroll__body': {
-            margin: '5px'
+        '.selector.focus, .selector.focus::before, .selector.focus::after': {
+            'border-color': '#1aff00 !important',
+            'outline-color': '#1aff00 !important'
         },
         '.wrap__content': {
             'padding-top': '0'
@@ -165,8 +152,8 @@
     }
 
     function initTv() {
-        if (Lampa.Helper) Lampa.Helper.show = function () {};
-        if (Lampa.RemoteHelper) Lampa.RemoteHelper.show = function () {};
+        if (Lampa.Helper) Lampa.Helper.show = function () { };
+        if (Lampa.RemoteHelper) Lampa.RemoteHelper.show = function () { };
     }
 
     function registerPlugin() {
@@ -199,8 +186,8 @@
     if (window.appready) {
         start();
     } else if (typeof Lampa !== 'undefined' &&
-               Lampa.Listener &&
-               typeof Lampa.Listener.follow === 'function') {
+        Lampa.Listener &&
+        typeof Lampa.Listener.follow === 'function') {
         Lampa.Listener.follow('app', function (event) {
             if (event.type === 'ready') start();
         });
