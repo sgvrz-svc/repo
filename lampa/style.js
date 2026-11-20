@@ -28,13 +28,7 @@
             color: '#b30000',
             'font-weight': 'bold'
         },
-        '.torrent-item.selector.focus': {
-            'box-shadow': '0 0 0 0.3em #1aff00'
-        },
-        '.torrent-serial.selector.focus': {
-            'box-shadow': '0 0 0 0.25em #1aff00'
-        },
-        '.torrent-file.selector.focus': {
+        '.selector.focus': {
             'box-shadow': '0 0 0 0.25em #1aff00'
         },
         '.torrent-item.focus::after': {

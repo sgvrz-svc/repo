@@ -1,0 +1,38 @@
+Google (Android, Chrome OS, Chrome)
+
+http://connectivitycheck.gstatic.com/generate_204 — основной
+http://www.gstatic.com/generate_204
+http://www.google.com/generate_204
+http://clients3.google.com/generate_204 — старый, но ещё работает
+https://connectivitycheck.gstatic.com/generate_204 — HTTPS-вариант
+
+Cloudflare
+
+http://cp.cloudflare.com/generate_204 — отвечает 204
+https://cp.cloudflare.com/generate_204
+http://cloudflare.com/cdn-cgi/trace — не 204, а 200 с текстовой информацией (IP, colo, протокол), удобен для проверки
+
+Apple (iOS, macOS)
+
+http://captive.apple.com/hotspot-detect.html — возвращает 200 и тело <HTML><HEAD><TITLE>Success</TITLE></HEAD><BODY>Success</BODY></HTML>, а не 204
+http://www.apple.com/library/test/success.html — старый вариант с тем же ответом
+http://gsp1.apple.com/generate_204 — иногда используется как аналог 204, но официально не документирован и может быть нестабилен
+
+Другие, часто используемые
+
+http://detectportal.firefox.com/success.txt (Firefox, ответ success)
+http://www.msftconnecttest.com/connecttest.txt (Windows, ответ Microsoft Connect Test)
+http://connectivity-check.ubuntu.com (Ubuntu/NetworkManager)
+
+Быстрая проверка из консоли:
+
+bash
+curl -I http://connectivitycheck.gstatic.com/generate_204
+curl -I http://cp.cloudflare.com/generate_204
+curl -s http://captive.apple.com/hotspot-detect.html
+
+Для прокси-клиентов (Clash, Sing-box, V2Ray и т.п.) чаще всего ставят в качестве test URL:
+
+https://www.gstatic.com/generate_204
+https://cp.cloudflare.com/generate_204
+http://captive.apple.com (Apple не отдаёт 204, учитывайте это, если клиент ждёт именно код 204)
