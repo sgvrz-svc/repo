@@ -20,9 +20,11 @@
     };
 
     var STYLES = {
-        '.selector.focus, .selector.focus::before, .selector.focus::after': {
-            'border-color': '#1aff00 !important',
-            'outline-color': '#1aff00 !important'
+        '.selector.focus::after': {
+            'border-color': '#1aff00'
+        },
+        '.scroll__body': {
+            margin: '5px'
         },
         '.wrap__content': {
             'padding-top': '0'
